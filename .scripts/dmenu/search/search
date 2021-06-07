@@ -1,0 +1,16 @@
+#!/bin/bash
+
+research=$(cat $HOME/.scripts/dmenu/search/library.txt | sed -e 's/|\S*$//g' | dmenu -l 20 -p 'search: ')
+
+if [[ $(grep "^$research|" $HOME/.scripts/dmenu/search/library.txt | wc -l) != 0 ]]; then
+  if [[ ! $research =~ ^quit.*$ && $research != '' && $research != "localhost" ]]; then
+    url=$(grep $research $HOME/.scripts/dmenu/search/library.txt | sed -e 's/^\S*|//g')
+    firefox $url &
+  elif [[ $research == "localhost" ]]; then
+    url="localhost:$(dmenu -l 20 -p 'Chose a port: ')"
+    firefox $url &
+  fi
+elif [[ $research != '' ]]; then
+    url="https://www.google.com/search?q=$(echo "${research}" | sed -e 's/\s/\+/g')"
+    firefox $url &
+fi

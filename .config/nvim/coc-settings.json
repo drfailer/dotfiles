@@ -1,0 +1,26 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "javascript", "graphql", "html", "yaml",  "json", "python"],
+
+  // python config
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "clangd.path": "/home/drfailer/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
+
+  // codelens for coc-java
+  // "codeLens.enable": true,
+  // "java.referencesCodeLens.enabled": true,
+  // "java.jdt.ls.vmargs": "-javaagent
+
+  // Snippets:
+  // coc-snippets
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets/",
+
+  // explorer
+  "explorer.width": 30,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings.global": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit"
+  }
+}

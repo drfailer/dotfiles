@@ -1,0 +1,34 @@
+Config { font = "xft:ProFont for Powerline:size=10:style=Regular"
+       , additionalFonts = [ "xft:FontAwesome:pixelsize=14, Hack Nerd Font Mono:pixelsize=13"
+                           ,"xft:FontAwesome:size=8"
+                           , "xft:FiraMono Nerd Font Regular:pixelsize=10:antialias=true:hinting=true"
+                           , "xft:IBM 3270:size=10:style=Medium"
+                           ]
+       , borderColor = "#000000"
+       , border = TopB
+       , bgColor = "#000000"
+       , fgColor = "#bfbaba"
+       , alpha = 255
+       , position = TopW L 100
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ Run Network "enp3s0" ["-t", "<fn=2></fn> <rx>kb <fn=2></fn> <tx>kb"] 20
+                    , Run Cpu [ "-L", "3", "-H", "50" ,"--normal", "#c3e88d" ,"--high", "#f07178" ] 20
+                    , Run Memory ["-t" ,"mem: <usedratio>%", ""] 20
+                    , Run Date "%a %b %d %Y %H:%M" "date" 50
+                    , Run DiskU [("/", "<fn=2>\xf0c7</fn> hdd: <free> free")] [] 20
+                    -- , Run Battery ["-t", "<left>%"] 10 <fc=#ff79c6><fn=2></fn> %batter% </fc>
+		    , Run UnsafeStdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " <fn=0>%UnsafeStdinReader%</fn> }\
+       \{  <fc=#B04C50><fn=2> </fn> %cpu%</fc>  <fc=#E2995C><fn=2> </fn> %memory%</fc>  <fc=#527C77> %disku%</fc>  <fc=#66899D> %enp3s0%</fc>  <fc=#8D6494><fn=2> </fn> %date%</fc> "
+       }

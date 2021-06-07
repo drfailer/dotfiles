@@ -1,0 +1,20 @@
+#!/bin/bash
+
+declare -i lineNumber=0
+declare -i subLineNumber=0
+declare -i i=0
+
+# all apointments:
+lines=$(grep -o "|.*" $HOME/.calcurse/apts)
+
+for elt in $lines; do
+  $lineNumber+=1
+  $subLineNumber=0
+  for subelt in $lines; do
+    $subLineNumber+=1
+    if [[ $subLineNumber != $lineNumber && $elt == $subelt ]]; then
+      TODELET[i]=$lineNumber
+      $i+=1
+    fi
+  done
+done

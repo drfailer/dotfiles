@@ -1,0 +1,22 @@
+# source password
+source "gpg -dq ~/.config/mutt/password2.gpg |"
+
+set from      = drfailer.42@gmail.com
+set realname  = "dr failer"
+set imap_user = drfailer.42@gmail.com
+set smtp_url  = smtp://drfailer.42@gmail.com@smtp.gmail.com:587/
+
+set folder    = imaps://drfailer.42@imap.gmail.com/
+set spoolfile = "+INBOX"
+set record = "+[Gmail].Sent"
+set postponed = "+[Gmail].Drafts"
+set trash = "+[Gmail].Trash"
+set any_label = "+[Gmail].Important"
+named-mailboxes "--- drfailer ---" =Journal
+named-mailboxes " INBOX" =INBOX
+named-mailboxes " All" =[Gmail]."All Mail"
+named-mailboxes " Trash" =[Gmail].Trash
+named-mailboxes " Sent" =[Gmail]."Sent Mail"
+named-mailboxes " Important" =[Gmail].Important
+named-mailboxes " Drafts" =[Gmail].Drafts
+named-mailboxes " Other" =[Gmail].Other

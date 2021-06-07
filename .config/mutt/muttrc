@@ -1,0 +1,64 @@
+# source main account:
+source ~/.config/mutt/ent.muttrc
+
+# Source other addresses :
+folder-hook 'drfailer.42@gmail.com' 'source ~/.config/mutt/drfailer.muttrc'
+folder-hook 'chassagnol.remi@gmail.com' 'source ~/.config/mutt/pro.muttrc'
+
+# change account
+macro index <f2> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/drfailer.muttrc<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/pro.muttrc<enter><change-folder>!<enter>'
+
+
+################################################################################
+# Mutt files:
+################################################################################
+set header_cache     =~/.cache/mutt/cache/headers
+set message_cachedir =~/.cache/mutt/cache/bodies
+set certificate_file =~/.cache/mutt/certificates
+
+################################################################################
+# Composition:
+################################################################################
+set editor = "nvim"      # Set your favourite editor.
+set edit_headers = yes  # See the headers when editing
+set charset = UTF-8     # value of $LANG; also fallback for send_charset
+set timeout = "5"
+set mail_check_stats
+set smtp_authenticators="login"
+set ssl_starttls = yes
+set ssl_force_tls = yes
+set imap_passive="no"
+set imap_check_subscribed="yes"
+set imap_list_subscribed="yes"
+auto_view text/html
+source ~/.config/mutt/theme.muttrc    # Theme
+source ~/.config/mutt/alias.muttrc
+
+
+################################################################################
+# Sidebar:
+################################################################################
+set sidebar_visible
+set sidebar_width=20
+bind index,pager B sidebar-toggle-visible # Use 'B' to switch the Sidebar on and off
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+
+# Sidebar and mail switch :
+bind index,pager \CP sidebar-prev    # Ctrl-Shift-P – Previous Mailbox
+bind index,pager \CN sidebar-next    # Ctrl-Shift-N – Next Mailbox
+bind index,pager \CO sidebar-open    # Ctrl-Shift-O – Open Highlighted Mailbox
+
+
+################################################################################
+# some bindigs:
+################################################################################
+unbind index g
+bind index gg first-entry
+bind index G last-entry
+unbind index l
+bind index l display-message
+# attachment save
+macro attach W '<save-entry><kill-line>~/Downloads<enter>'
+# purge in trash
+bind index A purge-message

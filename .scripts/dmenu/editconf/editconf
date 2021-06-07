@@ -1,0 +1,90 @@
+#!/bin/bash
+
+declare -a configs=("xmonad"
+                    "xmobar"
+                    "alacritty"
+                    "zshrc"
+                    "vim:init"
+                    "vim:settings"
+                    "vim:mapping"
+                    "vim:which-key"
+                    "vim:vim-plug"
+                    "vim:startify"
+                    "vim:coc-setting"
+                    "mutt:muttrc"
+                    "mutt:alias"
+                    "mutt:pro"
+                    "mutt:ent"
+                    "mutt:drfailer"
+                    "compton"
+                    "bookmark-firefox"
+                    "quit"
+                   )
+
+choice=$(echo "$(printf '%s\n' "${configs[@]}")" | dmenu -l 20 -p 'Edit config file: ')
+case "$choice" in
+  xmonad)
+    file="$HOME/.xmonad/xmonad.hs"
+    ;;
+  xmobar)
+    file="$HOME/.config/xmobar/xmobarrc"
+    ;;
+  alacritty)
+    file="$HOME/.config/alacritty/alacritty.yml"
+    ;;
+  zshrc)
+    file="$HOME/.config/zsh/.zshrc"
+    ;;
+  vim:init)
+    file="$HOME/.config/nvim/init.vim"
+    ;;
+  vim:settings)
+    file="$HOME/.config/nvim/general/settings.vim"
+    ;;
+  vim:mapping)
+    file="$HOME/.config/nvim/keys/mappings.vim"
+    ;;
+  vim:which-key)
+    file="$HOME/.config/nvim/keys/which-key.vim"
+    ;;
+  vim:vim-plug)
+    file="$HOME/.config/nvim/vim-plug/plugins.vim"
+    ;;
+  vim:startify)
+    file="$HOME/.config/nvim/plug-config/start-screen.vim"
+    ;;
+  vim:coc-setting)
+    file="$HOME/.config/nvim/coc-settings.json"
+    ;;
+  mutt:muttrc)
+    file="$HOME/.config/mutt/muttrc"
+    ;;
+  mutt:alias)
+    file="$HOME/.config/mutt/alias.muttrc"
+    ;;
+  mutt:pro)
+    file="$HOME/.config/mutt/pro.muttrc"
+    ;;
+  mutt:ent)
+    file="$HOME/.config/mutt/ent.muttrc"
+    ;;
+  mutt:drfailer)
+    file="$HOME/.config/mutt/drfailer.muttrc"
+    ;;
+  compton)
+    file="$HOME/.config/compton.conf"
+    ;;
+  bookmark-firefox)
+    file="$HOME/.scripts/dmenu/search/library.txt"
+    ;;
+  quit)
+    file="null-file"
+    ;;
+  *)
+    file="null-file"
+    ;;
+esac
+
+if [[ $file != "null-file" ]]; then
+  ~/.local/share/cargo/bin/alacritty -e nvim $file
+fi

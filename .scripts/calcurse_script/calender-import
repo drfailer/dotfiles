@@ -1,0 +1,5 @@
+#!/bin/bash
+
+wget 'http://edt.uca.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=44129,44118,3247,13320,27002,26936,28720,26291,14675&nbWeeks=3&calType=ical&projectId=5' -O $HOME/.scripts/calcurse_script/agenda
+calcurse -i $HOME/.scripts/calcurse_script/agenda
+rm $HOME/.scripts/calcurse_script/agenda

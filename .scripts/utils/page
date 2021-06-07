@@ -1,0 +1,13 @@
+#!bin/sh
+
+# permit to rename *arg1 into arg2xrag1, where x in [1; numberOfFile]
+# Usage:
+# page .jpg page
+# -> page1.jpg, page2.jpg, ...
+
+declare -i number=1
+
+for f in *$1;
+do
+  mv "$f" "$2${number}$1" ; number+=1
+done
