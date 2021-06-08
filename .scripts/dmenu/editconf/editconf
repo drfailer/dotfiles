@@ -86,5 +86,5 @@ case "$choice" in
 esac
 
 if [[ $file != "null-file" ]]; then
-  ~/.local/share/cargo/bin/alacritty -e nvim $file
+  alacritty -e nvim $file
 fi

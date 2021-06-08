@@ -83,5 +83,5 @@ if [[ $tag != "" && $tag != "remove-mode" ]]; then
   choseTopic  "$HOME/.scripts/dmenu/notes/src/$tag"
 fi
 if [[ $file != "" && $file != "remove-mode" ]]; then
-  ~/.local/share/cargo/bin/alacritty -e nvim "$file" && compile "$file"
+  alacritty -e nvim "$file" && compile "$file"
 fi

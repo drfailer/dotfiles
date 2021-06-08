@@ -23,14 +23,16 @@ set certificate_file =~/.cache/mutt/certificates
 set editor = "nvim"      # Set your favourite editor.
 set edit_headers = yes  # See the headers when editing
 set charset = UTF-8     # value of $LANG; also fallback for send_charset
-set timeout = "5"
+set timeout = 15
+set mail_check=90
+set imap_keepalive=180
 set mail_check_stats
 set smtp_authenticators="login"
 set ssl_starttls = yes
 set ssl_force_tls = yes
-set imap_passive="no"
-set imap_check_subscribed="yes"
-set imap_list_subscribed="yes"
+unset imap_passive
+set imap_check_subscribed = yes
+set imap_list_subscribed = yes
 auto_view text/html
 source ~/.config/mutt/theme.muttrc    # Theme
 source ~/.config/mutt/alias.muttrc

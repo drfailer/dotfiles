@@ -1,5 +1,5 @@
 # source password
-source "gpg -dq ~/.config/mutt/password2.gpg |"
+source "gpg -dq ~/.config/mutt/mdp/drfailer.gpg |"
 
 set from      = drfailer.42@gmail.com
 set realname  = "dr failer"

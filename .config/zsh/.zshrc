@@ -7,7 +7,10 @@ export ZSH="/home/drfailer/.config/zsh/.oh-my-zsh"
 ENABLE_CORRECTION="true"
 
 # Plugins :
-# TODO
+source /home/drfailer/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /home/drfailer/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/drfailer/.config/zsh/plugins/zsh-vi-mode.zsh
+
 
 #################################################################################
 #                                 vi mode                                       #
@@ -91,8 +94,7 @@ export XDG_CURRENT_DESKTOP="xmonad"
 #################################################################################
 #                      Use bat for manual printing:                             #
 #################################################################################
-alias bat='batcat'
-export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export BAT_THEME="OneHalfDark"
 
 
