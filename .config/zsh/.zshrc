@@ -1,12 +1,26 @@
+#################################################################################
+# ZSH CONFIG:                                                                   #
+# author: drfailer                                                              #
+#################################################################################
 export PATH="$HOME/.local/share/cargo/bin${PATH:+:${PATH}}"
 
-# Path to your oh-my-zsh installation.
-export ZSH="/home/drfailer/.config/zsh/.oh-my-zsh"
 
-# Uncomment the following line to enable command auto-correction.
+# Uncomment the following line to enable command auto-correction:
 ENABLE_CORRECTION="true"
 
-# Plugins :
+# History settings:
+export HISTFILE=$HOME/.local/share/zsh/zhistory
+HISTSIZE=1000
+SAVEHIST=1000
+
+# Completion:
+autoload -Uz compinit
+compinit
+
+
+#################################################################################
+#                                 Plugins:                                      #
+#################################################################################
 source /home/drfailer/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /home/drfailer/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /home/drfailer/.config/zsh/plugins/zsh-vi-mode.zsh

@@ -239,6 +239,7 @@ myAdditionalKeys =
     , ("M-S-a m", spawn $ termLaunch ++ "neomutt")
     , ("M-S-a y", spawn $ termLaunch ++ "~/.local/share/cargo/bin/ytop -p -s")
     , ("M-S-a f", spawn "firefox")
+    , ("M-S-a q", spawn "qutebrowser")
 
     -- dmenu scripts
     , ("M-f", spawn "exec ~/.scripts/dmenu/search/search")
@@ -319,7 +320,7 @@ myStartupHook = do
   spawnOnce "nitrogen --restore &"
   -- spawnOnce "compton --config ~/.config/compton.conf"
   spawnOnce "conky"
-  spawnOnce "xrandr --output HDMI-1 --primary --left-of DVI-D-1 --output DVI-D-1 --auto"
+  spawnOnce "xrandr --output HDMI-0 --primary --left-of DVI-D-0 --output DVI-D-0 --auto"
   spawnOnce "setxkbmap -layout fr -option ctrl:nocaps"
   setWMName "LG3D"
 

@@ -67,3 +67,7 @@ nnoremap <M-;> <ESC>1z=
 " Toggle auto comment:
 map <leader>w :setlocal formatoptions-=cro<CR>
 map <leader>W :setlocal formatoptions=cro<CR>
+
+
+" Explorer:
+nnoremap <leader>E :vert topleft split <bar> :Ex <bar> :vertical resize 30<CR>

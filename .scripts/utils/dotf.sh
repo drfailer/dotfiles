@@ -15,18 +15,10 @@ config_add $HOME/.xmonad/img/
 config_add $HOME/.xmonad/README.md
 config_add $HOME/.xmonad/xmonad.hs
 config_add $HOME/.config/xmobar
-config_add $HOME/.config/compton.conf
+config_add $HOME/.config/picom.conf
 
 # dmenu :
 config_add $HOME/Application/dmenu/config.h
-
-# emacs :
-config_add $HOME/.emacs.d/init.el
-config_add $HOME/.emacs.d/myinit.org
-config_add $HOME/.emacs.d/dashboard/
-config_add $HOME/.emacs.d/org-agenda/
-config_add $HOME/.emacs.d/myinit.el
-config_add $HOME/.emacs.d/snippets/
 
 # vim :
 config_add /home/drfailer/.config/nvim/general/
