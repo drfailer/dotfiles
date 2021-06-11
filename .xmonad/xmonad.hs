@@ -320,8 +320,9 @@ myStartupHook = do
   spawnOnce "nitrogen --restore &"
   -- spawnOnce "compton --config ~/.config/compton.conf"
   spawnOnce "conky"
-  spawnOnce "xrandr --output HDMI-0 --primary --left-of DVI-D-0 --output DVI-D-0 --auto"
+  --spawnOnce "xrandr --output HDMI-0 --primary --left-of DVI-D-0 --output DVI-D-0 --auto"
   spawnOnce "setxkbmap -layout fr -option ctrl:nocaps"
+  --spawnOnce "xset r rate 300 50"
   setWMName "LG3D"
 
 

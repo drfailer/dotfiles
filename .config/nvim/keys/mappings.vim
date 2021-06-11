@@ -69,5 +69,21 @@ map <leader>w :setlocal formatoptions-=cro<CR>
 map <leader>W :setlocal formatoptions=cro<CR>
 
 
-" Explorer:
+" explorer:
 nnoremap <leader>E :vert topleft split <bar> :Ex <bar> :vertical resize 30<CR>
+
+" terminal mode
+tnoremap <C-n> <C-\><C-n>
+
+
+" Fixing clipboard:
+function! ClipboardYank()
+  call system('xclip -i -selection clipboard', @@)
+endfunction
+function! ClipboardPaste()
+  let @@ = system('xclip -o -selection clipboard')
+endfunction
+
+vnoremap <silent> y y:call ClipboardYank()<cr>
+vnoremap <silent> d d:call ClipboardYank()<cr>
+nnoremap <silent> p :call ClipboardPaste()<cr>p

@@ -33,9 +33,10 @@ config_add /home/drfailer/.config/nvim/INSTALL.md
 config_add /home/drfailer/.config/nvim/coc-settings.json
 
 # mutt :
-config_add $HOME/.config/mutt/muttrc
-config_add $HOME/.config/mutt/theme.muttrc
-config_add $HOME/.config/mutt/drfailer.muttrc
+# use mutt wizard
+
+# qutebrowser:
+config_add $HOME/.config/qutebrowser/config.py
 
 # Ranger :
 config_add $HOME/.config/ranger/

@@ -42,6 +42,7 @@ source /home/drfailer/.config/zsh/plugins/zsh-vi-mode.zsh
 # generals:
 alias v='nvim'
 alias vim='nvim'
+alias ls='ls --color=auto'
 alias la='ls -A'
 alias ll='exa -al --color=always --group-directories-first'
 alias grep='grep --color=auto'
