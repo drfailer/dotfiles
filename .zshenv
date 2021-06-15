@@ -26,3 +26,5 @@ export WGETRC=$XDG_CONFIG_HOME/wgetrc
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 export GRADLE_USER_HOME=$XDG_DATA_HOME/gradle
 export ICEAUTHORITY=$XDG_CACHE_HOME/ICEauthority
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuchrc
+export NMBGIT="$XDG_DATA_HOME"/notmuch/nmbug

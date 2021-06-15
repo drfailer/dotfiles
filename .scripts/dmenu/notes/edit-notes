@@ -58,7 +58,7 @@ choseTopic() {
       touch $file
 cat << EOF > $file
 ---
-title: $topic
+title: $(echo "$topic" | sed -e 's/.*/\u&/g' | sed -e 's/_/ /g')
 author: $USER
 tag: [$tag]
 ---
@@ -83,5 +83,5 @@ if [[ $tag != "" && $tag != "remove-mode" ]]; then
   choseTopic  "$HOME/.scripts/dmenu/notes/src/$tag"
 fi
 if [[ $file != "" && $file != "remove-mode" ]]; then
-  alacritty -e nvim "$file" && compile "$file"
+  alacritty -e nvim -c % "$file" && compile "$file"
 fi
