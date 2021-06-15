@@ -18,7 +18,7 @@ config_add $HOME/.config/xmobar
 config_add $HOME/.config/picom.conf
 
 # dmenu :
-config_add $HOME/Application/dmenu/config.h
+config_add $HOME/.config/Applications/dmenu/config.h
 
 # vim :
 config_add /home/drfailer/.config/nvim/general/
@@ -55,7 +55,7 @@ config_add $HOME/.config/zathura/
 config_add $HOME/.config/conky/conky.conf
 
 # Valgrind :
-config_add $HOME/.valgrindrc
+# config_add $HOME/.valgrindrc
 
 # Adding starship prompt:
 config_add $HOME/.config/starship.toml
