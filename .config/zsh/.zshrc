@@ -101,7 +101,7 @@ export PF_ALIGN="10"
 # export PF_ASCII="linux"
 export USER="drfailer"
 export HOSTNAME="drfailer-computer"
-export EDITOR="neovim"
+export EDITOR="nvim"
 export SHELL="zsh"
 export XDG_CURRENT_DESKTOP="xmonad"
 

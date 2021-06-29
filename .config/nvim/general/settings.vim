@@ -15,7 +15,7 @@ set number relativenumber     " Line numbers
 set nowrap                    " Display long lines as just one line
 
 set pumheight=10              " Makes popup menu smaller
-set scrolloff=5              " To keep 10 lines between the cursor and the bottom of the screen
+" set scrolloff=5              " To keep 5 lines between the cursor and the bottom of the screen
 set encoding=utf-8            " The encoding displayed
 set fileencoding=utf-8        " The encoding written to file
 

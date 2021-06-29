@@ -69,9 +69,12 @@ myModMask       = mod4Mask
 _JAVA_AWT_WM_NONREPARENTING=1
 --AWT_TOOLKIT=MToolkit
 
-myNormalBorderColor  = "#282C34"
--- myFocusedBorderColor = "#a9a1e1"
-myFocusedBorderColor = "#2257A0"
+-- OneDark theme:
+-- myNormalBorderColor  = "#282C34"
+-- myFocusedBorderColor = "#2257A0"
+-- Pure black theme:
+myNormalBorderColor  = "#000000"
+myFocusedBorderColor = "#5f87af"
 
 
 --------------------------------------------------------------------------------
@@ -92,10 +95,10 @@ ppColorsOnedark :: [String]
 ppColorsOnedark = ["#E5C07B", "#bd93f9", "#82AAFF", "#a9a1e1", "#E5C07B"]
 
 ppColorsDark :: [String]
-ppColorsDark = ["#B04C50", "#bfbaba", "#66899D", "#B04C50", "#B04C50"]
+ppColorsDark = ["#dc9656", "#af87af", "#5f87af", "#d77575", "#dc9656"]
 
 currentTheme :: [String]
-currentTheme = ppColorsOnedark
+currentTheme = ppColorsDark
 
 
 --------------------------------------------------------------------------------
@@ -330,7 +333,7 @@ myStartupHook = do
 -- MAIN:
 --------------------------------------------------------------------------------
 main = do
-    xmproc <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobarrc"
+    xmproc <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobardark"
     xmonad $ docks def
         { manageHook = manageDocks <+> myManageHook
                         <+> manageHook desktopConfig

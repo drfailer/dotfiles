@@ -73,7 +73,7 @@ map <leader>W :setlocal formatoptions=cro<CR>
 nnoremap <leader>E :vert topleft split <bar> :Ex <bar> :vertical resize 30<CR>
 
 " terminal mode
-tnoremap <C-n> <C-\><C-n>
+tnoremap <C-h> <C-\><C-n>
 
 
 " Fixing clipboard:
