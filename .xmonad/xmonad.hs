@@ -98,7 +98,7 @@ ppColorsDark :: [String]
 ppColorsDark = ["#dc9656", "#af87af", "#5f87af", "#d77575", "#dc9656"]
 
 currentTheme :: [String]
-currentTheme = ppColorsDark
+currentTheme = ppColorsOnedark
 
 
 --------------------------------------------------------------------------------
@@ -224,10 +224,10 @@ myAdditionalKeys =
     , ("M-M1-k", sendMessage MirrorExpand)
 
     -- Resize floating windows
-    , ("M-C-p", withFocused (keysResizeWindow (50, 0) (0, 1)))
-    , ("M-C-u", withFocused (keysResizeWindow (-50, -0) (0, 1)))
-    , ("M-C-o", withFocused (keysResizeWindow (0, -50) (0, 0)))
-    , ("M-C-i", withFocused (keysResizeWindow (0, 50) (0, 0)))
+    , ("M-S-C-l", withFocused (keysResizeWindow (50, 0) (0, 1)))
+    , ("M-S-C-h", withFocused (keysResizeWindow (-50, -0) (0, 1)))
+    , ("M-S-C-k", withFocused (keysResizeWindow (0, -50) (0, 0)))
+    , ("M-S-C-j", withFocused (keysResizeWindow (0, 50) (0, 0)))
 
       -- Move floating windows:
     , ("M-C-h", withFocused (keysMoveWindow (-50, 0)))
@@ -333,7 +333,7 @@ myStartupHook = do
 -- MAIN:
 --------------------------------------------------------------------------------
 main = do
-    xmproc <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobardark"
+    xmproc <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobarrc"
     xmonad $ docks def
         { manageHook = manageDocks <+> myManageHook
                         <+> manageHook desktopConfig
