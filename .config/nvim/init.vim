@@ -28,3 +28,15 @@ source $HOME/.config/nvim/plug-config/lsp.vim
 source $HOME/.config/nvim/plug-config/lsp-servers.vim
 source $HOME/.config/nvim/plug-config/nvim-completion.vim
 source $HOME/.config/nvim/plug-config/snippet.vim
+
+" TODO: move treesitter settings in another file
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "rust" },  -- list of language that will be disabled
+  },
+}
+EOF

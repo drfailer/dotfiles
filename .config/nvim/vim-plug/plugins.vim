@@ -44,5 +44,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " lsp plugins
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/completion-nvim'
+    " tree sitter
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()

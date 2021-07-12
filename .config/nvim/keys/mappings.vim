@@ -89,8 +89,10 @@ vnoremap <silent> d d:call ClipboardYank()<cr>
 nnoremap <silent> p :call ClipboardPaste()<cr>p
 
 
-" Lsp
+" Lsp Bindings:
 nnoremap <leader>R :lua vim.lsp.buf.rename()<cr>
 nnoremap <leader>A :lua vim.lsp.buf.code_action()<cr>
 nnoremap <leader>F :lua vim.lsp.buf.formatting()<cr>
-nnoremap <leader>vr :lua vim.lsp.buf.formatting()<cr>
+nnoremap <leader>vr :lua vim.lsp.buf.references()<cr>
+nnoremap <leader>j :lua vim.lsp.diagnostic.goto_prev()<cr>
+nnoremap <leader>k :lua vim.lsp.diagnostic.goto_next()<cr>
