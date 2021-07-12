@@ -1,0 +1,38 @@
+{
+  "IF": {
+    "prefix": ["if"],
+    "body": [
+      "if [[ ${0:condition} ]]",
+      "\t${1:todo}",
+      "fi"
+    ],
+    "description": "if statement"
+  },
+  "CASE": {
+    "prefix": ["case"],
+    "body": [
+      "case ${0:var} in",
+      "\t${1:case}",
+      "\t\t${2:do}",
+      "\t\t;;",
+      "esac"
+    ],
+    "description": "case statement"
+  },
+  "FUNC": {
+    "prefix": ["func"],
+    "body": [
+      "${0:name}() {",
+      "\t$1",
+      "}"
+    ],
+    "description": "function"
+  },
+  "ARR": {
+    "prefix": ["arr"],
+    "body": [
+      "declare -a ${0:name}=($1)"
+    ],
+    "description": "array"
+  }
+}

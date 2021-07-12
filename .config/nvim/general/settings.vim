@@ -58,11 +58,6 @@ set incsearch                 " Highlight when typing researche
 set path+=**
 set wildmode=longest,list,full
 
-" completion setting
-set complete+=kspell
-set completeopt=menuone,longest
-set shortmess+=c
-
 " columns indicator
 set colorcolumn=80
 set signcolumn=yes
@@ -82,7 +77,7 @@ fun! TrimWhitespaces()
   call winrestview(l:save)
 endfun
 
-augroup THE_PRIMEAGEN
+augroup UTILS
   autocmd!
   autocmd BufWritePre * :call TrimWhitespaces()
 augroup END

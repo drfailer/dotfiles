@@ -37,11 +37,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " goyo
     Plug 'junegunn/goyo.vim'
     " snippets
-    Plug 'honza/vim-snippets'
-    " coc
-    " require npm i -g yarn
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'hrsh7th/vim-vsnip'
+    Plug 'hrsh7th/vim-vsnip-integ'
     " pretty icons
     Plug 'ryanoasis/vim-devicons'
+    " lsp plugins
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/completion-nvim'
 
 call plug#end()

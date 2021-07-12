@@ -1,0 +1,34 @@
+{
+  "IO": {
+    "prefix": ["io"],
+    "body": [
+      "#include <stdio.h>"
+    ],
+    "description": "include stdio"
+  },
+  "STD": {
+    "prefix": ["std"],
+    "body": [
+      "#include <stdlib.h>"
+    ],
+    "description": "include stdlib"
+  },
+  "STR": {
+    "prefix": ["string"],
+    "body": [
+      "#include <string.h>"
+    ],
+    "description": "include string"
+  },
+  "MAIN": {
+    "prefix": ["main"],
+    "body": [
+      "int main(int argc, char ** argv)",
+      "{",
+      "\t$0",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "main function"
+  }
+}

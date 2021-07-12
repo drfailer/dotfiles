@@ -17,11 +17,9 @@ Or use the git folder directly.
 - fd-find
 
 ```sh
-sudo apt install fzf
-sudo apt install -o Dpkg::Options::="--force-overwrite" ripgrep
-sudo apt install universal-ctags
-sudo apt install silversearcher-ag
-sudo apt install fd-find
+sudo pacman -S fzf
+sudo pacman -S the_silver_searcher
+sudo pacman -S ripgrep
 ```
 
 # Install vim plug
@@ -30,7 +28,7 @@ sudo apt install fd-find
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-# Coc
+# Lsp
 
 It riquire to have nodejs installed.
 
@@ -39,20 +37,17 @@ sudo apt install -y nodejs
 npm i -g yarn
 ```
 
-IMPORTANT!: dont put **coc-config.json** directly (use coc-config to create it).
+## Install some servers
 
-Once it's done, install coc extentions:
+```sh
+npm i -g pyright
+sudo pacman -S clang
+```
 
-- coc-json
-- coc-tsserver
-- coc-clangd
-- coc-sh
-- coc-python
-- coc-explorer
-- coc-snippets
+And then enable them into `~/.config/nvim/plug-config/lsp-servers.vim` like
+this:
 
-For c, coc riquire clangd but it automatically ask for installing.
-For java, may have to download the langage server on:
-https://download.eclipse.org/jdtls/milestones/0.57.0/
-and replace file in:
-*~/.config/coc/extensions/coc-java-data/server*
+```lua
+require'lspconfig'.clangd.setup{}
+require'lspconfig'.pyright.setup{}
+```

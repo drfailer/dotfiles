@@ -24,17 +24,7 @@ source $HOME/.config/nvim/plug-config/rnvimr.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/keys/which-key.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
-
-" coc
-source $HOME/.config/nvim/plug-config/coc.vim
-
-" java colors (treesitter)
-" source /home/drfailer/.config/nvim/general/java-colors.vim
-
-" treesitter java
-" require'nvim-treesitter.configs'.setup {
-"   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-"   highlight = {
-"     enable = true,              -- false will disable the whole extension
-"   },
-" }
+source $HOME/.config/nvim/plug-config/lsp.vim
+source $HOME/.config/nvim/plug-config/lsp-servers.vim
+source $HOME/.config/nvim/plug-config/nvim-completion.vim
+source $HOME/.config/nvim/plug-config/snippet.vim

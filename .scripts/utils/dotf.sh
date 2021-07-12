@@ -28,9 +28,7 @@ config_add /home/drfailer/.config/nvim/plug-config/
 config_add /home/drfailer/.config/nvim/themes/
 config_add /home/drfailer/.config/nvim/vim-plug/
 config_add /home/drfailer/.config/nvim/init.vim
-config_add /home/drfailer/.config/nvim/install.sh
 config_add /home/drfailer/.config/nvim/INSTALL.md
-config_add /home/drfailer/.config/nvim/coc-settings.json
 
 # mutt :
 # use mutt wizard

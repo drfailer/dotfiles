@@ -34,7 +34,7 @@ nnoremap <Leader>tp :tabprevious<CR>
 " Use control-c instead of escape
 nnoremap <C-c> <Esc>
 " <TAB>: completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Better tabbing
 vnoremap < <gv
@@ -65,12 +65,12 @@ map <F7> :set spelllang=en,cjk<cr>
 nnoremap <M-;> <ESC>1z=
 
 " Toggle auto comment:
-map <leader>w :setlocal formatoptions-=cro<CR>
-map <leader>W :setlocal formatoptions=cro<CR>
+map <leader>/ :setlocal formatoptions-=cro<CR>
+map <leader># :setlocal formatoptions=cro<CR>
 
 
 " explorer:
-nnoremap <leader>E :vert topleft split <bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <leader>e :vert topleft split <bar> :Ex <bar> :vertical resize 30<CR>
 
 " terminal mode
 tnoremap <C-h> <C-\><C-n>
@@ -87,3 +87,10 @@ endfunction
 vnoremap <silent> y y:call ClipboardYank()<cr>
 vnoremap <silent> d d:call ClipboardYank()<cr>
 nnoremap <silent> p :call ClipboardPaste()<cr>p
+
+
+" Lsp
+nnoremap <leader>R :lua vim.lsp.buf.rename()<cr>
+nnoremap <leader>A :lua vim.lsp.buf.code_action()<cr>
+nnoremap <leader>F :lua vim.lsp.buf.formatting()<cr>
+nnoremap <leader>vr :lua vim.lsp.buf.formatting()<cr>
