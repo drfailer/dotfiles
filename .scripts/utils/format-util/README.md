@@ -1,8 +1,5 @@
----
-title: format-utils
-author: drfailer
-tag: [haskell, markdown utils]
----
+format-utils
+============
 
 
 vimrc setup
