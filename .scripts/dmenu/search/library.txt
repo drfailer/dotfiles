@@ -9,4 +9,5 @@ localhost|localhost
 github|https://github.com
 latex-Symbols|https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
 wordReference|https://www.wordreference.com/fr/
+cheat-sheet|https://devhints.io/
 quit|quit

@@ -76,7 +76,9 @@ nnoremap <leader>e :vert topleft split <bar> :Ex <bar> :vertical resize 30<CR>
 tnoremap <C-h> <C-\><C-n>
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fixing clipboard:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! ClipboardYank()
   call system('xclip -i -selection clipboard', @@)
 endfunction
@@ -89,7 +91,21 @@ vnoremap <silent> d d:call ClipboardYank()<cr>
 nnoremap <silent> p :call ClipboardPaste()<cr>p
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" markdown table format
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! Format()
+  call system('~/.scripts/utils/format-util/format-util "$(xclip -o -selection clipboard)" | xclip -selection clipboard')
+  sleep 100m
+  execute "norm p"
+endfunction
+
+vnoremap <silent> <leader>= d:call Format()<cr>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Lsp Bindings:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>R :lua vim.lsp.buf.rename()<cr>
 nnoremap <leader>A :lua vim.lsp.buf.code_action()<cr>
 nnoremap <leader>F :lua vim.lsp.buf.formatting()<cr>

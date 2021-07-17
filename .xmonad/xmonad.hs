@@ -278,9 +278,9 @@ mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
 myLayout = avoidStruts (tiled ||| Mirror tiled ||| full ||| treeCols ||| grid)
   where
      -- Put space between windows
-     tiled    =  mySpacing 6 $ ResizableTall nmaster delta ratio []
-     treeCols =  mySpacing 6 $ ThreeColMid nmaster delta ratio
-     grid     =  mySpacing 6 $ Grid
+     tiled    =  mySpacing 4 $ ResizableTall nmaster delta ratio []
+     treeCols =  mySpacing 4 $ ThreeColMid nmaster delta ratio
+     grid     =  mySpacing 4 $ Grid
      full     =  noBorders Full
      -- The default number of windows in the master pane
      nmaster = 1
@@ -324,7 +324,7 @@ myStartupHook = do
   -- spawnOnce "compton --config ~/.config/compton.conf"
   spawnOnce "conky"
   --spawnOnce "xrandr --output HDMI-0 --primary --left-of DVI-D-0 --output DVI-D-0 --auto"
-  spawnOnce "setxkbmap -layout fr -option ctrl:nocaps"
+  -- spawnOnce "setxkbmap -layout fr -option ctrl:nocaps"
   --spawnOnce "xset r rate 300 50"
   setWMName "LG3D"
 

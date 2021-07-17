@@ -50,6 +50,7 @@ fi
 
 xrandr --output HDMI-0 --primary --left-of DVI-D-0 --output DVI-D-0 --auto
 xset r rate 300 50
+setxkbmap -layout fr -option ctrl:nocaps
 nitrogen --restore &
 picom &
 exec xmonad

@@ -87,6 +87,10 @@ alias setsound='amixer -D pulse sset Master'
 # be sure tu run : config config --local status.showUntrackedFiles no
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
+# screen and record
+alias screen='gnome-screenshot --interactive'
+alias record='ffmpeg -f x11grab -y -r 30 -s 1920x1080 -i :0.0 -vcodec huffyuv out.avi'
+
 
 #################################################################################
 #                             customize pfetch:                                 #
