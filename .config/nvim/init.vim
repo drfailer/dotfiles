@@ -1,8 +1,11 @@
-"  _       _ _         _
-" (_)_ __ (_) |___   _(_)_ __ ___
-" | | '_ \| | __\ \ / / | '_ ` _ \
-" | | | | | | |_ \ V /| | | | | | |
-" |_|_| |_|_|\__(_)_/ |_|_| |_| |_|
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"               ██╗███╗   ██╗██╗████████╗██╗   ██╗██╗███╗   ███╗              "
+"               ██║████╗  ██║██║╚══██╔══╝██║   ██║██║████╗ ████║              "
+"               ██║██╔██╗ ██║██║   ██║   ██║   ██║██║██╔████╔██║              "
+"               ██║██║╚██╗██║██║   ██║   ╚██╗ ██╔╝██║██║╚██╔╝██║              "
+"               ██║██║ ╚████║██║   ██║██╗ ╚████╔╝ ██║██║ ╚═╝ ██║              "
+"               ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝              "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Plug
 source $HOME/.config/nvim/vim-plug/plugins.vim
@@ -24,19 +27,12 @@ source $HOME/.config/nvim/plug-config/rnvimr.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/keys/which-key.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
-source $HOME/.config/nvim/plug-config/lsp.vim
-source $HOME/.config/nvim/plug-config/lsp-servers.vim
-source $HOME/.config/nvim/plug-config/nvim-completion.vim
 source $HOME/.config/nvim/plug-config/snippet.vim
 
-" TODO: move treesitter settings in another file
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ignore_install = { "javascript" }, -- List of parsers to ignore installing
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { "rust" },  -- list of language that will be disabled
-  },
-}
-EOF
+" lsp and completion
+source $HOME/.config/nvim/plug-config/lsp.lua
+source $HOME/.config/nvim/plug-config/lsp-servers.lua
+source $HOME/.config/nvim/plug-config/nvim-completion.vim
+
+" treesitter config
+source $HOME/.config/nvim/plug-config/treesitter.lua
