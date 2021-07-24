@@ -1,2 +1,5 @@
 :set prompt "\ESC[35m\x03BB> \ESC[39m"
 :set prompt-cont "\ESC[35m\x03BB| \ESC[39m"
+let ghciEscapeShellArg arg = "'" ++ concatMap (\c -> if c == '\'' then "'\"'\"'" else [c]) arg ++ "'"
+:def! search return . (++ "| bat -l 'haskell'") . (":! hoogle --color " ++) . ghciEscapeShellArg
+:def! doc return . (++ "| bat -l 'haskell'") . (":! hoogle --color --info " ++) . ghciEscapeShellArg

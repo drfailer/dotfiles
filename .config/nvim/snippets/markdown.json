@@ -1,0 +1,14 @@
+{
+  "HEAD": {
+    "prefix": ["head"],
+    "body": [
+      "---",
+      "title: $0",
+      "date: \"`!v strftime(\"%Y-%m-%d\")`\"",
+      "author: \"$1\"",
+      "tags: [$2]",
+      "---"
+    ],
+    "description": "head info"
+  }
+}

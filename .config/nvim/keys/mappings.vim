@@ -99,13 +99,27 @@ nnoremap <silent> p :call ClipboardPaste()<cr>p
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " markdown table format
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! Format()
-  call system('~/.scripts/utils/format-util/format-util "$(xclip -o -selection clipboard)" | xclip -selection clipboard')
+function! FormatTable()
+  call system('~/.scripts/utils/format-util/format-util -t "$(xclip -o -selection clipboard)" | xclip -selection clipboard')
   sleep 100m
   execute "norm p"
 endfunction
 
-vnoremap <silent> <leader>= d:call Format()<cr>
+vnoremap <silent> <leader>= d:call FormatTable()<cr>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" markdown table format
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! Align()
+  let sep = input("separator:")
+  call system('~/.scripts/utils/format-util/format-util -s "' . sep . '" "$(xclip -o -selection clipboard)" | xclip -selection clipboard')
+  sleep 100m
+  execute "norm k"
+  execute "norm p"
+endfunction
+
+vnoremap <silent> <leader>a d:call Align()<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

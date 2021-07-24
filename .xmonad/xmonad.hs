@@ -195,7 +195,7 @@ myAdditionalKeys =
     [ ("M-p", spawn "dmenu_run -p 'Run:'")
     , ("M-S-p x", xmonadPrompt myXPConfig)
     , ("M-S-p r", shellPrompt myXPConfig)
-    , ("M-S-p m", myCustomPrompt myXPConfig "Calculate")
+    , ("M-S-p m", myCustomPrompt myXPConfig "qualc")
 
     , ("M-S-q", io (exitWith ExitSuccess))
     , ("M-q", spawn "xmonad --recompile; xmonad --restart")
