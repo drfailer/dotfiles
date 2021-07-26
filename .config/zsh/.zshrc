@@ -1,5 +1,5 @@
 #################################################################################
-# ZSH CONFIG:                                                                   #
+# ZSH CONFIG :                                                                  #
 # author: drfailer                                                              #
 #################################################################################
 export PATH="$HOME/.local/share/cargo/bin${PATH:+:${PATH}}"
@@ -65,8 +65,7 @@ alias vxx='nvim ~/.xmonad/xmonad.hs'
 
 # Scripts:
 alias dotf='bash $HOME/.scripts/utils/dotf.sh'
-alias cleaner='bash $HOME/.scripts/system/cleaner.sh'
-alias updater='bash $HOME/.scripts/system/updater.sh'
+alias status='exec $HOME/.scripts/system/status'
 alias ucalcurse='bash $HOME/.scripts/calcurse_script/calender-import'
 
 # Alias for c compilation:

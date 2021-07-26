@@ -249,6 +249,7 @@ myAdditionalKeys =
     , ("M-n r", spawn "exec ~/.scripts/dmenu/notes/read-note")
     , ("M-n e", spawn "exec ~/.scripts/dmenu/notes/edit-notes")
     , ("M-S-p c", spawn "exec ~/.scripts/dmenu/editconf/editconf")
+    , ("M-S-p s", spawn "exec ~/.scripts/dmenu/sound/sound")
 
     -- Spacing: windows and borders
     , ("M-i", (incWindowSpacing 10))
