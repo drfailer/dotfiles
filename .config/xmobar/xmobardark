@@ -20,7 +20,7 @@ Config { font = "xft:ProFont for Powerline:size=10:style=Regular:antialias=true:
        , lowerOnStart = True
        , persistent = True
        , hideOnStart = False
-       , iconRoot = "."
+       , iconRoot = "/home/drfailer/.config/xmobar/ics/"
        , allDesktops = True
        , commands = [ Run Network "enp3s0" ["-t", "<fn=4></fn> <rx>kb <fn=4></fn> <tx>kb"] 20
                     , Run Cpu [ "-L", "3", "-H", "50" ,"--normal", "#c3e88d" ,"--high", "#f07178" ] 20
@@ -32,6 +32,6 @@ Config { font = "xft:ProFont for Powerline:size=10:style=Regular:antialias=true:
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <fn=0>%UnsafeStdinReader%</fn> }\
+       , template = " <fn=0>%UnsafeStdinReader%</fn> } <icon=haskell_20.xpm/> \
        \{  <fc=#d77575><fn=4></fn> %cpu%</fc>  <fc=#dc9656><fn=4> </fn>%memory%</fc>  <fc=#5f87af>%disku%</fc>  <fc=#5f875f>%enp3s0%</fc>  <fc=#af87af><fn=4> </fn>%date%</fc> "
        }

@@ -125,9 +125,22 @@ vnoremap <silent> <leader>a d:call Align()<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Lsp Bindings:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>R :lua vim.lsp.buf.rename()<cr>
-nnoremap <leader>A :lua vim.lsp.buf.code_action()<cr>
-nnoremap <leader>F :lua vim.lsp.buf.formatting()<cr>
-nnoremap <leader>vr :lua vim.lsp.buf.references()<cr>
-nnoremap <leader>j :lua vim.lsp.diagnostic.goto_prev()<cr>
-nnoremap <leader>k :lua vim.lsp.diagnostic.goto_next()<cr>
+nnoremap <leader>lr :lua vim.lsp.buf.rename()<cr>
+nnoremap <leader>la :lua vim.lsp.buf.code_action()<cr>
+nnoremap <leader>lf :lua vim.lsp.buf.formatting()<cr>
+nnoremap <leader>lvr :lua vim.lsp.buf.references()<cr>
+" diagnostic
+nnoremap <leader>lj :lua vim.lsp.diagnostic.goto_prev()<cr>
+nnoremap <leader>lk :lua vim.lsp.diagnostic.goto_next()<cr>
+nnoremap <leader>lsd :lua vim.lsp.diagnostic.show_line_diagnostics()<cr>
+nnoremap <leader>ld :lua vim.lsp.diagnostic.set_loclist()<cr>
+" help
+nnoremap <leader>lh :lua vim.lsp.buf.signature_help()<cr>
+" type def
+nnoremap <leader>lD :lua vim.lsp.buf.type_definition()<cr>
+" workspace
+nnoremap <leader>lwa :lua vim.lsp.buf.add_workspace_folder()<cr>
+nnoremap <leader>lwr :lua vim.lsp.buf.remove_workspace_folder()<cr>
+nnoremap <leader>lwl :lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>
+" implementation
+nnoremap <leader>lI :lua vim.lsp.buf.implementation()<cr>

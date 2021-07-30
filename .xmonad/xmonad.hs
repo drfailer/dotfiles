@@ -90,15 +90,15 @@ calcurseCommand :: String
 calcurseCommand = "calcurse -C ~/.config/calcurse -D ~/.local/share/calcurse"
 
 -- xmobar colors:
--- [ppCurrent, ppHiddenNoWindows, ppHidden, ppTitle, ppVisible]
-ppColorsOnedark :: [String]
-ppColorsOnedark = ["#E5C07B", "#bd93f9", "#82AAFF", "#a9a1e1", "#E5C07B"]
+-- [ppCurrent, ppHiddenNoWindows, ppHidden, ppTitle, ppVisible, xmobarrc]
+theme0 :: [String]
+theme0 = ["#E5C07B", "#bd93f9", "#82AAFF", "#a9a1e1", "#E5C07B", "xmobarrc"]
 
-ppColorsDark :: [String]
-ppColorsDark = ["#dc9656", "#af87af", "#5f87af", "#d77575", "#dc9656"]
+theme1 :: [String]
+theme1 = ["#dc9656", "#af87af", "#5f87af", "#d77575", "#dc9656", "xmobardark"]
 
 currentTheme :: [String]
-currentTheme = ppColorsOnedark
+currentTheme = theme0
 
 
 --------------------------------------------------------------------------------
@@ -334,7 +334,7 @@ myStartupHook = do
 -- MAIN:
 --------------------------------------------------------------------------------
 main = do
-    xmproc <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobarrc"
+    xmproc <- spawnPipe $ "xmobar -x 0 ~/.config/xmobar/" ++ (currentTheme !! 5)
     xmonad $ docks def
         { manageHook = manageDocks <+> myManageHook
                         <+> manageHook desktopConfig

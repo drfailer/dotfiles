@@ -62,7 +62,8 @@ config_add $HOME/.config/starship.toml
 config_add $HOME/.scripts/calcurse_script/
 config_add $HOME/.scripts/utils/
 config_add $HOME/.scripts/system/cleaner.sh
-config_add $HOME/.scripts/utils/
+config_add $HOME/.scripts/dmenu/record/
+config_add $HOME/.scripts/dmenu/sound/
 config_add $HOME/.scripts/dmenu/search/
 config_add $HOME/.scripts/dmenu/editconf/
 config_add $HOME/.scripts/dmenu/notes/edit-notes

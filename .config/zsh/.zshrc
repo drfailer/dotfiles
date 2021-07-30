@@ -77,18 +77,13 @@ alias jcomp='javac *.java'
 alias jcompsb='javac -d build src/**/*.java'
 alias jcompclass='javac -Xlint:all'
 
-# sound:
-alias mute='amixer -D pulse sset Master mute'
-alias unmute='amixer -D pulse sset Master unmute'
-alias setsound='amixer -D pulse sset Master'
-
 # For bare repo :
 # be sure tu run : config config --local status.showUntrackedFiles no
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 # screen and record
 alias screen='gnome-screenshot --interactive'
-alias record='ffmpeg -f x11grab -y -r 30 -s 1920x1080 -i :0.0 -vcodec huffyuv out.avi'
+alias record='exec $HOME/.scripts/dmenu/record/record'
 
 
 #################################################################################
