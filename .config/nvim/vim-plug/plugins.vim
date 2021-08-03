@@ -24,6 +24,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-surround'
     " Theme
     Plug 'habamax/vim-habanight'
+    Plug 'metalelf0/base16-black-metal-scheme'
     " ranger
     Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
     " fzf

@@ -1,6 +1,7 @@
 # zathurarc-dark
 set font                        "inconsolata 10"
-set default-bg                  "#1E2127"
+# set default-bg                  "#1E2127"
+set default-bg                  "#000000"
 set default-fg                  "#ABB2BF"
 
 set statusbar-fg                "#B0B0B0"
@@ -25,7 +26,8 @@ set notification-bg             "#90A959"
 set notification-fg             "#282C34"
 
 set recolor-keephue             "false"
-set recolor-lightcolor          "#1E2127"
+# set recolor-lightcolor          "#1E2127"
+set recolor-lightcolor          "#000000"
 set recolor-darkcolor           "#E5E5E5"
 
 set selection-clipboard clipboard

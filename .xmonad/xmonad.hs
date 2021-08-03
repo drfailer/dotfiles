@@ -80,16 +80,7 @@ myFocusedBorderColor = "#5f87af"
 --------------------------------------------------------------------------------
 -- SOME USEFUL VARIABLES:
 --------------------------------------------------------------------------------
-termLaunch :: String
-termLaunch = myTerminal ++ " -e "
-
-coursesPath :: String
-coursesPath = " ~/Desktop/cours/cours_s4/"
-
-calcurseCommand :: String
-calcurseCommand = "calcurse -C ~/.config/calcurse -D ~/.local/share/calcurse"
-
--- xmobar colors:
+-- Theme:
 -- [ppCurrent, ppHiddenNoWindows, ppHidden, ppTitle, ppVisible, xmobarrc]
 theme0 :: [String]
 theme0 = ["#E5C07B", "#bd93f9", "#82AAFF", "#a9a1e1", "#E5C07B", "xmobarrc"]
@@ -98,7 +89,16 @@ theme1 :: [String]
 theme1 = ["#dc9656", "#af87af", "#5f87af", "#d77575", "#dc9656", "xmobardark"]
 
 currentTheme :: [String]
-currentTheme = theme0
+currentTheme = theme1
+
+termLaunch :: String
+termLaunch = myTerminal ++ " -e "
+
+coursesPath :: String
+coursesPath = " ~/Desktop/cours/cours_s4/"
+
+calcurseCommand :: String
+calcurseCommand = "calcurse -C ~/.config/calcurse -D ~/.local/share/calcurse"
 
 
 --------------------------------------------------------------------------------
