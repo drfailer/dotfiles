@@ -70,27 +70,27 @@ colors:
 ################################################################################
 # Black Metal Theme:
 ################################################################################
-# Normal colors
-# normal:
-#   black: "#000000"
-#   red: "#121212"
-#   green: "#222222"
-#   yellow: "#333333"
-#   blue: "#999999"
-#   magenta: "#c1c1c1"
-#   cyan: "#999999"
-#   white: "#c1c1c1"
+#  # Normal colors
+#  normal:
+#    black: "#000000"
+#    red: "#121212"
+#    green: "#222222"
+#    yellow: "#333333"
+#    blue: "#999999"
+#    magenta: "#c1c1c1"
+#    cyan: "#999999"
+#    white: "#c1c1c1"
 #
-# # Bright colors
-# bright:
-#   black: "#5f8787"
-#   red: "#aaaaaa"
-#   green: "#a06666"
-#   yellow: "#dd9999"
-#   blue: "#aaaaaa"
-#   magenta: "#888888"
-#   cyan: "#999999"
-#   white: "#444444"
+#  # Bright colors
+#  bright:
+#    black: "#5f8787"
+#    red: "#aaaaaa"
+#    green: "#a06666"
+#    yellow: "#dd9999"
+#    blue: "#aaaaaa"
+#    magenta: "#888888"
+#    cyan: "#999999"
+#    white: "#444444"
 
 
 background_opacity: 1.0

@@ -48,7 +48,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-xrandr --output HDMI-0 --primary --left-of DVI-D-0 --output DVI-D-0 --auto
+# xrandr --output HDMI-0 --primary --left-of DVI-D-0 --output DVI-D-0 --auto
+xrandr --output DP-0 --rotate left --left-of HDMI-0 --auto --output HDMI-0 --primary --auto --left-of DVI-D-0 --output DVI-D-0 --auto
 xset r rate 300 50
 setxkbmap -layout fr -option ctrl:nocaps
 nitrogen --restore &

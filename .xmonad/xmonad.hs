@@ -179,11 +179,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_z, xK_e, xK_r] [0..]
+        | (key, sc) <- zip [xK_z, xK_e, xK_a] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
     ++
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_z, xK_e, xK_r] [0..]
+        | (key, sc) <- zip [xK_z, xK_e, xK_a] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 
