@@ -67,6 +67,7 @@ alias vxx='nvim ~/.xmonad/xmonad.hs'
 alias dotf='bash $HOME/.scripts/utils/dotf.sh'
 alias status='exec $HOME/.scripts/system/status'
 alias ucalcurse='bash $HOME/.scripts/calcurse_script/calender-import'
+alias status='exec $HOME/.scripts/system/status'
 
 # Alias for c compilation:
 alias ccc='gcc -Wall -Wextra -o'

@@ -58,13 +58,13 @@ import qualified Data.Map        as M
 --------------------------------------------------------------------------------
 -- BASIC SETTINGS:
 --------------------------------------------------------------------------------
-myTerminal      = "alacritty"
+myTerminal = "alacritty"
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
-myBorderWidth   = 2
-myModMask       = mod4Mask
+myBorderWidth = 2
+myModMask     = mod4Mask
 
 _JAVA_AWT_WM_NONREPARENTING=1
 --AWT_TOOLKIT=MToolkit
@@ -88,8 +88,11 @@ theme0 = ["#E5C07B", "#bd93f9", "#82AAFF", "#a9a1e1", "#E5C07B", "xmobarrc"]
 theme1 :: [String]
 theme1 = ["#dc9656", "#af87af", "#5f87af", "#d77575", "#dc9656", "xmobardark"]
 
+theme2 :: [String]
+theme2 = ["#a06666", "#333333", "#5f8787", "#dd9999", "#a06666", "xmobarmetal"]
+
 currentTheme :: [String]
-currentTheme = theme1
+currentTheme = theme0
 
 termLaunch :: String
 termLaunch = myTerminal ++ " -e "
@@ -296,15 +299,16 @@ myLayout = avoidStruts (tiled ||| Mirror tiled ||| full ||| treeCols ||| grid)
 --------------------------------------------------------------------------------
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll
-     [ className =? "vlc"     --> doShift ( myWorkspaces !! 8 )
-     , className =? "Gimp"    --> doFloat
-     , title =? "sxiv"    --> doFloat
-     , title =? "Processing Camera" --> doFloat
-     , title =? "Discord" --> doShift ( myWorkspaces !! 5 )
-     , title =? "Oracle VM VirtualBox Manager"     --> doFloat
-     , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
-     , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat
-     ]
+    [ className =? "vlc"                                 --> doShift ( myWorkspaces !! 8 )
+    , className =? "Gimp"                                --> doFloat
+    , title =? "sxiv"                                    --> doFloat
+    , title =? "Nitrogen"                                --> doFloat
+    , title =? "Processing Camera"                       --> doFloat
+    , title =? "Discord"                                 --> doShift ( myWorkspaces !! 5 )
+    , title =? "Oracle VM VirtualBox Manager"            --> doFloat
+    , className =? "VirtualBox Manager"                  --> doShift ( myWorkspaces !! 4 )
+    , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat
+    ]
 
 myEventHook = mempty
 
