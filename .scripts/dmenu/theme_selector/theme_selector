@@ -1,0 +1,53 @@
+#!/bin/bash
+
+declare -a apps=("All"
+                 "Vim"
+                 "Term"
+                 "WM"
+                 )
+
+
+declare -a themes=("One"
+                   "Dark"
+                   "Metal"
+                   )
+
+chosenApp=$(echo "$(printf '%s\n' "${apps[@]}")" | dmenu -l 20 -p 'Application: ')
+
+if [[ $chosenApp != "" ]]; then
+  chosenTheme=$(echo "$(printf '%s\n' "${themes[@]}")" | dmenu -l 20 -p 'Theme: ')
+fi
+
+case $chosenTheme in
+  "One")
+    theme=0
+    ;;
+  "Dark")
+    theme=1
+    ;;
+  "Metal")
+    theme=2
+    ;;
+  *)
+    theme=-1
+    ;;
+esac
+
+if [[ $theme != -1 ]]; then
+  case $chosenApp in
+    "All")
+      exec $HOME/.scripts/dmenu/theme_selector/theme_changer --vim=$theme --term=$theme --wm=$theme
+      ;;
+    "Vim")
+      exec $HOME/.scripts/dmenu/theme_selector/theme_changer --vim=$theme
+      ;;
+    "Term")
+      exec $HOME/.scripts/dmenu/theme_selector/theme_changer --term=$theme
+      ;;
+    "WM")
+      exec $HOME/.scripts/dmenu/theme_selector/theme_changer --wm=$theme
+      ;;
+    *)
+      ;;
+  esac
+fi

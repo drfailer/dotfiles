@@ -108,9 +108,8 @@ calcurseCommand = "calcurse -C ~/.config/calcurse -D ~/.local/share/calcurse"
 -- WORKSPACES:
 --------------------------------------------------------------------------------
 myWorkspaces :: [String]
-myWorkspaces = [ "main","dev", "doc", "www", "buff", "chat", "msc", "vid", "sys"]
--- myWorkspaces = [ "\xf015","\xf121", "\xf07b", "\xf002", "\xf00b", "\xf1e0",
--- "\xf001", "\xf03d", "\xf1de"]
+myWorkspaces = [ "1","2", "3", "4", "5", "6", "7", "8", "9"]
+-- myWorkspaces = [ "main","dev", "doc", "www", "buff", "chat", "msc", "vid", "sys"]
 
 
 --------------------------------------------------------------------------------
@@ -361,7 +360,7 @@ main = do
                         , ppHiddenNoWindows = xmobarColor (currentTheme !! 1) ""
                         , ppHidden = xmobarColor (currentTheme !! 2) "" . wrap "*" ""
                         , ppTitle   = xmobarColor (currentTheme !! 3) "" . shorten 30
-                        , ppSep =  "<fc=#666666> \xe0b1 </fc>"
+                        , ppSep = "<fc=#666666> \xe0b1 </fc>"
                         , ppVisible = xmobarColor (currentTheme !! 4) ""
                         , ppUrgent  = xmobarColor "red" "yellow"
                         , ppExtras  = [windowCount]

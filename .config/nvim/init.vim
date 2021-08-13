@@ -18,9 +18,8 @@ source $HOME/.config/nvim/keys/mappings.vim
 source $HOME/.config/nvim/keys/compileScript.vim
 
 " themes
-" source $HOME/.config/nvim/themes/onedark.vim
 source $HOME/.config/nvim/themes/dark.vim
-" source $HOME/.config/nvim/themes/metal.vim
+"source $HOME/.config/nvim/themes/metal.vim
 source $HOME/.config/nvim/themes/airline.vim
 
 " some plugins

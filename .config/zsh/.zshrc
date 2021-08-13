@@ -68,6 +68,7 @@ alias dotf='bash $HOME/.scripts/utils/dotf.sh'
 alias status='exec $HOME/.scripts/system/status'
 alias ucalcurse='bash $HOME/.scripts/calcurse_script/calender-import'
 alias status='exec $HOME/.scripts/system/status'
+alias colorscheme='bash $HOME/.scripts/dmenu/theme_selector/theme_selector'
 
 # Alias for c compilation:
 alias ccc='gcc -Wall -Wextra -o'

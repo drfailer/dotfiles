@@ -66,6 +66,7 @@ config_add $HOME/.scripts/dmenu/record/
 config_add $HOME/.scripts/dmenu/sound/
 config_add $HOME/.scripts/dmenu/search/
 config_add $HOME/.scripts/dmenu/editconf/
+config_add $HOME/.scripts/dmenu/theme_selector/
 config_add $HOME/.scripts/dmenu/notes/edit-notes
 config_add $HOME/.scripts/dmenu/notes/read-note
 
