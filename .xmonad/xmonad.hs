@@ -108,8 +108,8 @@ calcurseCommand = "calcurse -C ~/.config/calcurse -D ~/.local/share/calcurse"
 -- WORKSPACES:
 --------------------------------------------------------------------------------
 myWorkspaces :: [String]
-myWorkspaces = [ "1","2", "3", "4", "5", "6", "7", "8", "9"]
--- myWorkspaces = [ "main","dev", "doc", "www", "buff", "chat", "msc", "vid", "sys"]
+myWorkspaces = [ "main","dev", "doc", "www", "buff", "chat", "msc", "vid", "sys"]
+-- myWorkspaces = [ "1","2", "3", "4", "5", "6", "7", "8", "9"]
 
 
 --------------------------------------------------------------------------------

@@ -85,15 +85,9 @@ augroup UTILS
 augroup END
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+" folding:
+augroup REMEMBER_FOLDS
+  autocmd!
+  autocmd BufWritePre * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
