@@ -78,9 +78,8 @@ myFocusedBorderColor = "#5f87af"
 
 
 --------------------------------------------------------------------------------
--- SOME USEFUL VARIABLES:
+-- THEME:
 --------------------------------------------------------------------------------
--- Theme:
 -- [ppCurrent, ppHiddenNoWindows, ppHidden, ppTitle, ppVisible, xmobarrc]
 theme0 :: [String]
 theme0 = ["#E5C07B", "#bd93f9", "#82AAFF", "#a9a1e1", "#E5C07B", "xmobarrc"]
@@ -94,6 +93,10 @@ theme2 = ["#a06666", "#333333", "#5f8787", "#dd9999", "#a06666", "xmobarmetal"]
 currentTheme :: [String]
 currentTheme = theme0
 
+
+--------------------------------------------------------------------------------
+-- SOME USEFUL VARIABLES:
+--------------------------------------------------------------------------------
 termLaunch :: String
 termLaunch = myTerminal ++ " -e "
 

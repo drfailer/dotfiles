@@ -2,6 +2,7 @@
 
 declare -a configs=("xmonad"
                     "xmobar"
+                    "xmobardark"
                     "alacritty"
                     "zshrc"
                     "vim:init"
@@ -11,12 +12,7 @@ declare -a configs=("xmonad"
                     "vim:vim-plug"
                     "vim:startify"
                     "vim:coc-setting"
-                    "mutt:muttrc"
-                    "mutt:alias"
-                    "mutt:pro"
-                    "mutt:ent"
-                    "mutt:drfailer"
-                    "compton"
+                    "picom"
                     "bookmark-firefox"
                     "qutebrowser"
                     "quit"
@@ -29,6 +25,9 @@ case "$choice" in
     ;;
   xmobar)
     file="$HOME/.config/xmobar/xmobarrc"
+    ;;
+  xmobardark)
+    file="$HOME/.config/xmobar/xmobardark"
     ;;
   alacritty)
     file="$HOME/.config/alacritty/alacritty.yml"
@@ -57,23 +56,8 @@ case "$choice" in
   vim:coc-setting)
     file="$HOME/.config/nvim/coc-settings.json"
     ;;
-  mutt:muttrc)
-    file="$HOME/.config/mutt/muttrc"
-    ;;
-  mutt:alias)
-    file="$HOME/.config/mutt/alias.muttrc"
-    ;;
-  mutt:pro)
-    file="$HOME/.config/mutt/pro.muttrc"
-    ;;
-  mutt:ent)
-    file="$HOME/.config/mutt/ent.muttrc"
-    ;;
-  mutt:drfailer)
-    file="$HOME/.config/mutt/drfailer.muttrc"
-    ;;
-  compton)
-    file="$HOME/.config/compton.conf"
+  picom)
+    file="$HOME/.config/picom.conf"
     ;;
   bookmark-firefox)
     file="$HOME/.scripts/dmenu/search/library.txt"

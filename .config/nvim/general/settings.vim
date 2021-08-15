@@ -68,6 +68,7 @@ set signcolumn=yes
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 autocmd BufRead,BufNewFile *.pde set filetype=java
 autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
+autocmd BufRead,BufNewFile xmobar* set filetype=haskell
 
 " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 au! BufWritePost $MYVIMRC source %

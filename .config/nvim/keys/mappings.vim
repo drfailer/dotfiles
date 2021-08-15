@@ -78,6 +78,10 @@ nnoremap <leader>e :vert topleft split <bar> :Ex <bar> :vertical resize 30<CR>
 " terminal mode
 tnoremap <C-h> <C-\><C-n>
 
+" Formatting code command
+autocmd FileType haskell nnoremap <buffer> <leader>f :%!hindent<cr>
+autocmd FileType c nnoremap <buffer> <leader>f :%!clang-format --style=Mozilla<cr>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fixing clipboard:
@@ -98,26 +102,25 @@ nnoremap <silent> p :call ClipboardPaste()<cr>p
 " markdown table format
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! FormatTable()
-  call system('~/.scripts/utils/format-util/format-util -t "$(xclip -o -selection clipboard)" | xclip -selection clipboard')
+  call system('~/.scripts/utils/format_table/format-table "$(xclip -o -selection clipboard)" | xclip -selection clipboard')
   sleep 100m
-  execute "norm p"
+  execute "norm P"
 endfunction
 
 vnoremap <silent> <leader>= d:call FormatTable()<cr>
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" markdown table format
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! Align()
-  let sep = input("separator:")
-  call system('~/.scripts/utils/format-util/format-util -s "' . sep . '" "$(xclip -o -selection clipboard)" | xclip -selection clipboard')
-  sleep 100m
-  execute "norm k"
-  execute "norm p"
-endfunction
-
-vnoremap <silent> <leader>a d:call Align()<cr>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" align:
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"function! Align()
+"  let sep = input("separator:")
+"  call system('~/.scripts/utils/format-util/format-util -s "' . sep . '" "$(xclip -o -selection clipboard)" | xclip -selection clipboard')
+"  sleep 100m
+"  execute "norm P"
+"endfunction
+"
+"vnoremap <silent> <leader>a d:call Align()<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

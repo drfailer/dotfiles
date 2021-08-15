@@ -27,16 +27,6 @@ source /home/drfailer/.config/zsh/plugins/zsh-vi-mode.zsh
 
 
 #################################################################################
-#                                 vi mode                                       #
-#################################################################################
-# Use vim keys in tab complete menu:
-# bindkey -M menuselect 'h' vi-backward-char
-# bindkey -M menuselect 'k' vi-up-line-or-history
-# bindkey -M menuselect 'l' vi-forward-char
-# bindkey -M menuselect 'j' vi-down-line-or-history
-
-
-#################################################################################
 #                                 Alias :                                       #
 #################################################################################
 # generals:
@@ -53,15 +43,17 @@ alias graph='dot -Tpng -o'
 alias processing='/home/drfailer/Programming/processing-3.5.4/processing'
 
 # book marks:
-alias gc='cd ~/Desktop/cours/cours_s4/'
-alias gC='cd ~/.config/'
-alias gapp='cd ~/.config/Application'
+alias gc='cd $HOME/Desktop/cours/cours_s4/'
+alias gC='cd $HOME/.config/'
+alias gs='cd $HOME/.scripts/'
+alias gdm='cd $HOME/.scripts/dmenu/'
+alias gapp='cd $HOME/.config/Application'
 
 # configs:
-alias vs='nvim ~/.config/zsh/.zshrc'
-alias vc='nvim ~/.config/nvim/init.vim'
-alias vxb='nvim ~/.config/xmobar/xmobarrc'
-alias vxx='nvim ~/.xmonad/xmonad.hs'
+alias vs='nvim $HOME/.config/zsh/.zshrc'
+alias vc='nvim -c ":Files $HOME/.config/nvim/"'
+alias vxb='nvim $HOME/.config/xmobar/xmobarrc'
+alias vxx='nvim $HOME/.xmonad/xmonad.hs'
 
 # Scripts:
 alias dotf='bash $HOME/.scripts/utils/dotf.sh'
