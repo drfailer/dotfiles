@@ -82,13 +82,13 @@ myFocusedBorderColor = "#5f87af"
 --------------------------------------------------------------------------------
 -- [ppCurrent, ppHiddenNoWindows, ppHidden, ppTitle, ppVisible, xmobarrc]
 theme0 :: [String]
-theme0 = ["#E5C07B", "#bd93f9", "#82AAFF", "#a9a1e1", "#E5C07B", "xmobarrc"]
+theme0 = ["#1e2127,#E5C07B", "#bd93f9", "#82AAFF", "#a9a1e1", "#E5C07B", "xmobarrc"]
 
 theme1 :: [String]
-theme1 = ["#dc9656", "#af87af", "#5f87af", "#d77575", "#dc9656", "xmobardark"]
+theme1 = ["#000000,#dc9656", "#af87af", "#5f87af", "#d77575", "#dc9656", "xmobardark"]
 
 theme2 :: [String]
-theme2 = ["#a06666", "#333333", "#5f8787", "#dd9999", "#a06666", "xmobarmetal"]
+theme2 = ["#000000,#a06666", "#999999", "#5f8787", "#dd9999", "#a06666", "xmobarmetal"]
 
 currentTheme :: [String]
 currentTheme = theme0
@@ -111,8 +111,8 @@ calcurseCommand = "calcurse -C ~/.config/calcurse -D ~/.local/share/calcurse"
 -- WORKSPACES:
 --------------------------------------------------------------------------------
 myWorkspaces :: [String]
-myWorkspaces = [ "main","dev", "doc", "www", "buff", "chat", "msc", "vid", "sys"]
--- myWorkspaces = [ "1","2", "3", "4", "5", "6", "7", "8", "9"]
+myWorkspaces = [ "1","2", "3", "4", "5", "6", "7", "8", "9"]
+-- myWorkspaces = [ "main","dev", "doc", "www", "buff", "chat", "msc", "vid", "sys"]
 
 
 --------------------------------------------------------------------------------
@@ -260,7 +260,9 @@ myAdditionalKeys =
     , ("M-i", (incWindowSpacing 10))
     , ("M-u", (decWindowSpacing 10))
     , ("M-S-i", (incScreenSpacing 10))
-    , ("M-S-u", (decScreenSpacing 10))]
+    , ("M-S-u", (decScreenSpacing 10))
+    , ("M-S-b", (toggleScreenSpacingEnabled >> toggleWindowSpacingEnabled))
+    ]
 
 
 --------------------------------------------------------------------------------
@@ -359,12 +361,12 @@ main = do
         , mouseBindings      = myMouseBindings
         , logHook = myLogHook <+> dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
-                        , ppCurrent = xmobarColor (currentTheme !! 0) "" . wrap "[" "]"
-                        , ppHiddenNoWindows = xmobarColor (currentTheme !! 1) ""
-                        , ppHidden = xmobarColor (currentTheme !! 2) "" . wrap "*" ""
+                        , ppCurrent = xmobarColor (currentTheme !! 0) "" . wrap " " " "
+                        , ppHiddenNoWindows = xmobarColor (currentTheme !! 1) "" . wrap " " ""
+                        , ppHidden = xmobarColor (currentTheme !! 2) "" . wrap " " ""
                         , ppTitle   = xmobarColor (currentTheme !! 3) "" . shorten 30
-                        , ppSep = "<fc=#666666> \xe0b1 </fc>"
-                        , ppVisible = xmobarColor (currentTheme !! 4) ""
+                        , ppSep = "<fc=#666666>  </fc>" -- "<fc=#666666> \xe0b1 </fc>"
+                        , ppVisible = xmobarColor (currentTheme !! 4) "" . wrap " " ""
                         , ppUrgent  = xmobarColor "red" "yellow"
                         , ppExtras  = [windowCount]
                         }
