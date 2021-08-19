@@ -365,7 +365,7 @@ main = do
                         , ppHiddenNoWindows = xmobarColor (currentTheme !! 1) ""
                         , ppHidden = xmobarColor (currentTheme !! 2) ""
                         , ppTitle   = xmobarColor (currentTheme !! 3) "" . shorten 30
-                        , ppSep =  "<fc=#666666> \xe0b1 </fc>"
+                        , ppSep = "  " -- "<fc=#666666> \xe0b1 </fc>"
                         , ppVisible = xmobarColor (currentTheme !! 4) ""
                         , ppUrgent  = xmobarColor "red" "yellow"
                         , ppExtras  = [windowCount]
