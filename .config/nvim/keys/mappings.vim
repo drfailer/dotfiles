@@ -113,14 +113,14 @@ vnoremap <silent> <leader>= d:call FormatTable()<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" align:
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"function! Align()
-"  let sep = input("separator:")
-"  call system('~/.scripts/utils/format-util/format-util -s "' . sep . '" "$(xclip -o -selection clipboard)" | xclip -selection clipboard')
-"  sleep 100m
-"  execute "norm P"
-"endfunction
-"
-"vnoremap <silent> <leader>a d:call Align()<cr>
+function! Align()
+  let sep = input("separator:")
+  call system('~/.scripts/utils/align/align "' . sep . '" "$(xclip -o -selection clipboard)" | xclip -selection clipboard')
+  sleep 100m
+  execute "norm P"
+endfunction
+
+vnoremap <silent> <leader>a d:call Align()<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

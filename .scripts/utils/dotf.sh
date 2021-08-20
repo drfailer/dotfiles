@@ -13,7 +13,7 @@ config_add () {
 # Window manager :
 config_add $HOME/.xmonad/img/
 config_add $HOME/.xmonad/README.md
-config_add $HOME/.xmonad/xmonad.hs
+config_add $HOME/.xmonad/**/*.hs
 config_add $HOME/.config/xmobar
 config_add $HOME/.config/picom.conf
 
