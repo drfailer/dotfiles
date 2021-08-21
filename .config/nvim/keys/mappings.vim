@@ -79,8 +79,8 @@ nnoremap <leader>e :vert topleft split <bar> :Ex <bar> :vertical resize 30<CR>
 tnoremap <C-h> <C-\><C-n>
 
 " Formatting code command
-autocmd FileType haskell nnoremap <buffer> <leader>f :%!hindent<cr>
-autocmd FileType c nnoremap <buffer> <leader>f :%!clang-format --style=Mozilla<cr>
+autocmd FileType haskell nnoremap <buffer> <leader>F :%!hindent<cr>
+autocmd FileType c nnoremap <buffer> <leader>F :%!clang-format --style=Mozilla<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

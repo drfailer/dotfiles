@@ -51,9 +51,8 @@ alias gapp='cd $HOME/.config/Application'
 
 # configs:
 alias vs='nvim $HOME/.config/zsh/.zshrc'
-alias vc='nvim -c ":Files $HOME/.config/nvim/"'
-alias vxb='nvim -c ":Files $HOME/.config/xmobar/"'
-alias vxx='nvim -c ":Files $HOME/.xmonad/"'
+alias vc='nvim $HOME/.config/nvim/init.vim'
+# alias vxb='nvim -c ":Files $HOME/.config/xmobar/"'
 
 # Scripts:
 alias dotf='bash $HOME/.scripts/utils/dotf.sh'

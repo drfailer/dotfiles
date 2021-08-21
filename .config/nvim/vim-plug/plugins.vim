@@ -30,9 +30,13 @@ Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 " fzf
 " require to install fzf, ripgrep, universal-ctags, silversearcher-ag and
 " fd-find
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-rooter'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+" Plug 'airblade/vim-rooter'
+" better with fd
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 " which key
 Plug 'liuchengxu/vim-which-key'
 " floating terminal
@@ -49,5 +53,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 " tree sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 
 call plug#end()
