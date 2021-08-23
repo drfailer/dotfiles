@@ -22,14 +22,7 @@ config_add $HOME/.config/picom.conf
 config_add $HOME/.config/Applications/dmenu/config.h
 
 # vim :
-config_add /home/drfailer/.config/nvim/general/
-config_add /home/drfailer/.config/nvim/snippets/
-config_add /home/drfailer/.config/nvim/keys/
-config_add /home/drfailer/.config/nvim/plug-config/
-config_add /home/drfailer/.config/nvim/themes/
-config_add /home/drfailer/.config/nvim/vim-plug/
-config_add /home/drfailer/.config/nvim/init.vim
-config_add /home/drfailer/.config/nvim/INSTALL.md
+config_add /home/drfailer/.config/nvim/
 
 # mutt :
 # use mutt wizard
