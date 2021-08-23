@@ -101,7 +101,8 @@ export XDG_CURRENT_DESKTOP="xmonad"
 #                      Use bat for manual printing:                             #
 #################################################################################
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export BAT_THEME="OneHalfDark"
+# export BAT_THEME="OneHalfDark"
+export BAT_THEME="gruvbox-dark"
 
 
 # Starship prompt:

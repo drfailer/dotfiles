@@ -43,7 +43,7 @@ theme1 = Theme { colorCurrent         = xmobarColor "#000000,#dc9656" ""
                , colorSep             = "  "
                , promptFG             = "#ABB2BF"
                , promptBG             = "#000000"
-               , promptSelection      = "#dc9656"
+               , promptSelection      = "#af87af"
                , promptBorder         = "#333333"
                }
 
@@ -63,6 +63,21 @@ theme2 = Theme { colorCurrent         = xmobarColor "#000000,#a06666" ""
                }
 
 
+theme3 :: Theme
+theme3 = Theme { colorCurrent         = xmobarColor "#282828,#928374" ""
+               , colorHiddenNoWindows = xmobarColor "#bfbaba" ""
+               , colorHidden          = xmobarColor "#458588" ""
+               , colorTitle           = xmobarColor "#928374" ""
+               , colorVisible         = xmobarColor "#928374" ""
+               , xmobarConf           = "xmobargruvbox"
+               , colorSep             = "  "
+               , promptFG             = "#bfbaba"
+               , promptBG             = "#282828"
+               , promptSelection      = "#d65d0e"
+               , promptBorder         = "#928374"
+               }
+
+
 --------------------------------------------------------------------------------
 -- BORDER SETTINGS:
 --------------------------------------------------------------------------------
@@ -71,10 +86,12 @@ myBorderWidth :: Dimension
 myBorderWidth = 2
 
 myNormalBorderColor :: String
-myNormalBorderColor  = "#000000"
+myNormalBorderColor  = "#282828"
+-- myNormalBorderColor  = "#000000"
 
 myFocusedBorderColor :: String
-myFocusedBorderColor = "#5f87af"
+myFocusedBorderColor = "#928374"
+-- myFocusedBorderColor = "#5f87af"
 
 currentTheme :: Theme
-currentTheme = theme0
+currentTheme = theme3

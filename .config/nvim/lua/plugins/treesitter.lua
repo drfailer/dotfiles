@@ -12,7 +12,7 @@ require'nvim-treesitter.configs'.setup {
   ignore_install = { "javascript" }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { "rust", "vim" },  -- list of language that will be disabled
+    disable = { "rust", "vim", "haskell" },  -- list of language that will be disabled
   },
   playground = {
     enable = true,

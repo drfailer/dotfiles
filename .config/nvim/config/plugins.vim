@@ -22,7 +22,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 " Theme
 Plug 'habamax/vim-habanight'
-Plug 'metalelf0/base16-black-metal-scheme'
+Plug 'gruvbox-community/gruvbox'
 " better with fd
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
