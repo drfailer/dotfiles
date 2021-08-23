@@ -7,34 +7,20 @@
 "               ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝              "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Plug
-source $HOME/.config/nvim/vim-plug/plugins.vim
+source $HOME/.config/nvim/config/plugins.vim
+source $HOME/.config/nvim/config/settings.vim
+source $HOME/.config/nvim/config/mappings.vim
+source $HOME/.config/nvim/config/theme.vim
 
-" general settings
-source $HOME/.config/nvim/general/settings.vim
+" Plugins config vim:
+source $HOME/.config/nvim/config/plugins/telescope.vim
+source $HOME/.config/nvim/config/plugins/which-key.vim
+source $HOME/.config/nvim/config/plugins/floaterm.vim
+source $HOME/.config/nvim/config/plugins/snippet.vim
+source $HOME/.config/nvim/config/plugins/nvim-completion.vim
 
-" mappings
-source $HOME/.config/nvim/keys/mappings.vim
-source $HOME/.config/nvim/keys/compileScript.vim
-
-" themes
-source $HOME/.config/nvim/themes/dark.vim
-" source $HOME/.config/nvim/themes/metal.vim
-source $HOME/.config/nvim/themes/airline.vim
-
-" some plugins
-source $HOME/.config/nvim/plug-config/vim/rnvimr.vim
-" source $HOME/.config/nvim/plug-config/fzf.vim
-source /home/drfailer/.config/nvim/plug-config/vim/telescope.vim
-source $HOME/.config/nvim/keys/which-key.vim
-source $HOME/.config/nvim/plug-config/vim/floaterm.vim
-source $HOME/.config/nvim/plug-config/vim/snippet.vim
-
-" lsp and completion
-source $HOME/.config/nvim/plug-config/lua/lsp.lua
-source $HOME/.config/nvim/plug-config/lua/lsp-servers.lua
-source $HOME/.config/nvim/plug-config/vim/nvim-completion.vim
-source $HOME/.config/nvim/plug-config/lua/telescope.lua
-
-" treesitter config
-source $HOME/.config/nvim/plug-config/lua/treesitter.lua
+" Plugins config lua:
+source $HOME/.config/nvim/lua/plugins/lsp.lua
+source $HOME/.config/nvim/lua/plugins/lsp-servers.lua
+source $HOME/.config/nvim/lua/plugins/telescope.lua
+source $HOME/.config/nvim/lua/plugins/treesitter.lua

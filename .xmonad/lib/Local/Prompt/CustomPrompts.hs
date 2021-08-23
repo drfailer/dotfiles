@@ -34,6 +34,7 @@ myBookMarks =
       "https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols"
   , BookMark "wordReference" "https://www.wordreference.com/fr/"
   , BookMark "cheat-sheet" "https://devhints.io/"
+  , BookMark "programme tnt" "https://www.programme-tv.net/programme/programme-tnt.html"
   ]
 
 myBrowser :: String
