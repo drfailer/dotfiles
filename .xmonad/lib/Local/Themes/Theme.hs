@@ -16,6 +16,8 @@ data Theme = Theme { colorCurrent :: String -> String
                    , promptBG :: String
                    , promptSelection :: String
                    , promptBorder :: String
+                   , mainBorderColor :: String
+                   , fBorderColor :: String
                    }
 
 
@@ -31,6 +33,8 @@ theme0 = Theme { colorCurrent         = xmobarColor "#1e2127,#E5C07B" ""
                , promptBG             = "#1e2127"
                , promptSelection      = "#C678DD"
                , promptBorder         = "#000000"
+               , mainBorderColor      = "#000000"
+               , fBorderColor         = "#5f87af"
                }
 
 theme1 :: Theme
@@ -45,6 +49,8 @@ theme1 = Theme { colorCurrent         = xmobarColor "#000000,#dc9656" ""
                , promptBG             = "#000000"
                , promptSelection      = "#af87af"
                , promptBorder         = "#333333"
+               , mainBorderColor      = "#000000"
+               , fBorderColor         = "#5f87af"
                }
 
 
@@ -60,6 +66,8 @@ theme2 = Theme { colorCurrent         = xmobarColor "#000000,#a06666" ""
                , promptBG             = "#000000"
                , promptSelection      = "#a06666"
                , promptBorder         = "#333333"
+               , mainBorderColor      = "#000000"
+               , fBorderColor         = "#5f87af"
                }
 
 
@@ -75,6 +83,8 @@ theme3 = Theme { colorCurrent         = xmobarColor "#282828,#928374" ""
                , promptBG             = "#282828"
                , promptSelection      = "#d65d0e"
                , promptBorder         = "#928374"
+               , mainBorderColor      = "#282828"
+               , fBorderColor         = "#928374"
                }
 
 
@@ -86,11 +96,11 @@ myBorderWidth :: Dimension
 myBorderWidth = 2
 
 myNormalBorderColor :: String
-myNormalBorderColor  = "#282828"
+myNormalBorderColor  = mainBorderColor currentTheme
 -- myNormalBorderColor  = "#000000"
 
 myFocusedBorderColor :: String
-myFocusedBorderColor = "#928374"
+myFocusedBorderColor = fBorderColor currentTheme
 -- myFocusedBorderColor = "#5f87af"
 
 currentTheme :: Theme

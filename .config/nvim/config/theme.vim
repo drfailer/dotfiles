@@ -30,7 +30,11 @@ set termguicolors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Gruvbox:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:gruvbox_italicize_strings=1
+let g:gruvbox_italic=1
+let g:gruvbox_improved_warnings=1
 colorscheme gruvbox
+hi Normal guibg=none
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
