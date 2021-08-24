@@ -16,7 +16,10 @@ Config { font = "xft:ProFont for Powerline:size=10:style=Regular:antialias=true:
                            ]
        , bgColor = "#282828"
        , fgColor = "#bfbaba"
-       , borderColor = "#928374"
+       -- , alpha = 200
+       -- , borderColor = "#928374"
+       , borderColor = "#333333"
+       -- , border = FullB
        , border = BottomB
        , position = Static { xpos = 1080, ypos = 0, width = 1920, height = 21 }
        , lowerOnStart = True
@@ -29,7 +32,7 @@ Config { font = "xft:ProFont for Powerline:size=10:style=Regular:antialias=true:
                     , Run Memory ["-t" ,"mem: <usedratio>%", ""] 20
                     , Run Date "%a %b %d %Y %H:%M" "date" 50
                     , Run DiskU [("/", "<fc=#458588><fn=4>\xf0c7</fn></fc> hdd: <free>")] [] 20
-                    -- , Run Battery ["-t", "<left>%"] 10 --  <fc=#d7afd7><fn=4></fn> %battery%</fc>
+                    -- , Run Battery ["-t", "<left>%"] 10 -- <fc=#689d6a><fn=4></fn></fc> %battery%
 		                , Run UnsafeStdinReader
                     ]
        , sepChar = "%"

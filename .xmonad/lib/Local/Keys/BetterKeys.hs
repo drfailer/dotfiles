@@ -39,11 +39,15 @@ import Local.Prompt.CustomPrompts
 --------------------------------------------------------------------------------
 myAdditionalKeys :: [(String, X ())]
 myAdditionalKeys =
-    [ ("M-p", shellPrompt myXPConfig)
+    [ ("M-p", shellPrompt myXPConfig) -- run prompt
+
+    -- Custom prompts
     , ("M-S-p x", xmonadPrompt myXPConfig)
     , ("M-S-p m", manPrompt myXPConfig)
     , ("M-f", searchPrompt myXPConfig)
-    -- , ("M-p", spawn "dmenu_run -p 'Run:'")
+    , ("M-S-p s", soundPrompt myXPConfig)
+    , ("M-S-p c", configPrompt myXPConfig)
+    -- , ("M-S-p b", brightnessPrompt myXPConfig) (laptop config)
 
     , ("M-S-q", io (exitWith ExitSuccess))
     , ("M-q", spawn "xmonad --recompile; xmonad --restart")
@@ -93,11 +97,12 @@ myAdditionalKeys =
     , ("M-S-a q", spawn "qutebrowser")
 
     -- dmenu scripts
+    -- , ("M-p", spawn "dmenu_run -p 'Run:'")
     -- , ("M-f", spawn "exec ~/.scripts/dmenu/search/search")
+    -- , ("M-S-p s", spawn "exec ~/.scripts/dmenu/sound/sound")
+    -- , ("M-S-p c", spawn "exec ~/.scripts/dmenu/editconf/editconf")
     , ("M-n r", spawn "exec ~/.scripts/dmenu/notes/read-note")
     , ("M-n e", spawn "exec ~/.scripts/dmenu/notes/edit-notes")
-    , ("M-S-p c", spawn "exec ~/.scripts/dmenu/editconf/editconf")
-    , ("M-S-p s", spawn "exec ~/.scripts/dmenu/sound/sound")
 
     -- Spacing: windows and borders
     , ("M-i", (incWindowSpacing 10))

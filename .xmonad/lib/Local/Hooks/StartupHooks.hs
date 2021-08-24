@@ -13,8 +13,8 @@ import XMonad.Util.SpawnOnce
 --------------------------------------------------------------------------------
 myStartupHook = do
   spawnOnce "nitrogen --restore &"
-  spawnOnce "conky"
   setWMName "LG3D"
+  -- spawnOnce "conky"
   -- spawnOnce "compton --config ~/.config/compton.conf"
   -- spawnOnce "xrandr --output HDMI-0 --primary --left-of DVI-D-0 --output DVI-D-0 --auto"
   -- spawnOnce "setxkbmap -layout fr -option ctrl:nocaps"

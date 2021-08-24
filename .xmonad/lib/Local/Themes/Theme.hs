@@ -75,16 +75,18 @@ theme3 :: Theme
 theme3 = Theme { colorCurrent         = xmobarColor "#282828,#928374" ""
                , colorHiddenNoWindows = xmobarColor "#bfbaba" ""
                , colorHidden          = xmobarColor "#458588" ""
-               , colorTitle           = xmobarColor "#928374" ""
+               , colorTitle           = xmobarColor "#689d6a" ""
                , colorVisible         = xmobarColor "#928374" ""
                , xmobarConf           = "xmobargruvbox"
                , colorSep             = "  "
                , promptFG             = "#bfbaba"
                , promptBG             = "#282828"
                , promptSelection      = "#d65d0e"
-               , promptBorder         = "#928374"
+               -- , promptBorder         = "#928374"
+               , promptBorder         = "#333333"
                , mainBorderColor      = "#282828"
-               , fBorderColor         = "#928374"
+               , fBorderColor         = "#458588"
+               -- , fBorderColor         = "#928374"
                }
 
 
