@@ -19,6 +19,7 @@ myManageHook = composeAll
     [ className =? "vlc"                                 --> doShift ( myWorkspaces !! 8 )
     , className =? "Gimp"                                --> doFloat
     , title =? "sxiv"                                    --> doFloat
+    , title =? "Screenshot"                              --> doFloat
     , title =? "Nitrogen"                                --> doFloat
     , title =? "Processing Camera"                       --> doFloat
     , title =? "Discord"                                 --> doShift ( myWorkspaces !! 5 )
