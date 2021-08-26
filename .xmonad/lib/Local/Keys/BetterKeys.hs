@@ -58,9 +58,12 @@ myAdditionalKeys =
     , ("M-b", sendMessage ToggleStruts)
 
     -- Window navigation
-    , ("M-<Tab>", windows W.focusDown)
+    -- , ("M-<Tab>", windows W.focusDown)
+    , ("M-<Tab>", windows W.focusMaster) -- try
     , ("M-j", windows W.focusDown)
     , ("M-k", windows W.focusUp)
+    , ("M-l", (windows W.focusMaster) >> (windows W.focusUp)) -- try
+    , ("M-h", windows W.focusMaster) -- try
     , ("M-m", windows W.focusMaster)
     , ("M-<Return>", windows W.swapMaster)
     , ("M-t", withFocused toggleFloat)

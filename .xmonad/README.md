@@ -6,53 +6,66 @@
 - xmonad-contribs
 - xmobar
 - dmenu
-- j4-dmenu-desktop
 - ranger
 - neomutt
 - calcurse
-- ytop
+- ytop/htop
 - sxiv
 - zathura
-- conky
 
 
 ## keybings
 
-| Keybindings          | Effect                                                |
-|----------------------|-------------------------------------------------------|
-| mod + shift + RET    | Launch a terminal                                     |
-| mod + shift + p      | Launch j4-dmenu-run                                   |
-| mod + p              | Launch dmenu                                          |
-| mod + d              | Launch ranger                                         |
-| mod + shift + m      | Launch neomutt                                        |
-| mod + shift + y      | Launch ytop                                           |
-| mod + c              | Launch calcurse                                       |
-| mod + shift + c      | Close focused window                                  |
-| mod + space          | Rotate through the available layout algorithms        |
-| mod + shift + space  | Reset the layouts on the current workspace to default |
-| mod + t              | Push window back into tiling                          |
-| mod + TAB            | Move focus to the next window                         |
-| mod + j              | Move focus to the next window                         |
-| mod + k              | Move focus to the previous window                     |
-| mod + m              | Move focus to the master window                       |
-| mod + RET            | Swap the focused window and the master window         |
-| mod + shift + j      | Swap the focused window with the next window          |
-| mod + shift + k      | Swap the focused window with the previous window      |
-| mod + h              | Shrink the master area                                |
-| mod + l              | Expand the master area                                |
-| mod + shift + l      | Mirror shrink                                         |
-| mod + shift + h      | Mirror Expand                                         |
-| mod + u              | decrease window spacing                               |
-| mod + i              | increase window spacing                               |
-| mod + shift + u      | decrease screen spacing                               |
-| mod + shift + i      | increase screen spacing                               |
-| mod + ,              | Increment the number of windows in the master area    |
-| mod + .              | Deincrement the number of windows in the master area  |
-| mod + shift + q      | Quit xmonad                                           |
-| mod + q              | Restart xmonad                                        |
-| mod + [F1..F9]       | Switch to workspace N                                 |
-| mod + shift-[F1..F9] | Move client to workspace N                            |
-| mod + {z,e,r}        | Switch to physical/Xinerama screens 1, 2, or 3        |
+| Key        | Effect                                         |
+|:-----------|:-----------------------------------------------|
+| M-p        | run prompt                                     |
+| M-S-p x    | xmonad prompt                                  |
+| M-S-p m    | man prompt                                     |
+| M-f        | search prompt                                  |
+| M-S-p s    | sound prompt                                   |
+| M-S-p f    | config edit prompt                             |
+| M-S-p c    | calculator prompt                              |
+| M-S-p b    | brightness prompt (laptop config)              |
+| M-S-q      | quit                                           |
+| M-q        | recompile and restart                          |
+| M-s        | refresh                                        |
+| M-S-c      | kill (close focused window)                    |
+| M-b        | toggle xmobar                                  |
+| M-<Tab>    | windows focusDown                              |
+| M-j        | windows focusDown                              |
+| M-k        | windows focusUp                                |
+| M-m        | windows focusMaster                            |
+| M-<Return> | windows swapMaster                             |
+| M-t        | toggle float                                   |
+| M-S-h      | inc master sink (more windows in master place) |
+| M-S-l      | dec master sink                                |
+| M-S-j      | windows swapDown                               |
+| M-S-k      | windows swapUp                                 |
+| M-M1-h     | Shrink (horizontally)                          |
+| M-M1-l     | Expand (horizontally)                          |
+| M-M1-j     | MirrorShrink (vertically)                      |
+| M-M1-k     | MirrorExpand (vertically)                      |
+| M-S-C-l    | withFocused keysResizeWindow                   |
+| M-S-C-h    | withFocused keysResizeWindow                   |
+| M-S-C-k    | withFocused keysResizeWindow                   |
+| M-S-C-j    | withFocused keysResizeWindow                   |
+| M-C-h      | move float window on left                      |
+| M-C-j      | move float window on down                      |
+| M-C-k      | move float window on up                        |
+| M-C-l      | move float window on right                     |
+| M-d        | launch ranger                                  |
+| M-S-a c    | launch calcurse                                |
+| M-S-a m    | launch neomutt                                 |
+| M-S-a y    | launch ytop                                    |
+| M-S-a f    | launch firefox                                 |
+| M-S-a q    | launch qutebrowser                             |
+| M-n r      | read notes (dm script)                         |
+| M-n e      | edit notes (dm script)                         |
+| M-i        | inc window spacing                             |
+| M-u        | dec window spacing                             |
+| M-S-i      | inc screen spacing                             |
+| M-S-u      | dec screen spacing                             |
+| M-S-b      | toggle spacing                                 |
 
 
 ## Images
