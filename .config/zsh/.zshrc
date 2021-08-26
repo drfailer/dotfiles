@@ -41,6 +41,7 @@ alias lock='slock'
 alias vpn='sudo openvpn ~/.config/vpn/vpn-student-tcp.ovpn'
 alias graph='dot -Tpng -o'
 alias processing='/home/drfailer/Programming/processing-3.5.4/processing'
+alias calc='/home/drfailer/Desktop/progs/projets-haskell/calc/calc'
 
 # book marks:
 alias gc='cd $HOME/Desktop/cours/cours_s4/'

@@ -32,6 +32,7 @@ import Local.General.Settings
 import Local.General.Utils
 import Local.Prompt.PromptConfig
 import Local.Prompt.CustomPrompts
+import Local.Prompt.CalcPrompt
 
 
 --------------------------------------------------------------------------------
@@ -46,7 +47,8 @@ myAdditionalKeys =
     , ("M-S-p m", manPrompt myXPConfig)
     , ("M-f", searchPrompt myXPConfig)
     , ("M-S-p s", soundPrompt myXPConfig)
-    , ("M-S-p c", configPrompt myXPConfig)
+    , ("M-S-p f", configPrompt myXPConfig)
+    , ("M-S-p c", calcPrompt myXPConfig)
     -- , ("M-S-p b", brightnessPrompt myXPConfig) (laptop config)
 
     , ("M-S-q", io (exitWith ExitSuccess))
