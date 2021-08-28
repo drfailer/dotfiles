@@ -73,7 +73,7 @@ map <leader># :setlocal formatoptions=cro<CR>
 
 
 " explorer:
-nnoremap <leader>e :vert topleft split <bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <leader>e :vert split <bar> :Ex<CR>
 
 " terminal mode
 tnoremap <C-h> <C-\><C-n>
@@ -149,3 +149,27 @@ nnoremap <leader>lwr :lua vim.lsp.buf.remove_workspace_folder()<cr>
 nnoremap <leader>lwl :lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>
 " implementation
 nnoremap <leader>lI :lua vim.lsp.buf.implementation()<cr>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TODO:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! Todo()
+  let createFile = 0
+  if !filereadable("TODO.todo")
+    let projectName = input("Project name: ")
+    let createFile = 1
+  endif
+  execute "vert leftabove split | vertical resize 45 | e TODO.todo"
+  if createFile
+    execute "normal iTODO: " . projectName . "\<cr>"
+    execute "normal " . (6+strlen(projectName)) . "i=\<escape>"
+    execute "normal o\<cr>TODO:\<cr>-----\<cr>\<escape>o- [ ] todo\<escape>"
+  endif
+endfunction
+
+nnoremap <leader>T :call Todo()<cr>
+autocmd BufRead,BufNewFile *.todo inoremap <buffer> <C-o> <cr>[<space>]<space>
+autocmd BufRead,BufNewFile *.todo nnoremap <buffer> <C-o> A<cr>[<space>]<space>
+autocmd BufRead,BufNewFile *.todo nnoremap <buffer> <leader>cc 0f[lrx
+autocmd BufRead,BufNewFile *.todo nnoremap <buffer> <leader>uc 0f[lr<space>

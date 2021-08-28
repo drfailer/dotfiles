@@ -27,6 +27,7 @@ import XMonad.Prompt.XMonad
 import XMonad.Prompt.Shell
 import XMonad.Prompt.FuzzyMatch
 import XMonad.Prompt.Man
+import XMonad.Prompt.Pass
 
 import Local.General.Settings
 import Local.General.Utils
@@ -45,6 +46,7 @@ myAdditionalKeys =
     -- Custom prompts
     , ("M-S-p x", xmonadPrompt myXPConfig)
     , ("M-S-p m", manPrompt myXPConfig)
+    , ("M-S-p p", passPrompt myXPConfig)
     , ("M-f", searchPrompt myXPConfig)
     , ("M-S-p s", soundPrompt myXPConfig)
     , ("M-S-p f", configPrompt myXPConfig)
@@ -58,8 +60,7 @@ myAdditionalKeys =
     , ("M-b", sendMessage ToggleStruts)
 
     -- Window navigation
-    -- , ("M-<Tab>", windows W.focusDown)
-    , ("M-<Tab>", windows W.focusMaster) -- try
+    , ("M-<Tab>", windows W.focusDown)
     , ("M-j", windows W.focusDown)
     , ("M-k", windows W.focusUp)
     , ("M-l", (windows W.focusMaster) >> (windows W.focusUp)) -- try

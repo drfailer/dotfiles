@@ -52,6 +52,7 @@ set signcolumn=yes
 " Fix filetype
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 autocmd BufRead,BufNewFile *.pde set filetype=java
+autocmd BufRead,BufNewFile *.todo set filetype=markdown
 autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 autocmd BufRead,BufNewFile xmobar* set filetype=haskell
 autocmd BufRead,BufNewFile ~/.config/qutebrowser/config.py :LspStop
