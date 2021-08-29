@@ -20,6 +20,7 @@ Plug 'sheerun/vim-polyglot'
 " Auto pairs for '(' '[' '{'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 " Theme
 Plug 'habamax/vim-habanight'
 Plug 'gruvbox-community/gruvbox'

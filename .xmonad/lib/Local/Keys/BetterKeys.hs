@@ -51,7 +51,7 @@ myAdditionalKeys =
     , ("M-S-p s", soundPrompt myXPConfig)
     , ("M-S-p f", configPrompt myXPConfig)
     , ("M-S-p c", calcPrompt myXPConfig)
-    -- , ("M-S-p b", brightnessPrompt myXPConfig) (laptop config)
+    -- , ("M-S-p b", brightnessPrompt myXPConfig) -- (laptop config)
 
     , ("M-S-q", io (exitWith ExitSuccess))
     , ("M-q", spawn "xmonad --recompile; xmonad --restart")

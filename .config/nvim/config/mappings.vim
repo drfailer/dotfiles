@@ -77,6 +77,7 @@ nnoremap <leader>e :vert split <bar> :Ex<CR>
 
 " terminal mode
 tnoremap <C-h> <C-\><C-n>
+nnoremap <leader>vt :vert split <bar> :terminal<CR>
 
 " Formatting code command
 autocmd FileType haskell nnoremap <buffer> <leader>F :%!hindent<cr>

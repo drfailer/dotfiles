@@ -72,11 +72,12 @@ theme2 = Theme { colorCurrent         = xmobarColor "#000000,#a06666" ""
 
 
 theme3 :: Theme
-theme3 = Theme { colorCurrent         = xmobarColor "#282828,#928374" ""
+theme3 = Theme { colorCurrent         = xmobarColor "#282828,#458588" ""
                , colorHiddenNoWindows = xmobarColor "#bfbaba" ""
-               , colorHidden          = xmobarColor "#458588" ""
+               , colorHidden          = xmobarColor "#fabd2f" ""
                , colorTitle           = xmobarColor "#689d6a" ""
-               , colorVisible         = xmobarColor "#928374" ""
+               -- , colorVisible         = xmobarColor "#928374" ""
+               , colorVisible         = xmobarColor "#458588" ""
                , xmobarConf           = "xmobargruvbox"
                , colorSep             = "  "
                , promptFG             = "#bfbaba"
