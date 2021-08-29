@@ -17,6 +17,7 @@ SAVEHIST=1000
 autoload -Uz compinit
 compinit
 
+export PS1='%B%F{red}[%f%b%B%F{yellow}dr%f%b%B%F{magenta}failer%f%b %B%F{blue}%c%f%b%B%F{red}]%f%b$ '
 
 #################################################################################
 #                                 Plugins:                                      #
@@ -106,7 +107,7 @@ export BAT_THEME="gruvbox-dark"
 
 
 # Starship prompt:
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 
 # Startup :
