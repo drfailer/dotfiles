@@ -18,7 +18,7 @@ autoload -Uz compinit
 compinit
 
 # export PS1='%B%F{red}[%f%b%B%F{yellow}dr%f%b%B%F{magenta}failer%f%b %B%F{blue}%c%f%b%B%F{red}]%f%b$ '
-export PS1='%B%F{red}[%f%b%B%F{yellow}dr%f%b%B%F{green}@%f%b%B%F{blue}failer%f%b %B%F{magenta}%c%f%b%B%F{red}]%f%b%B%F{7}$ %f%b'
+export PS1='%B%F{red}[%f%b%B%F{yellow}dr%f%b%B%F{green}@%f%b%B%F{blue}failer%f%b %B%F{magenta}%c%f%b%B%F{red}]%f%b%B%F{grey}$ %f%b'
 
 #################################################################################
 #                                 Plugins:                                      #

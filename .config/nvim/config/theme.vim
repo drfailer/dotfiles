@@ -7,7 +7,20 @@
 "                    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝                "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Global Themes Settings:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Default gruvbox
 set termguicolors
+set background=dark
+set t_Co=256
+
+" xressources
+" set background=light
+" highlight clear SignColumn
+" highlight ColorColumn ctermbg=darkgrey guibg=lightgrey
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Hbanight:
@@ -41,9 +54,9 @@ hi Normal guibg=none
 " Status Line:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Gruvbox colors
-au InsertEnter * hi statusline guibg=black guifg=#fe8019 ctermfg=black ctermbg=magenta
-au InsertLeave * hi statusline guibg=black guifg=#928374 ctermfg=black ctermbg=cyan
-hi statusline guifg=black guibg=#928374 ctermfg=black ctermbg=cyan
+au InsertEnter * hi statusline guibg=black guifg=#fe8019 ctermbg=black ctermfg=darkblue
+au InsertLeave * hi statusline guibg=black guifg=#928374 ctermbg=black ctermfg=grey
+hi statusline guifg=black guibg=#928374 ctermbg=black ctermfg=grey
 hi User1 ctermfg=007 ctermbg=239 guifg=#ebdbb2 guibg=#504945
 hi User2 ctermfg=007 ctermbg=236 guifg=#bdae93 guibg=#3c3836
 hi User3 ctermfg=0 ctermbg=0 guifg=#ebdbb2 guibg=#282828

@@ -66,6 +66,7 @@ config_add $HOME/.scripts/dmenu/notes/read-note
 
 # Xinit:
 config_add $HOME/.xinitrc
+config_add /home/drfailer/.Xresources
 
 # ghci:
 config_add $HOME/.ghci
