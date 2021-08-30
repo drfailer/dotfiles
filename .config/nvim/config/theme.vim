@@ -19,7 +19,9 @@ set t_Co=256
 " xressources
 " set background=light
 " highlight clear SignColumn
-" highlight ColorColumn ctermbg=darkgrey guibg=lightgrey
+" highlight ColorColumn ctermbg=238 guibg=lightgrey
+" highlight CursorLine cterm=NONE ctermbg=238 ctermfg=NONE guifg=NONE guibg=NONE
+" highlight VertSplit cterm=NONE
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -54,13 +56,13 @@ hi Normal guibg=none
 " Status Line:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Gruvbox colors
-au InsertEnter * hi statusline guibg=black guifg=#fe8019 ctermbg=black ctermfg=darkblue
-au InsertLeave * hi statusline guibg=black guifg=#928374 ctermbg=black ctermfg=grey
-hi statusline guifg=black guibg=#928374 ctermbg=black ctermfg=grey
-hi User1 ctermfg=007 ctermbg=239 guifg=#ebdbb2 guibg=#504945
-hi User2 ctermfg=007 ctermbg=236 guifg=#bdae93 guibg=#3c3836
-hi User3 ctermfg=0 ctermbg=0 guifg=#ebdbb2 guibg=#282828
-hi User4 ctermfg=239 ctermbg=239 guibg=#4e4e4e guifg=#4e4e4e
+au InsertEnter * hi statusline cterm=NONE guibg=black guifg=#fe8019 ctermfg=black ctermbg=darkblue
+au InsertLeave * hi statusline cterm=NONE guibg=black guifg=#928374 ctermfg=black ctermbg=darkgrey
+hi statusline guifg=black guibg=#928374 ctermbg=black ctermfg=darkgrey
+hi User1 cterm=NONE ctermfg=250 ctermbg=239 guifg=#ebdbb2 guibg=#504945
+hi User2 cterm=NONE ctermfg=250 ctermbg=236 guifg=#bdae93 guibg=#3c3836
+hi User3 cterm=NONE ctermfg=black ctermbg=black guifg=#ebdbb2 guibg=#282828
+hi User4 cterm=NONE ctermfg=239 ctermbg=239 guibg=#4e4e4e guifg=#4e4e4e
 
 " Habanight colors
 " au InsertEnter * hi statusline guifg=black guibg=#af87af ctermfg=black ctermbg=magenta
