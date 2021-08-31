@@ -49,9 +49,6 @@ config_add $HOME/.config/conky/conky.conf
 # Valgrind :
 # config_add $HOME/.valgrindrc
 
-# Adding starship prompt:
-config_add $HOME/.config/starship.toml
-
 # scripts:
 config_add $HOME/.scripts/calcurse_script/
 config_add $HOME/.scripts/utils/
