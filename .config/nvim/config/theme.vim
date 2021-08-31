@@ -14,7 +14,6 @@
 " Default gruvbox
 set termguicolors
 set background=dark
-set t_Co=256
 
 " xressources
 " set background=light
@@ -56,9 +55,9 @@ hi Normal guibg=none
 " Status Line:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Gruvbox colors
-au InsertEnter * hi statusline cterm=NONE guibg=black guifg=#fe8019 ctermfg=black ctermbg=darkblue
-au InsertLeave * hi statusline cterm=NONE guibg=black guifg=#928374 ctermfg=black ctermbg=darkgrey
-hi statusline guifg=black guibg=#928374 ctermbg=black ctermfg=darkgrey
+au InsertEnter * hi statusline cterm=NONE guibg=black guifg=#fe8019 ctermfg=black ctermbg=darkmagenta
+au InsertLeave * hi statusline cterm=NONE guibg=black guifg=#928374 ctermfg=black ctermbg=darkblue
+hi statusline guifg=black guibg=#928374 ctermbg=black ctermfg=darkblue
 hi User1 cterm=NONE ctermfg=250 ctermbg=239 guifg=#ebdbb2 guibg=#504945
 hi User2 cterm=NONE ctermfg=250 ctermbg=236 guifg=#bdae93 guibg=#3c3836
 hi User3 cterm=NONE ctermfg=black ctermbg=black guifg=#ebdbb2 guibg=#282828

@@ -14,7 +14,8 @@ Config { font = "xft:ProFont for Powerline:size=10:style=Regular:antialias=true:
                            , "xft:Font Awesome 5 Brands:pixelsize=12"
                            , "xft:IBM 3270:size=10:style=Medium"
                            ]
-       , bgColor = "#282828"
+       -- , bgColor = "#282828"
+       , bgColor = "#1d2021"
        , fgColor = "#bfbaba"
        -- , alpha = 200
        -- , borderColor = "#928374"

@@ -18,6 +18,7 @@ set nowrap                    " Display long lines as just one line
 set pumheight=10              " Makes popup menu smaller
 set encoding=utf-8            " The encoding displayed
 set fileencoding=utf-8        " The encoding written to file
+set t_Co=256
 set guicursor=
 set cursorline                " Enable highlighting of the current line
 set ruler              		    " Show the cursor position all the time
