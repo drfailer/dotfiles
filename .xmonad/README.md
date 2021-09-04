@@ -72,5 +72,4 @@
 
 ![screen1](./img/xmonad.png)
 
-
-![screen2](./img/xmonad2.png)
+![screen1](./img/xmonad2.png)

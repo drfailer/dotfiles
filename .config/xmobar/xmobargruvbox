@@ -38,7 +38,7 @@ Config { font = "xft:ProFont for Powerline:size=10:style=Regular:antialias=true:
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <fn=0>%UnsafeStdinReader%</fn> } <icon=haskell_20.xpm/> \
+       , template = " <fn=0>%UnsafeStdinReader%</fn> } <action=`gnome-screenshot --interactive`><icon=haskell_20.xpm/></action> \
        \{  <action=`alacritty -t htop -e htop`><box type=Bottom mb=3 color=#cc241d><fc=#cc241d><fn=4></fn></fc> %cpu%</box></action>  \
        \<action=`nitrogen`><box type=Bottom mb=3 color=#d79921><fc=#d79921><fn=4></fn></fc> %memory%</box></action>  \
        \<action=`nemo ~/.scripts`><box type=Bottom mb=3 color=#458588>%disku%</box></action>  \
