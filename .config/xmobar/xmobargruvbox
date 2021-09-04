@@ -22,7 +22,7 @@ Config { font = "xft:ProFont for Powerline:size=10:style=Regular:antialias=true:
        , borderColor = "#333333"
        -- , border = FullB
        , border = BottomB
-       , position = Static { xpos = 1080, ypos = 0, width = 1920, height = 21 }
+       , position = Static { xpos = 1080, ypos = 0, width = 1920, height = 20 }
        , lowerOnStart = True
        , persistent = True
        , hideOnStart = False

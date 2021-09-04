@@ -58,6 +58,7 @@ myAdditionalKeys =
     , ("M-s", refresh)
     , ("M-S-c", kill)
     , ("M-b", sendMessage ToggleStruts)
+    , ("M-C-<Return>", spawn "alacritty -t FloatTerm")
 
     -- Window navigation
     , ("M-<Tab>", windows W.focusDown)
