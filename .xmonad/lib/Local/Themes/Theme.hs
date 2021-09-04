@@ -72,7 +72,7 @@ theme2 = Theme { colorCurrent         = xmobarColor "#000000,#a06666" ""
 
 
 theme3 :: Theme
-theme3 = Theme { colorCurrent         = xmobarColor "#282828,#458588" ""
+theme3 = Theme { colorCurrent         = xmobarColor "#282828,#458588:0" ""
                , colorHiddenNoWindows = xmobarColor "#bfbaba" ""
                , colorHidden          = xmobarColor "#fabd2f" ""
                , colorTitle           = xmobarColor "#689d6a" ""

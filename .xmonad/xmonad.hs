@@ -71,6 +71,7 @@ main = do
                 , ppHidden = colorHidden currentTheme . wrap "\"" ""
                 , ppTitle = colorTitle currentTheme . shorten 30
                 , ppSep = colorSep currentTheme
+                -- , ppWsSep = ""
                 , ppVisible = colorVisible currentTheme
                 , ppUrgent = xmobarColor "red" "yellow"
                 , ppExtras = [windowCount]

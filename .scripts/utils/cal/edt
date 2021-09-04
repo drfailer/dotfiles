@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+URL='http://edt.uca.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=10349&nbWeeks=3&calType=ical&projectId=6'
+wget $URL -O $HOME/.scripts/utils/cal/edt.ics
+# grep -e "SUMMARY:*" -e "LOCATION:*" -e "DESCRIPTION:*" edt.ics
