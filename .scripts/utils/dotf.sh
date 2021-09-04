@@ -39,6 +39,7 @@ config_add $HOME/.config/alacritty/
 # zsh :
 config_add $HOME/.zshenv
 config_add $HOME/.config/zsh/.zshrc
+config_add /home/drfailer/.config/zsh/src/
 
 # zathura
 config_add $HOME/.config/zathura/
