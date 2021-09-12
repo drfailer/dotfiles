@@ -19,10 +19,10 @@ Config { font = "xft:ProFont for Powerline:size=10:style=Regular:antialias=true:
        , fgColor = "#bfbaba"
        -- , alpha = 200
        -- , borderColor = "#928374"
-       , borderColor = "#333333"
+       , borderColor = "#282828"
        -- , border = FullB
        , border = BottomB
-       , position = Static { xpos = 1080, ypos = 0, width = 1920, height = 20 }
+       , position = Static { xpos = 1080, ypos = 0, width = 1920, height = 21 }
        , lowerOnStart = True
        , persistent = True
        , hideOnStart = False

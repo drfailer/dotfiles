@@ -29,6 +29,7 @@ myBookMarks =
   , BookMark "drive:Pro" "https://drive.google.com/drive/u/1/my-drive"
   , BookMark "localhost" "localhost"
   , BookMark "github" "https://github.com"
+  , BookMark "guacamol" "https://guacamole.isima.fr"
   , BookMark
       "latex-Symbols"
       "https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols"

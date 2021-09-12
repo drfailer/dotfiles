@@ -9,7 +9,7 @@
 Config { font = "xft:ProFont for Powerline:size=10:style=Regular:antialias=true:hinting=true"
        , additionalFonts = [ "xft:FontAwesome:pixelsize=14, Hack Nerd Font Mono:pixelsize=13"
                            ,"xft:FontAwesome:size=8"
-                           , "xft:FiraMono Nerd Font Regular:pixelsize=10:antialias=true:hinting=true"
+                           , "xft:ProFont for Powerline:size=13:style=Regular:antialias=true:hinting=true"
                            , "xft:Font Awesome 5 Free Solid:style=Solid:size=9"
                            , "xft:Font Awesome 5 Brands:pixelsize=12"
                            , "xft:IBM 3270:size=10:style=Medium"
@@ -36,5 +36,13 @@ Config { font = "xft:ProFont for Powerline:size=10:style=Regular:antialias=true:
        , sepChar = "%"
        , alignSep = "}{"
        , template = " <fn=0>%UnsafeStdinReader%</fn> } <icon=haskell_20.xpm/> \
-       \{  <fc=#ff6c6b><fn=4></fn></fc> %cpu%  <fc=#ECBE7B><fn=4></fn></fc> %memory%  %disku%  %enp3s0%  <fc=#c678dd><fn=4></fn></fc> %date% "
+       \{  <action=`alacritty -t htop -e htop`><box type=Bottom mb=3 color=#ff6c6b><fc=#ff6c6b><fn=4></fn></fc> %cpu%</box></action>  \
+       \<action=`nitrogen`><box type=Bottom mb=3 color=#ECBE7B><fc=#ECBE7B><fn=4></fn></fc> %memory%</box></action>  \
+       \<action=`nemo ~/.scripts`><box type=Bottom mb=3 color=#51afef>%disku%</box></action>  \
+       \<action=`firefox`><box type=Bottom mb=3 color=#98be65>%enp3s0%</box></action>  \
+       \<action=`alacritty -e calcurse -C ~/.config/calcurse -D ~/.local/share/calcurse`><box type=Bottom mb=3 color=#c678dd><fc=#c678dd><fn=4></fn></fc> %date%</box></action> "
        }
+
+
+
+       -- \{  <fc=#ff6c6b><fn=4></fn></fc> %cpu%  <fc=#ECBE7B><fn=4></fn></fc> %memory%  %disku%  %enp3s0%  <fc=#c678dd><fn=4></fn></fc> %date% "
