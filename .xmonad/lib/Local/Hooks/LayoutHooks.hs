@@ -20,14 +20,17 @@ import XMonad.Hooks.ManageDocks
 
 import Data.Ratio
 
+
 myTabTheme :: Theme
 myTabTheme =
   def
     { fontName = "xft:Pro Font For Powerline:size10"
     , activeColor = "#458588"
     , inactiveColor = "#1d2021"
+    , urgentColor = "#1d2021"
     , activeBorderColor = "#458588"
     , inactiveBorderColor = "#282828"
+    , urgentBorderColor = "#1d2021"
     , activeTextColor = "#1d2021"
     , inactiveTextColor = "#bfbaba"
     }
@@ -46,13 +49,13 @@ myLayout =
     -- Put space between windows
     tiled =
       mySpacing 4 $
-      windowNavigation $
+      configurableNavigation noNavigateBorders $
       addTabs shrinkText myTabTheme $
       subLayout [] (smartBorders Simplest) $
       ResizableTall nmaster delta ratio []
     treeCols =
       mySpacing 4 $
-      windowNavigation $
+      configurableNavigation noNavigateBorders $
       addTabs shrinkText myTabTheme $
       subLayout [] (smartBorders Simplest) $
        ThreeColMid nmaster delta ratio
