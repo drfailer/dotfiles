@@ -92,8 +92,8 @@ myAdditionalKeys =
     , ("M-S-M1-j", sendMessage $ pullGroup D)
     , ("M-S-M1-m", withFocused (sendMessage . MergeAll))
     , ("M-M1-u", withFocused (sendMessage . UnMergeAll))
-    , ("M-C-.", onGroup W.focusUp')
-    , ("M-C-,", onGroup W.focusDown')
+    , ("M-M1-;", onGroup W.focusUp')
+    , ("M-M1-,", onGroup W.focusDown')
 
     -- Resize floating windows
     , ("M-S-C-l", withFocused (keysResizeWindow (50, 0) (0, 1)))
