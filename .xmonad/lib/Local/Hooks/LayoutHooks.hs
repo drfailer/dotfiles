@@ -51,13 +51,13 @@ myLayout =
       mySpacing 4 $
       configurableNavigation noNavigateBorders $
       addTabs shrinkText myTabTheme $
-      subLayout [] (smartBorders Simplest) $
+      subLayout [] (Simplest) $
       ResizableTall nmaster delta ratio []
     treeCols =
       mySpacing 4 $
       configurableNavigation noNavigateBorders $
       addTabs shrinkText myTabTheme $
-      subLayout [] (smartBorders Simplest) $
+      subLayout [] (Simplest) $
        ThreeColMid nmaster delta ratio
     grid = mySpacing 4 $ Grid
     twoPane = mySpacing 4 $ TwoPane delta ratio
