@@ -15,6 +15,9 @@ import XMonad.Layout.Grid
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.ResizableTile
+import XMonad.Layout.Tabbed
+import XMonad.Layout.SubLayouts
+import XMonad.Layout.WindowNavigation
 
 import XMonad.Actions.FloatKeys
 
@@ -81,6 +84,16 @@ myAdditionalKeys =
     , ("M-M1-l", sendMessage Expand)
     , ("M-M1-j", sendMessage MirrorShrink)
     , ("M-M1-k", sendMessage MirrorExpand)
+
+    -- tabs manipulation
+    , ("M-S-M1-h", sendMessage $ pullGroup L)
+    , ("M-S-M1-l", sendMessage $ pullGroup R)
+    , ("M-S-M1-k", sendMessage $ pullGroup U)
+    , ("M-S-M1-j", sendMessage $ pullGroup D)
+    , ("M-S-M1-m", withFocused (sendMessage . MergeAll))
+    , ("M-M1-u", withFocused (sendMessage . UnMergeAll))
+    , ("M-C-.", onGroup W.focusUp')
+    , ("M-C-,", onGroup W.focusDown')
 
     -- Resize floating windows
     , ("M-S-C-l", withFocused (keysResizeWindow (50, 0) (0, 1)))
