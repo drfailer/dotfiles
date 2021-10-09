@@ -9,6 +9,9 @@ newtype Parser a =
     { runParser :: String -> Maybe (a, String)
     }
 
+-------------------------------------------------------------------------------
+-- Class instancies:
+-------------------------------------------------------------------------------
 instance Functor Parser where
   fmap f (Parser p) =
     Parser $ \input -> do
@@ -30,6 +33,9 @@ instance Alternative Parser where
   empty = Parser $ const Nothing
   (Parser p1) <|> (Parser p2) = Parser $ \input -> (p1 input) <|> (p2 input)
 
+-------------------------------------------------------------------------------
+-- Parsing functions:
+-------------------------------------------------------------------------------
 -- Helper function to convert strings to doubles
 toDouble :: String -> Double
 toDouble s = read s :: Double
@@ -81,12 +87,16 @@ powP = binOpP Pow facP '^' facP
 
 -- Parse a function such as `cos(0.2)` using the parameter name
 -- it construct the expression using the constructor c
-funcP :: (Expr -> b) -> String -> Parser b
-funcP c name = c <$> (stringP name *> charP '(' *> exprP <* charP ')')
+funcP :: (Expr -> Function) -> String -> Parser Expr
+funcP c name = (\n -> Fun n) <$> fp
+  where
+    fp = c <$> (stringP name *> charP '(' *> exprP <* charP ')')
 
 -- Parser for all the functions
 functionsP :: Parser Expr
-functionsP = sqrtP <|> cosP <|> sinP <|> tanP <|> acosP <|> asinP <|> atanP
+functionsP =
+  sqrtP <|> cosP <|> sinP <|> tanP <|> acosP <|> asinP <|> atanP <|> logP <|>
+  expP
   where
     sqrtP = funcP Sqrt "sqrt"
     cosP = funcP Cos "cos"
@@ -95,13 +105,27 @@ functionsP = sqrtP <|> cosP <|> sinP <|> tanP <|> acosP <|> asinP <|> atanP
     acosP = funcP ACos "acos"
     asinP = funcP ASin "asin"
     atanP = funcP ATan "atan"
+    logP = funcP Log "log"
+    expP = funcP Exp "exp"
+
+-- Parse a constant using the constructor and the constant name
+cstP :: Constant -> String -> Parser Expr
+cstP c name = (\n -> Cst n) <$> cp
+  where
+    cp = (\_ -> c) <$> stringP name
+
+-- Constant parser
+constP :: Parser Expr
+constP = piP
+  where
+    piP = cstP Pi "pi"
 
 -- Parse a factor which can be an expression between parents, a literal, a
 -- negative number or a function
 -- a factor correspond to the leaf of the expression tree, they need to be
 -- evaluate first (so we are parsing them last)
 facP :: Parser Expr
-facP = parentP <|> litP <|> negateP <|> functionsP
+facP = parentP <|> litP <|> negateP <|> functionsP <|> constP
   where
     litP = (\n -> Lit n) <$> numberP
     numberP = floatP <|> intP

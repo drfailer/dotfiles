@@ -28,11 +28,12 @@ alias gapp='cd $HOME/.config/Application'
 
 # configs:
 alias vs='nvim $HOME/.config/zsh/.zshrc'
+alias va='nvim $HOME/.config/zsh/src/alias.zsh'
 alias vc='nvim $HOME/.config/nvim/init.vim'
 
 # Scripts:
-alias dotf='bash $HOME/.scripts/utils/dotf.sh'
-alias colorscheme='bash $HOME/.scripts/dmenu/theme_selector/theme_selector'
+alias dotf='$HOME/.scripts/utils/dotf'
+alias ta='$HOME/.scripts/utils/agenda'
 
 # Alias for c compilation:
 alias ccc='gcc -Wall -Wextra -o'

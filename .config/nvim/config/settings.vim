@@ -41,6 +41,7 @@ set nowritebackup             " This is recommended by coc
 set noswapfile
 set updatetime=300            " Faster completion
 set timeoutlen=500            " By default timeoutlen is 1000 ms
+set completeopt=menuone,noinsert,noselect " test
 set clipboard=unnamedplus     " Copy paste between vim and everything else
 set nohlsearch                " Don't highlight when searching
 set incsearch                 " Highlight when typing researche

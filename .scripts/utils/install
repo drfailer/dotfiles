@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pacman -S linux linux-firmware base base-devel amd-ucode sudo
 pacman -S reflector NetworkManager pacman-contrib nvidia picom alsa-utils pulseaudio
 pacman -S grub efibootmgr dosfstools os-prober mtools
