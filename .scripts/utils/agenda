@@ -7,20 +7,36 @@ currentDay=$(date +%u) # the current day in the week
 
 # choosing the write day date (which is the date of the SATURDAY of the current
 # week):
-if [ $currentDay == 6 ]
-then
-  currentDay=$(date +%d)
-elif [ $currentDay == 7 ]
-then
-  currentDay=$(echo 0$(($(date +%d) - 1)))
-else
-  echo "It is not the WE, please entre saturday's date manualy."
-  read currentDay
-  # TODO: do this automatically
-fi
+currentSaturdayDate=$(expr $(date +%d) + 6 - $currentDay)
 
 # look in the agenda dirctory if the current todo list exists:
-file=$(ls $AGENDA_DIR | grep "$currentDay$(date +%m%Y).todo")
+file=$(ls $AGENDA_DIR | grep "$currentSaturdayDate$(date +%m%Y).todo")
+
+# if the file is not already created:
+if [ -z $file ]
+then
+  file="0$currentSaturdayDate$(date +%m%Y).todo"
+cat << EOF >> $AGENDA_DIR$file
+---
+title: TODOS WE $(date +%d-%m-%Y)
+---
+
+
+# Cours
+
+- [ ] TODO
+
+
+# Maison
+
+- [ ] TODO
+
+
+# Valise
+
+- [ ] TAKE
+EOF
+fi
 
 # Open the agenda file
 nvim "$AGENDA_DIR$file"

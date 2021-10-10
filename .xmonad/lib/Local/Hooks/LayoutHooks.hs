@@ -20,20 +20,8 @@ import XMonad.Hooks.ManageDocks
 
 import Data.Ratio
 
+import Local.Themes.Theme
 
-myTabTheme :: Theme
-myTabTheme =
-  def
-    { fontName = "xft:Pro Font For Powerline:size10"
-    , activeColor = "#458588"
-    , inactiveColor = "#1d2021"
-    , urgentColor = "#1d2021"
-    , activeBorderColor = "#458588"
-    , inactiveBorderColor = "#282828"
-    , urgentBorderColor = "#1d2021"
-    , activeTextColor = "#1d2021"
-    , inactiveTextColor = "#bfbaba"
-    }
 
 --------------------------------------------------------------------------------
 -- LAYOUTS:
