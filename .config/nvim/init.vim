@@ -24,3 +24,4 @@ source $HOME/.config/nvim/lua/plugins/lsp.lua
 source $HOME/.config/nvim/lua/plugins/lsp-servers.lua
 source $HOME/.config/nvim/lua/plugins/telescope.lua
 source $HOME/.config/nvim/lua/plugins/treesitter.lua
+source $HOME/.config/nvim/lua/plugins/statusline.lua

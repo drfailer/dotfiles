@@ -15,7 +15,7 @@ file=$(ls $AGENDA_DIR | grep "$currentSaturdayDate$(date +%m%Y).todo")
 # if the file is not already created:
 if [ -z $file ]
 then
-  file="0$currentSaturdayDate$(date +%m%Y).todo"
+  file="$currentSaturdayDate$(date +%m%Y).todo"
 cat << EOF >> $AGENDA_DIR$file
 ---
 title: TODOS WE $(date +%d-%m-%Y)
