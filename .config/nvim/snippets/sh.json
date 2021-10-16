@@ -2,8 +2,9 @@
   "IF": {
     "prefix": ["if"],
     "body": [
-      "if [[ ${0:condition} ]]",
-      "\t${1:todo}",
+      "if [ ${1:condition} ]",
+      "then",
+      "\t$0",
       "fi"
     ],
     "description": "if statement"
@@ -11,9 +12,9 @@
   "CASE": {
     "prefix": ["case"],
     "body": [
-      "case ${0:var} in",
-      "\t${1:case}",
-      "\t\t${2:do}",
+      "case ${1:var} in",
+      "\t${2:case}",
+      "\t\t$0",
       "\t\t;;",
       "esac"
     ],
@@ -22,8 +23,8 @@
   "FUNC": {
     "prefix": ["func"],
     "body": [
-      "${0:name}() {",
-      "\t$1",
+      "${1:name}() {",
+      "\t$0",
       "}"
     ],
     "description": "function"
@@ -31,7 +32,7 @@
   "ARR": {
     "prefix": ["arr"],
     "body": [
-      "declare -a ${0:name}=($1)"
+      "declare -a ${1:name}=($0)"
     ],
     "description": "array"
   }
