@@ -33,3 +33,6 @@
 *.color15: #ebdbb2
 *.color256: #1d2021
 *.color257: #ebdbb2
+
+Sxiv.background: #282828
+Sxiv.foreground: #928374

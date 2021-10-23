@@ -22,6 +22,7 @@ set t_Co=256
 set guicursor=
 set cursorline                " Enable highlighting of the current line
 set ruler              		    " Show the cursor position all the time
+set scl=no                    " remove the signcolumn
 " set noruler              		  " Show the cursor position all the time
 set go=a
 set cmdheight=2               " More space for displaying messages
