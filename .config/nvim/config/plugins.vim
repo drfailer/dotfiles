@@ -27,6 +27,10 @@ Plug 'tpope/vim-commentary'
 Plug 'habamax/vim-habanight'
 Plug 'gruvbox-community/gruvbox'
 
+" pretty icons
+Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
+
 " statusline
 Plug 'hoob3rt/lualine.nvim'
 
@@ -44,14 +48,16 @@ Plug 'junegunn/goyo.vim'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 
-" pretty icons
-Plug 'ryanoasis/vim-devicons'
-Plug 'kyazdani42/nvim-web-devicons'
+" completion
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'onsails/lspkind-nvim'
 
 " lsp plugins
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-" Plug 'hrsh7th/nvim-compe'
 
 " tree sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
