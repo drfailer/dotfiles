@@ -88,7 +88,7 @@ theme3 :: MyTheme
 theme3 =
   MyTheme
     { colorCurrent = xmobarColor "#282828,#458588:0" ""
-    , colorHiddenNoWindows = xmobarColor "#bfbaba" ""
+    , colorHiddenNoWindows = xmobarColor "#d3869b" ""
     , colorHidden = xmobarColor "#fabd2f" ""
     , colorTitle = xmobarColor "#689d6a" ""
                -- , colorVisible         = xmobarColor "#928374" ""
