@@ -41,10 +41,10 @@ Config { font = "xft:ProFont for Powerline:size=10:style=Regular:antialias=true:
        , sepChar = "%"
        , alignSep = "}{"
        , template = " <action=`gnome-screenshot --interactive`><icon=haskell_20.xpm/></action> <fn=0>%UnsafeStdinReader%</fn> }\
-       \{ <box type=Bottom mb=3 color=#928374><fc=#928374><fn=4></fn></fc> %uname%</box> \
-       \ <box type=Bottom mb=3 color=#d65d0e><fc=#d65d0e><fn=4></fn></fc> %uptime%</box> \
-       \ <box type=Bottom mb=3 color=#689d6a><fc=#689d6a><fn=4></fn></fc> %battery%</box> \
-       \ <action=`alacritty -t htop -e htop`><box type=Bottom mb=3 color=#cc241d><fc=#cc241d><fn=4></fn></fc> %cpu%</box></action>  \
+       \{ <box type=Bottom mb=3 color=#689d6a><fc=#689d6a><fn=4></fn></fc> %battery%</box>  \
+       \<box type=Bottom mb=3 color=#928374><fc=#928374><fn=4></fn></fc> %uname%</box>  \
+       \<box type=Bottom mb=3 color=#d65d0e><fc=#d65d0e><fn=4></fn></fc> %uptime%</box>  \
+       \<action=`alacritty -t htop -e htop`><box type=Bottom mb=3 color=#cc241d><fc=#cc241d><fn=4></fn></fc> %cpu%</box></action>  \
        \<action=`nitrogen`><box type=Bottom mb=3 color=#d79921><fc=#d79921><fn=4></fn></fc> %memory%</box></action>  \
        \<action=`nemo ~/.scripts`><box type=Bottom mb=3 color=#458588>%disku%</box></action>  \
        \<action=`firefox`><box type=Bottom mb=3 color=#98971a>%enp3s0%</box></action>  \
