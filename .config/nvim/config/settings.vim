@@ -22,7 +22,6 @@ set t_Co=256
 set guicursor=
 set cursorline                " Enable highlighting of the current line
 set ruler              		    " Show the cursor position all the time
-set scl=no                    " remove the signcolumn
 " set noruler              		  " Show the cursor position all the time
 set go=a
 set cmdheight=2               " More space for displaying messages
@@ -56,9 +55,9 @@ set signcolumn=yes
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 autocmd BufRead,BufNewFile *.pde set filetype=java
 autocmd BufRead,BufNewFile *.todo set filetype=markdown
-autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 autocmd BufRead,BufNewFile xmobar* set filetype=haskell
 autocmd BufRead,BufNewFile ~/.config/qutebrowser/config.py :LspStop
+autocmd BufRead,BufNewFile * set scl=no " remove signcolumn
 
 " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 au! BufWritePost $MYVIMRC source %

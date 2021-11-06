@@ -32,8 +32,8 @@ alias va='nvim $HOME/.config/zsh/src/alias.zsh'
 alias vc='nvim $HOME/.config/nvim/init.vim'
 
 # Scripts:
-alias dotf='$HOME/.scripts/utils/dotf'
-alias ta='$HOME/.scripts/utils/agenda'
+alias dotf='~/.scripts/utils/dotf'
+alias ta='~/.scripts/utils/agenda'
 
 # Alias for c compilation:
 alias ccc='gcc -Wall -Wextra -o'

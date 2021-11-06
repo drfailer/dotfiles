@@ -20,6 +20,3 @@ termLaunch = myTerminal ++ " -e "
 
 coursesPath :: String
 coursesPath = " ~/Desktop/cours/cours_s4/"
-
-calcurseCommand :: String
-calcurseCommand = "calcurse -C ~/.config/calcurse -D ~/.local/share/calcurse"

@@ -41,8 +41,6 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 " utilities
 Plug 'liuchengxu/vim-which-key'
-Plug 'voldikss/vim-floaterm'
-Plug 'junegunn/goyo.vim'
 
 " snippets
 Plug 'hrsh7th/vim-vsnip'

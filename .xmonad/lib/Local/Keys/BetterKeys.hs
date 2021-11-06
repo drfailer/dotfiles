@@ -86,12 +86,12 @@ myAdditionalKeys =
     , ("M-M1-k", sendMessage MirrorExpand)
 
     -- tabs manipulation
-    , ("M-S-M1-h", sendMessage $ pullGroup L)
-    , ("M-S-M1-l", sendMessage $ pullGroup R)
-    , ("M-S-M1-k", sendMessage $ pullGroup U)
-    , ("M-S-M1-j", sendMessage $ pullGroup D)
-    , ("M-S-M1-m", withFocused (sendMessage . MergeAll))
-    , ("M-M1-u", withFocused (sendMessage . UnMergeAll))
+    , ("M-w h", sendMessage $ pullGroup L)
+    , ("M-w l", sendMessage $ pullGroup R)
+    , ("M-w k", sendMessage $ pullGroup U)
+    , ("M-w j", sendMessage $ pullGroup D)
+    , ("M-w m", withFocused (sendMessage . MergeAll))
+    , ("M-w u", withFocused (sendMessage . UnMergeAll))
     , ("M-M1-;", onGroup W.focusUp')
     , ("M-M1-,", onGroup W.focusDown')
 
@@ -110,7 +110,6 @@ myAdditionalKeys =
     -- app launch
     , ("M-d",     spawn $ termLaunch ++ "ranger")
     , ("M-S-d",   spawn $ termLaunch ++ "ranger" ++ coursesPath)
-    , ("M-S-a c", spawn $ termLaunch ++ calcurseCommand)
     , ("M-S-a m", spawn $ termLaunch ++ "neomutt")
     , ("M-S-a y", spawn $ termLaunch ++ "~/.local/share/cargo/bin/ytop -p -s")
     , ("M-S-a f", spawn "firefox")
@@ -125,9 +124,9 @@ myAdditionalKeys =
     , ("M-n e", spawn "exec ~/.scripts/dmenu/notes/edit-notes")
 
     -- Spacing: windows and borders
-    , ("M-i", (incWindowSpacing 10))
-    , ("M-u", (decWindowSpacing 10))
-    , ("M-S-i", (incScreenSpacing 10))
-    , ("M-S-u", (decScreenSpacing 10))
+    , ("M-u", (incWindowSpacing 10))
+    , ("M-S-u", (decWindowSpacing 10))
+    , ("M-i", (incScreenSpacing 10))
+    , ("M-S-i", (decScreenSpacing 10))
     , ("M-S-b", (toggleScreenSpacingEnabled >> toggleWindowSpacingEnabled))
     ]

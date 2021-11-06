@@ -15,7 +15,6 @@ source $HOME/.config/nvim/config/theme.vim
 " Plugins config vim:
 source $HOME/.config/nvim/config/plugins/telescope.vim
 source $HOME/.config/nvim/config/plugins/which-key.vim
-source $HOME/.config/nvim/config/plugins/floaterm.vim
 source $HOME/.config/nvim/config/plugins/snippet.vim
 
 " Plugins config lua:

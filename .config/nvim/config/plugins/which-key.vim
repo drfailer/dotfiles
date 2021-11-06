@@ -33,9 +33,7 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 " Single mappings
-let g:which_key_map['r'] = [ ':Ranger'                    , 'ranger' ]
 let g:which_key_map['T'] = [ ':Rg'                        , 'search text' ]
-let g:which_key_map['z'] = [ 'Goyo'                       , 'zen' ]
 
 " s is for search
 let g:which_key_map.s = {

@@ -16,8 +16,7 @@ help =
        \|first cell|second cell|\n\
        \|third cell!!|the last cell|\n\
        \\n\
-       \NOTE: the separator line on markdown tables is added automatically.\n\
-       \"
+       \NOTE: the separator line on markdown tables is added automatically.\n"
 
 -------------------------------------------------------------------------------
 -- FUNCIONS:
