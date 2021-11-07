@@ -134,23 +134,23 @@ facP = parentP <|> litP <|> negateP <|> functionsP <|> constP
 
 -- Hight priority expression are multiplications, divisions, ... they need to
 -- be evaluate be evaluated before the additions and subtractions
-highPriorityExprP :: Parser Expr
-highPriorityExprP = mulP <|> divP <|> powP <|> facP
+termoP :: Parser Expr
+termoP = mulP <|> divP <|> powP <|> facP
   where
-    mulP = binOpP Mul (divP <|> facP) '*' highPriorityExprP
+    mulP = binOpP Mul (divP <|> facP) '*' termoP
     divP = binOpP Div facP '/' facP
 
 -- Low priority expressions are the last ones to be evaluated so we parse them
 -- first
-lowPriorityP :: Parser Expr
-lowPriorityP = addP <|> subP
+addoP :: Parser Expr
+addoP = addP <|> subP
   where
-    addP = binOpP Add (subP <|> highPriorityExprP) '+' exprP
-    subP = binOpP Sub highPriorityExprP '-' highPriorityExprP
+    addP = binOpP Add (subP <|> termoP) '+' exprP
+    subP = binOpP Sub termoP '-' (subP <|> termoP)
 
 -- Main expression parser
 exprP :: Parser Expr
-exprP = lowPriorityP <|> highPriorityExprP
+exprP = addoP <|> termoP
 
 -- Parser a string to withdraw the expression
 parse :: String -> Maybe Expr

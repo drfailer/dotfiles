@@ -27,7 +27,7 @@ instance Show Expr where
 
 evalExpr :: Expr -> Double
 evalExpr (Add el er) = (evalExpr el) + (evalExpr er)
-evalExpr (Sub el er) = (evalExpr el) - (evalExpr er)
+evalExpr (Sub el er) = (evalExpr el) - (evalExpr' er)
 evalExpr (Mul el er) = (evalExpr el) * (evalExpr er)
 evalExpr (Div el er) = (evalExpr el) / (evalExpr er)
 evalExpr (Pow e p) = (evalExpr e) ** (evalExpr p)
@@ -35,6 +35,10 @@ evalExpr (Par e) = evalExpr e
 evalExpr (Lit l) = l
 evalExpr (Fun f) = evalFun f
 evalExpr (Cst c) = evalConstant c
+
+evalExpr' :: Expr -> Double
+evalExpr' (Sub el er) = (evalExpr el) + (evalExpr' er)
+evalExpr' expr = evalExpr expr
 
 -------------------------------------------------------------------------------
 -- Functions:
