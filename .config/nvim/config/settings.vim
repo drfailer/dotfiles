@@ -49,7 +49,8 @@ set path+=**
 set wildmode=longest,list,full
 set colorcolumn=80            " columns indicator
 set signcolumn=yes
-" set scrolloff=5              " To keep 5 lines between the cursor and the bottom of the screen
+set scrolloff=0               " To keep 5 lines between the cursor and the bottom of the screen
+set sidescrolloff=999         " keep the cursor in the middle of the screen Horizontally
 
 " Fix filetype
 autocmd BufRead,BufNewFile *.tex set filetype=tex

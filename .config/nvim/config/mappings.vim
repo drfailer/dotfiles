@@ -20,26 +20,23 @@ nnoremap <M-k>    :resize +2<CR>
 nnoremap <M-h>    :vertical resize -2<CR>
 nnoremap <M-l>    :vertical resize +2<CR>
 
-" Ib hate escape more than anything else
-" inoremap jk <Esc>
+" remape escape and jump next char (for easy skipping closing parent)
 inoremap kj <Esc>
-inoremap kl <Esc>la
+noremap kl <Esc>la
 
-" Easy CAPS
+" easy CAPS:
 inoremap <c-u> <ESC>viwUea
 
-" navigate threw buffers
+" navigate threw buffers:
 nnoremap <Leader>nb :bnext<CR>
 nnoremap <Leader>bp :bprevious<CR>
-" navigate threw tabs
+
+" navigate threw tabs:
 nnoremap <Leader>tn :tabnew<CR>
 nnoremap <Leader>nt :tabnext<CR>
 nnoremap <Leader>tp :tabprevious<CR>
 
-" Use control-c instead of escape
-nnoremap <C-c> <Esc>
-
-" Better tabbing
+" Better tabbing:
 vnoremap < <gv
 vnoremap > >gv
 
@@ -55,6 +52,12 @@ nnoremap <Leader>O O<Esc>^Da
 " jump points:
 inoremap ,<tab> <Esc>/<++><Enter>"_c4l
 
+" scrolloff toggle:
+nnoremap <leader>sst :set sidescrolloff=999<CR>
+nnoremap <leader>ssd :set sidescrolloff=0<CR>
+nnoremap <leader>svt :set scrolloff=999<CR>
+nnoremap <leader>svd :set scrolloff=0<CR>
+
 " substitution:
 nnoremap <leader>S :%s//g<Left><Left>
 vnoremap <leader>S :s//g<Left><Left>
@@ -65,13 +68,12 @@ nnoremap <leader>* :%s/\<<C-r><C-w>\>//g<Left><Left>
 map <F6> :setlocal spell! spelllang=fr,cjk<cr>
 map <F7> :set spelllang=en,cjk<cr>
 
-" select first correction for the last miss-spelled word:
+" select first correction for the miss-spelled word under ther cursor:
 nnoremap <M-;> <ESC>1z=
 
 " Toggle auto comment:
 map <leader>/ :setlocal formatoptions-=cro<CR>
 map <leader># :setlocal formatoptions=cro<CR>
-
 
 " explorer:
 nnoremap <leader>e :vert split <bar> :Ex<CR>
