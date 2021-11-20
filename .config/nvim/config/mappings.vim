@@ -55,9 +55,10 @@ nnoremap <Leader>O O<Esc>^Da
 " jump points:
 inoremap ,<tab> <Esc>/<++><Enter>"_c4l
 
-" Map replace all :
+" substitution:
 nnoremap <leader>S :%s//g<Left><Left>
 vnoremap <leader>S :s//g<Left><Left>
+nnoremap <leader>* :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 
 " change dictionary:
@@ -91,16 +92,16 @@ autocmd FileType python nnoremap <buffer> <leader>B :%!python3 %<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fixing clipboard:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! ClipboardYank()
-  call system('xclip -i -selection clipboard', @@)
-endfunction
-function! ClipboardPaste()
-  let @@ = system('xclip -o -selection clipboard')
-endfunction
+" function! ClipboardYank()
+"   call system('xclip -i -selection clipboard', @@)
+" endfunction
+" function! ClipboardPaste()
+"   let @@ = system('xclip -o -selection clipboard')
+" endfunction
 
-vnoremap <silent> y y:call ClipboardYank()<cr>
-vnoremap <silent> d d:call ClipboardYank()<cr>
-nnoremap <silent> p :call ClipboardPaste()<cr>p
+" vnoremap <silent> y y:call ClipboardYank()<cr>
+" vnoremap <silent> d d:call ClipboardYank()<cr>
+" nnoremap <silent> p :call ClipboardPaste()<cr>p
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
