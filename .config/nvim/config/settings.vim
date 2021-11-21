@@ -63,6 +63,9 @@ autocmd BufRead,BufNewFile * set scl=no " remove signcolumn
 " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 au! BufWritePost $MYVIMRC source %
 
+" remove netrw banner:
+let g:netrw_banner=0
+
 " removing whitespaces
 fun! TrimWhitespaces()
   let l:save = winsaveview()

@@ -22,7 +22,7 @@ nnoremap <M-l>    :vertical resize +2<CR>
 
 " remape escape and jump next char (for easy skipping closing parent)
 inoremap kj <Esc>
-noremap kl <Esc>la
+inoremap kl <Esc>la
 
 " easy CAPS:
 inoremap <c-u> <ESC>viwUea
