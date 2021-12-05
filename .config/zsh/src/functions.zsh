@@ -67,6 +67,7 @@ skcmp() {
     st)
       sk-install "${SK_PATH}st"
       ;;
+  esac
 }
 
 sk-install() {
@@ -77,4 +78,5 @@ sk-install() {
     sudo make install
   else
     echo "error"
+  fi
 }
