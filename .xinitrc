@@ -54,4 +54,6 @@ xset r rate 300 50
 setxkbmap -layout fr -option ctrl:nocaps
 nitrogen --restore &
 picom &
-exec xmonad
+slstatus &
+exec dwm
+# exec xmonad

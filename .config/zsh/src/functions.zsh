@@ -1,7 +1,11 @@
 ###############################################################################
-#                               Functions :                                   #
+# FUNCTIONS:                                                                  #
+# AUTHOR: drfailer                                                            #
 ###############################################################################
 
+###############################################################################
+#                               Compiling :                                   #
+###############################################################################
 concatFlags() {
   if [ -z $1 ]
   then
@@ -40,4 +44,37 @@ compile() {
       echo "unknow filetype"
       ;;
   esac
+}
+
+
+###############################################################################
+#                         recompile suckless programs:                        #
+###############################################################################
+
+SK_PATH="$HOME/.config/suckless-builds/"
+
+skcmp() {
+  case $1 in
+    dwm)
+      sk-install "${SK_PATH}dwm"
+      ;;
+    dmenu)
+      sk-install "${SK_PATH}dmenu"
+      ;;
+    slstatus)
+      sk-install "${SK_PATH}slstatus"
+      ;;
+    st)
+      sk-install "${SK_PATH}st"
+      ;;
+}
+
+sk-install() {
+  cd $1
+  make
+  if [ $? == 0 ]
+  then
+    sudo make install
+  else
+    echo "error"
 }

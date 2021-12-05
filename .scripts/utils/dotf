@@ -18,9 +18,6 @@ config_add $HOME/.xmonad/**/*.hs
 config_add $HOME/.config/xmobar
 config_add $HOME/.config/picom.conf
 
-# dmenu :
-config_add $HOME/.config/Applications/dmenu/config.h
-
 # vim :
 config_add /home/drfailer/.config/nvim/
 
@@ -51,14 +48,7 @@ config_add $HOME/.config/conky/conky.conf
 # config_add $HOME/.valgrindrc
 
 # scripts:
-config_add $HOME/.scripts/calcurse_script/
 config_add $HOME/.scripts/utils/
-config_add $HOME/.scripts/dmenu/record/
-config_add $HOME/.scripts/dmenu/sound/
-config_add $HOME/.scripts/dmenu/search/
-config_add $HOME/.scripts/dmenu/editconf/
-config_add $HOME/.scripts/dmenu/notes/edit-notes
-config_add $HOME/.scripts/dmenu/notes/read-note
 
 # Xinit:
 config_add $HOME/.xinitrc
