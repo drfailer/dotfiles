@@ -1,42 +1,135 @@
 #!/bin/bash
 
+###############################################################################
+# TITLE: Agenda
+# AUTHOR: drfailer
+# DATE: Sun Dec 12 11:45:22 AM CET 2021
+# DESCRIPTION: TODO list app
+###############################################################################
+
+###############################################################################
+# Global variables:
+###############################################################################
+
 # agenda directory:
 AGENDA_DIR="$HOME/Documents/Agenda/"
 
-currentDay=$(date +%u) # the current day in the week
-
-# choosing the write day date (which is the date of the SATURDAY of the current
-# week):
-currentSaturdayDate=$(expr $(date +%d) + 6 - $currentDay)
-
 # look in the agenda dirctory if the current todo list exists:
-file=$(ls $AGENDA_DIR | grep "$currentSaturdayDate$(date +%m%Y).todo")
+file=$(ls $AGENDA_DIR | grep "$curMondayDate$(date +%m%Y).todo")
 
-# if the file is not already created:
-if [ -z $file ]
-then
-  file="$currentSaturdayDate$(date +%m%Y).todo"
+
+###############################################################################
+# Help message:
+###############################################################################
+displayHelpMessage() {
+cat << ENDOFMESSAGE
+Usage: agenda <option>
+
+Available options:
+  -r, --report    launch the app in edit mode
+  -l, --list      launch the app in read mode
+  -h, --help      display help message
+
+Note:
+  If the app is launched without any option, it automatically startup in read
+  mode.
+ENDOFMESSAGE
+}
+
+
+###############################################################################
+# Utils functions:
+###############################################################################
+
+createFile() {
+  curMondayDate=$(expr $(date +%d) + 1 - $(date +%u))
+  # if the file is not already created:
+  if [ -z $file ]
+  then
+    file="$curMondayDate$(date +%m%Y).todo"
 cat << EOF >> $AGENDA_DIR$file
 ---
-title: TODOS WE $(date +%d-%m-%Y)
+title: TODOS $(date +%d-%m-%Y)
 ---
 
 
-# Cours
+# 🎓 Cours
 
 - [ ] TODO
 
 
-# Maison
+# 🏠 Maison
 
 - [ ] TODO
 
 
-# Valise
+# 🧳 Valise
 
 - [ ] TAKE
 EOF
-fi
+  fi
+}
 
-# Open the agenda file
-nvim "$AGENDA_DIR$file"
+# print: TODOS/ALL
+printReport() {
+  if [ -z $1 ]
+  then
+    echo "Na"
+  else
+    echo "$(grep "\[x\]" $1 | wc -l)/$(grep "\[.\]" $1 | wc -l)"
+  fi
+}
+
+listUncompletedTasks() {
+  grep "\[ \]" $AGENDA_DIR$file | sed 's/- \[ \]/⚠️/g'
+}
+
+listAllTasks() {
+cat << EOF
+TODO:
+$(grep "\[ \]" $AGENDA_DIR$file | sed 's/- \[ \]/  ⚠️/g')
+
+DONE:
+$(grep "\[x\]" $AGENDA_DIR$file | sed 's/- \[x\]/  ✅/g')
+
+PENDING:
+$(grep "\[-\]" $AGENDA_DIR$file | sed 's/- \[-\]/  📌/g')
+
+ABORTED:
+$(grep "\[#\]" $AGENDA_DIR$file | sed 's/- \[#\]/  ❌/g')
+EOF
+}
+
+
+###############################################################################
+# Main:
+###############################################################################
+
+main() {
+  createFile
+  if [ $# -eq 0 ]
+  then
+    # Open the agenda file
+    nvim "$AGENDA_DIR$file"
+  else
+    case "$1" in
+      -r | --report)
+        printReport "$AGENDA_DIR$file"
+        ;;
+      -l | --list)
+        listUncompletedTasks
+        ;;
+      -a | --list-all)
+        listAllTasks
+        ;;
+      -h | --help)
+        displayHelpMessage
+        ;;
+      *)
+        echo "Unknown option, try to use the --help flag"
+        ;;
+    esac
+  fi
+}
+
+main $1

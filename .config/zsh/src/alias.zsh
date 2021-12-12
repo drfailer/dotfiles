@@ -53,4 +53,4 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 # screen and record
 alias screen='gnome-screenshot --interactive'
-alias record='exec $HOME/.scripts/dmenu/record/record'
+alias record='exec ~/.config/suckless-builds/dmenu-scripts/record'

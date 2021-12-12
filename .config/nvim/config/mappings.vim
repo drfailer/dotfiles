@@ -177,3 +177,5 @@ autocmd BufRead,BufNewFile *.todo inoremap <buffer> <C-o> <cr>[<space>]<space>
 autocmd BufRead,BufNewFile *.todo nnoremap <buffer> <C-o> A<cr>[<space>]<space>
 autocmd BufRead,BufNewFile *.todo nnoremap <buffer> <leader>cc 0f[lrx
 autocmd BufRead,BufNewFile *.todo nnoremap <buffer> <leader>uc 0f[lr<space>
+autocmd BufRead,BufNewFile *.todo nnoremap <buffer> <leader>dd 0f[lr#
+autocmd BufRead,BufNewFile *.todo nnoremap <buffer> <leader>cs 0f[lr-
