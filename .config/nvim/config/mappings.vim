@@ -46,8 +46,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nnoremap <Leader>o o<Esc>^Da
-nnoremap <Leader>O O<Esc>^Da
+" moving lines
+nnoremap <up> :move -2<cr>
+nnoremap <down> :move +1<cr>
 
 " jump points:
 inoremap ,<tab> <Esc>/<++><Enter>"_c4l
@@ -70,6 +71,8 @@ map <F7> :set spelllang=en,cjk<cr>
 
 " select first correction for the miss-spelled word under ther cursor:
 nnoremap <M-;> <ESC>1z=
+nnoremap <leader>> [s
+nnoremap <leader>< ]s
 
 " Toggle auto comment:
 map <leader>/ :setlocal formatoptions-=cro<CR>

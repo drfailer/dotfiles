@@ -13,7 +13,7 @@ config_add () {
 # Window manager :
 config_add $HOME/.xmonad/img/
 config_add $HOME/.xmonad/README.md
-config_add /home/drfailer/.xmonad/xmonad.hs
+config_add $HOME/.xmonad/xmonad.hs
 config_add $HOME/.xmonad/**/*.hs
 config_add $HOME/.config/xmobar
 config_add $HOME/.config/picom.conf
@@ -23,9 +23,6 @@ config_add /home/drfailer/.config/nvim/
 
 # mutt :
 # use mutt wizard
-
-# qutebrowser:
-config_add $HOME/.config/qutebrowser/config.py
 
 # Ranger :
 config_add $HOME/.config/ranger/
@@ -40,12 +37,6 @@ config_add /home/drfailer/.config/zsh/src/
 
 # zathura
 config_add $HOME/.config/zathura/
-
-# conky
-config_add $HOME/.config/conky/conky.conf
-
-# Valgrind :
-# config_add $HOME/.valgrindrc
 
 # scripts:
 config_add $HOME/.scripts/utils/

@@ -2,7 +2,7 @@
 # ZSH CONFIG:                                                                  #
 # AUTHOR: drfailer                                                             #
 ################################################################################
-export PATH="$HOME/.local/share/cargo/bin${PATH:+:${PATH}}"
+export PATH="$HOME/.scripts/utils${PATH:+:${PATH}}"
 
 
 # Uncomment the following line to enable command auto-correction:

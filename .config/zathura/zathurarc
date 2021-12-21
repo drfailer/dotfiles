@@ -28,7 +28,7 @@ set highlight-active-color      "#458588"
 
 set default-bg                  "#1d2021"
 set default-fg                  "#001512"
-set recolor-lightcolor          "#282828"
+set recolor-lightcolor          "#1d2021"
 set recolor-darkcolor           "#ebdbb2"
 
 set selection-clipboard clipboard

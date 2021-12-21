@@ -3,7 +3,7 @@
 ###############################################################################
 # TITLE: Agenda
 # AUTHOR: drfailer
-# DATE: Sun Dec 12 11:45:22 AM CET 2021
+# DATE: Sat Dec 18 07:09:23 PM CET 2021
 # DESCRIPTION: TODO list app
 ###############################################################################
 
@@ -15,7 +15,8 @@
 AGENDA_DIR="$HOME/Documents/Agenda/"
 
 # look in the agenda dirctory if the current todo list exists:
-file=$(ls $AGENDA_DIR | grep "$curMondayDate$(date +%m%Y).todo")
+curMondayDate=$(expr $(date +%d) + 1 - $(date +%u))
+file="$curMondayDate$(date +%m%Y).todo"
 
 
 ###############################################################################
@@ -42,9 +43,8 @@ ENDOFMESSAGE
 ###############################################################################
 
 createFile() {
-  curMondayDate=$(expr $(date +%d) + 1 - $(date +%u))
   # if the file is not already created:
-  if [ -z $file ]
+  if [ ! -f $AGENDA_DIR$file ]
   then
     file="$curMondayDate$(date +%m%Y).todo"
 cat << EOF >> $AGENDA_DIR$file
@@ -72,19 +72,26 @@ EOF
 
 # print: TODOS/ALL
 printReport() {
-  if [ -z $1 ]
+  if [ ! -f $1 ]
   then
-    echo "Na"
+    echo "none"
   else
-    echo "$(grep "\[x\]" $1 | wc -l)/$(grep "\[.\]" $1 | wc -l)"
+    echo "$(grep "\[x\]" $1 | wc -l)/$(grep "\[[x -]\]" $1 | wc -l)"
   fi
 }
 
 listUncompletedTasks() {
-  grep "\[ \]" $AGENDA_DIR$file | sed 's/- \[ \]/⚠️/g'
+  if [ -f $AGENDA_DIR$file ]
+  then
+    grep "\[ \]" $AGENDA_DIR$file | sed 's/- \[ \]/⚠️/g'
+  else
+    echo "No TODOs for this week."
+  fi
 }
 
 listAllTasks() {
+  if [ -f $AGENDA_DIR$file ]
+  then
 cat << EOF
 TODO:
 $(grep "\[ \]" $AGENDA_DIR$file | sed 's/- \[ \]/  ⚠️/g')
@@ -98,6 +105,9 @@ $(grep "\[-\]" $AGENDA_DIR$file | sed 's/- \[-\]/  📌/g')
 ABORTED:
 $(grep "\[#\]" $AGENDA_DIR$file | sed 's/- \[#\]/  ❌/g')
 EOF
+  else
+    echo "No TODOs for this week."
+  fi
 }
 
 
@@ -106,10 +116,10 @@ EOF
 ###############################################################################
 
 main() {
-  createFile
   if [ $# -eq 0 ]
   then
     # Open the agenda file
+    createFile
     nvim "$AGENDA_DIR$file"
   else
     case "$1" in
