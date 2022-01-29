@@ -1,4 +1,4 @@
-#!bin/sh
+#!/bin/bash
 
 # permit to rename *arg1 into arg2xrag1, where x in [1; numberOfFile]
 # Usage:

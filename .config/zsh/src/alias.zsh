@@ -3,7 +3,7 @@
 ################################################################################
 # generals:
 alias v='nvim'
-alias vim='nvim'
+# alias vim='nvim'
 alias ls='ls --color=auto'
 alias la='ls -A'
 alias ll='ls -la'
@@ -14,7 +14,8 @@ alias lock='slock'
 alias graph='dot -Tpng -o'
 alias sys='systemctl --failed'
 alias journal='journalctl -p 3 -b'
-# alias vpn='sudo openvpn ~/.config/vpn/vpn-student-tcp.ovpn'
+alias vpn='sudo openvpn ~/.config/vpn/vpn-student-tcp.ovpn'
+alias zz='zathura'
 
 # book marks:
 alias gc='cd $HOME/Desktop/cours/cours_s4/'
@@ -22,7 +23,8 @@ alias gp='cd $HOME/Desktop/progs'
 alias gd='cd $HOME/Downloads'
 alias gC='cd $HOME/.config/'
 alias gsk='cd $HOME/.config/suckless-builds/'
-alias gs='cd $HOME/.scripts/'
+alias gskd='cd $HOME/.config/suckless-builds/dmenu-scripts/'
+alias gs='cd $HOME/.scripts/utils/'
 alias gdm='cd $HOME/.scripts/dmenu/'
 alias gapp='cd $HOME/.config/Application'
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-vidDir="/home/drfailer/Pictures/"
+vidDir="$HOME/Pictures/records/"
 
 declare -a formatChoices=("mp4 no sound"
                           "avi"
@@ -14,23 +14,24 @@ declare -a outputName=("out"
                        )
 
 format=$(echo "$(printf '%s\n' "${formatChoices[@]}")" | dmenu -l 20 -p 'video format: ')
-name=$(echo "$(printf '%s\n' "${outputName[@]}")" | dmenu -l 20 -p 'output name: ')
-
-
-case $format in
-  "mp4 no sound")
-    ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0+1080,0 $vidDir$name.mp4
-    ;;
-  "avi")
-    ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0+1080,0 -vcodec huffyuv $vidDir$name.avi
-    ;;
-  "mkv with alsa sound")
-    ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0 -f alsa -ac 2 -i hw:2 $vidDir$name.mkv
-    # ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0+1080,0 -f alsa -ac 2 -i hw:2 $vidDir$name.mkv
-    ;;
-  "mkv with pulse sound")
-    ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0+1080,0 -f pulse -ac 2 -i default $vidDir$name.mkv
-    ;;
-  *)
-    ;;
-esac
+if ! [ -z $format ]
+then
+  name=$(echo "$(printf '%s\n' "${outputName[@]}")" | dmenu -l 20 -p 'output name: ')
+  case $format in
+    "mp4 no sound")
+      ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0+1080,0 $vidDir$name.mp4
+      ;;
+    "avi")
+      ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0+1080,0 -vcodec huffyuv $vidDir$name.avi
+      ;;
+    "mkv with alsa sound")
+      ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0+1080,0 -f alsa -ac 2 -i hw:2 $vidDir$name.mkv
+      # ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0+1080,0 -f alsa -ac 2 -i hw:2 $vidDir$name.mkv
+      ;;
+    "mkv with pulse sound")
+      ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0+1080,0 -f pulse -ac 2 -i default $vidDir$name.mkv
+      ;;
+    *)
+      ;;
+  esac
+fi

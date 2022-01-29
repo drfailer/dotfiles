@@ -50,6 +50,16 @@ nnoremap <C-l> <C-w>l
 nnoremap <up> :move -2<cr>
 nnoremap <down> :move +1<cr>
 
+" easier spell checking:
+nnoremap <left> [s
+nnoremap <right> ]s
+
+" Quickfix list:
+nnoremap <leader>qo :copen<CR>
+nnoremap <leader>qc :cclose<CR>
+nnoremap <C-p> :previous<CR>
+nnoremap <C-n> :cnext<CR>
+
 " jump points:
 inoremap ,<tab> <Esc>/<++><Enter>"_c4l
 
@@ -80,6 +90,10 @@ map <leader># :setlocal formatoptions=cro<CR>
 
 " explorer:
 nnoremap <leader>e :vert split <bar> :Ex<CR>
+nnoremap <leader>x :Ex<CR>
+
+" make view
+nnoremap <leader>mkv :mkview<CR>
 
 " terminal mode
 tnoremap <C-h> <C-\><C-n>
@@ -94,9 +108,7 @@ autocmd FileType haskell nnoremap <buffer> <leader>B :%!runghc %<cr>
 autocmd FileType python nnoremap <buffer> <leader>B :%!python3 %<cr>
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Fixing clipboard:
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Fixing Clipboard: {{{
 " function! ClipboardYank()
 "   call system('xclip -i -selection clipboard', @@)
 " endfunction
@@ -107,11 +119,9 @@ autocmd FileType python nnoremap <buffer> <leader>B :%!python3 %<cr>
 " vnoremap <silent> y y:call ClipboardYank()<cr>
 " vnoremap <silent> d d:call ClipboardYank()<cr>
 " nnoremap <silent> p :call ClipboardPaste()<cr>p
+" }}}
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" markdown table format
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Markdown Table Format: {{{
 function! FormatTable()
   call system('~/.scripts/utils/format_table/format-table "$(xclip -o -selection clipboard)" | xclip -selection clipboard')
   sleep 100m
@@ -119,11 +129,9 @@ function! FormatTable()
 endfunction
 
 vnoremap <silent> <leader>= d:call FormatTable()<cr>
+" }}}
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" align:
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Align: {{{
 function! Align()
   let sep = input("separator:")
   call system('~/.scripts/utils/align/align "' . sep . '" "$(xclip -o -selection clipboard)" | xclip -selection clipboard')
@@ -132,11 +140,9 @@ function! Align()
 endfunction
 
 vnoremap <silent> <leader>a d:call Align()<cr>
+" }}}
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Lsp Bindings:
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Lsp Bindings: {{{
 nnoremap <leader>lr :lua vim.lsp.buf.rename()<cr>
 nnoremap <leader>la :lua vim.lsp.buf.code_action()<cr>
 nnoremap <leader>lf :lua vim.lsp.buf.formatting()<cr>
@@ -156,11 +162,9 @@ nnoremap <leader>lwr :lua vim.lsp.buf.remove_workspace_folder()<cr>
 nnoremap <leader>lwl :lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>
 " implementation
 nnoremap <leader>lI :lua vim.lsp.buf.implementation()<cr>
+" }}}
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" TODO:
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TODO: {{{
 function! Todo()
   let createFile = 0
   if !filereadable("TODO.todo")
@@ -182,3 +186,4 @@ autocmd BufRead,BufNewFile *.todo nnoremap <buffer> <leader>cc 0f[lrx
 autocmd BufRead,BufNewFile *.todo nnoremap <buffer> <leader>uc 0f[lr<space>
 autocmd BufRead,BufNewFile *.todo nnoremap <buffer> <leader>dd 0f[lr#
 autocmd BufRead,BufNewFile *.todo nnoremap <buffer> <leader>cs 0f[lr-
+" }}}

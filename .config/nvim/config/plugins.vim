@@ -26,6 +26,7 @@ Plug 'tpope/vim-commentary'
 " Themes
 Plug 'habamax/vim-habanight'
 Plug 'gruvbox-community/gruvbox'
+Plug 'dylanaraps/wal.vim'
 
 " pretty icons
 Plug 'ryanoasis/vim-devicons'
