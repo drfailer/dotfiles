@@ -34,5 +34,7 @@
 *.color256: #1d2021
 *.color257: #ebdbb2
 
-Sxiv.background: #282828
-Sxiv.foreground: #928374
+Sxiv.background: #282C34
+Sxiv.foreground: #ABB2BF
+/* Sxiv.background: #282828 */
+/* Sxiv.foreground: #928374 */

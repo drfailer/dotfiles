@@ -3,7 +3,7 @@
 ################################################################################
 # generals:
 alias v='nvim'
-# alias vim='nvim'
+alias e='nvim'
 alias ls='ls --color=auto'
 alias la='ls -A'
 alias ll='ls -la'
@@ -16,6 +16,7 @@ alias sys='systemctl --failed'
 alias journal='journalctl -p 3 -b'
 alias vpn='sudo openvpn ~/.config/vpn/vpn-student-tcp.ovpn'
 alias zz='zathura'
+alias key='setxkbmap -layout fr -option ctrl:nocaps'
 
 # book marks:
 alias gc='cd $HOME/Desktop/cours/cours_s4/'
@@ -53,3 +54,4 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 # screen and record
 alias screenshot='gnome-screenshot --interactive'
+alias reckeys='screenkey -p fixed -g 90%x7%+61%-2%'

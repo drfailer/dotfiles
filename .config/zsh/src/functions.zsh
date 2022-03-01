@@ -88,3 +88,17 @@ sk-install() {
 search() {
   find $1 -name $2 -print 2> /dev/null
 }
+
+
+###############################################################################
+#                           pandoc markdown to pdf:                           #
+###############################################################################
+mkpdf() {
+  tableopt='--from=markdown+pipe_tables'
+  if [ $# -eq 1 ]; then
+    out=$(echo $1 | sed 's/\.md$/\.pdf/') # generate output name
+    pandoc -o $out $1 $tableopt
+  elif [ $# -eq 2 ]; then
+    pandoc -o $2 $1 $tableopt
+  fi
+}

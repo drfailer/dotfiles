@@ -18,7 +18,7 @@ autoload -Uz compinit
 compinit
 
 # export PS1='%B%F{red}[%f%b%B%F{yellow}dr%f%b%B%F{green}@%f%b%B%F{blue}failer%f%b %B%F{magenta}%c%f%b%B%F{red}]%f%b%B%F{grey}$ %f%b'
-export PS1='%B%F{magenta}%c%f%b %B%F{blue}➙%f%b '
+export PS1='%B%F{magenta}%c%f%b %B%F{blue}➙ %f%b'
 # export PS1='%B%F{blue}➙%f%b '
 
 
@@ -60,9 +60,9 @@ export XDG_CURRENT_DESKTOP="xmonad"
 ################################################################################
 #                      Use bat for manual printing:                            #
 ################################################################################
+export BAT_THEME="OneHalfDark"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-# export BAT_THEME="OneHalfDark"
-export BAT_THEME="gruvbox-dark"
+# export BAT_THEME="gruvbox-dark"
 
 
 ################################################################################

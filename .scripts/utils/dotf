@@ -19,7 +19,7 @@ config_add $HOME/.config/xmobar
 config_add $HOME/.config/picom.conf
 
 # vim :
-config_add /home/drfailer/.config/nvim/
+# config_add /home/drfailer/.config/nvim/
 
 # mutt :
 # use mutt wizard
@@ -37,6 +37,9 @@ config_add /home/drfailer/.config/zsh/src/
 
 # zathura
 config_add $HOME/.config/zathura/
+
+# tmux
+config_add $HOME/.config/tmux/
 
 # scripts:
 config_add $HOME/.scripts/utils/
