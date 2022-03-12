@@ -1,0 +1,53 @@
+#!/bin/bash
+
+###############################################################################
+# NAME: trash
+# AUTHOR: drfailer
+# DATE: Sun Mar  6 02:52:12 PM CET 2022
+# DESCRIPTION: scripte that it is used to mo file to trash istead of complete
+# deletion with a standard rm.
+# FEATURES:
+# * move file to trash
+# * remove file
+# * empty trash
+# * recover file (using fzf)
+###############################################################################
+
+# variables:
+TRASH_DIR="~/.local/share/Trash/files/"
+
+# display the help message
+help() {
+  echo "USAGE: trash [OPTIONS] [FILES...]"
+  echo ""
+  echo "The default behavior is to move the given files to trash:"
+  echo "trash [FILES]"
+  echo "OPTIONS:"
+  echo "  -h, --help             print help message"
+  echo "  -d, --delete           delete the file (rm -rf)"
+  echo "  -r, --recover          recover a file"
+  echo "  -c, --clear, --clean   empty trash directory"
+}
+
+main() {
+  if [ $# -eq 0 ]; then
+    echo "error: you must provide an argument"
+    echo "run with --help to get more informations"
+  else
+    case $1 in
+      -h|--help) help ;;
+      -d|--delete)
+        # TODO: delete files
+        ;;
+      -r|--recover)
+        # TODO: recover files using fzf
+        ;;
+      *)
+        # TODO: move file to trash
+        for f in $@; do
+
+        done
+        ;;
+    esac
+  fi
+}
