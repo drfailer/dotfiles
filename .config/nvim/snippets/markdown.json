@@ -3,11 +3,13 @@
     "prefix": ["head"],
     "body": [
       "---",
-      "title: $0",
-      "date: \"`!v strftime(\"%Y-%m-%d\")`\"",
-      "author: \"$1\"",
+      "title: $1",
+      "date: ${VIM:system('date +%d-%m-%Y')}",
+      "author: \"${VIM:\\$USER}\"",
       "tags: [$2]",
-      "---"
+      "margin: 2cm",
+      "---",
+      "$0"
     ],
     "description": "head info"
   },

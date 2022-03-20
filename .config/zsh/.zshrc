@@ -4,7 +4,6 @@
 ################################################################################
 export PATH="$HOME/.scripts/utils${PATH:+:${PATH}}"
 
-
 # Uncomment the following line to enable command auto-correction:
 ENABLE_CORRECTION="true"
 
@@ -17,6 +16,7 @@ SAVEHIST=1000
 autoload -Uz compinit
 compinit
 
+# PS1
 # export PS1='%B%F{red}[%f%b%B%F{yellow}dr%f%b%B%F{green}@%f%b%B%F{blue}failer%f%b %B%F{magenta}%c%f%b%B%F{red}]%f%b%B%F{grey}$ %f%b'
 export PS1='%B%F{magenta}%c%f%b %B%F{blue}➙ %f%b'
 # export PS1='%B%F{blue}➙%f%b '
@@ -25,6 +25,7 @@ export PS1='%B%F{magenta}%c%f%b %B%F{blue}➙ %f%b'
 ################################################################################
 #                                 Sources:                                     #
 ################################################################################
+source ~/.config/zsh/src/variables.zsh
 source ~/.config/zsh/src/alias.zsh
 source ~/.config/zsh/src/functions.zsh
 
@@ -35,8 +36,6 @@ source ~/.config/zsh/src/functions.zsh
 source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.config/zsh/plugins/zsh-vi-mode.zsh
-
-
 
 
 ################################################################################
