@@ -2,7 +2,7 @@
 # ZSH CONFIG:                                                                  #
 # AUTHOR: drfailer                                                             #
 ################################################################################
-export PATH="$HOME/.scripts/utils${PATH:+:${PATH}}"
+export PATH="$HOME/.config/zsh/scripts${PATH:+:${PATH}}"
 
 # Uncomment the following line to enable command auto-correction:
 ENABLE_CORRECTION="true"
@@ -25,9 +25,9 @@ export PS1='%B%F{magenta}%c%f%b %B%F{blue}➙ %f%b'
 ################################################################################
 #                                 Sources:                                     #
 ################################################################################
-source ~/.config/zsh/src/variables.zsh
-source ~/.config/zsh/src/alias.zsh
-source ~/.config/zsh/src/functions.zsh
+source ~/.config/zsh/config/variables.zsh
+source ~/.config/zsh/config/alias.zsh
+source ~/.config/zsh/config/functions.zsh
 
 
 ################################################################################

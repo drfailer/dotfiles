@@ -2,7 +2,7 @@
 #                                 Alias :                                      #
 ################################################################################
 # generals:
-alias v='nvim'
+alias v='view'
 alias e='nvim'
 alias ls='ls --color=auto'
 alias la='ls -A'
@@ -34,7 +34,7 @@ alias gapp='cd $HOME/.config/Application'
 
 # configs:
 alias vs='nvim $HOME/.config/zsh/.zshrc'
-alias va='nvim $HOME/.config/zsh/src/alias.zsh'
+alias va='nvim $HOME/.config/zsh/config/alias.zsh'
 alias vc='nvim $HOME/.config/nvim/init.vim'
 alias vf='nvim $HOME/.local/share/library.txt'
 
