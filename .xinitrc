@@ -55,5 +55,6 @@ setxkbmap -layout fr -option ctrl:nocaps
 nitrogen --restore &
 picom &
 slstatus &
-exec dwm
-# exec xmonad
+# exec dwm
+exec xmonad
+# exec stumpwm

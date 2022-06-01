@@ -39,8 +39,7 @@ alias vc='nvim $HOME/.config/nvim/init.vim'
 alias vf='nvim $HOME/.local/share/library.txt'
 
 # Scripts:
-alias dotf='~/.scripts/utils/dotf'
-alias ta='~/.scripts/utils/agenda'
+alias pycalc='python3 -i ~/.config/zsh/scripts/calc.py'
 
 # Alias for c compilation:
 alias ccc='gcc -Wall -Wextra -o'

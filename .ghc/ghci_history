@@ -1,0 +1,100 @@
+True || False
+t1 - t2
+t2
+t2 = [8,9,5,4, 0]
+t2
+t2 = t2 ++ [0]
+t2
+t1
+t2 ++ [0]
+t2
+t2 = [8,9,5,4]
+t1
+t1 = [1,0,0,3,4]
+:t >>=
+:t >>
+filter (\x -> x /= ' ') "2 + 2"
+filter (\x -> x /= ' ') s
+result "2 + 2"
+import CalcLib
+testParse "2+2+4"
+:r
+testParse "2+2+4"
+testParse "2+2+2"
+:r
+testParse "2+2+2"
+:r
+testParse "2+2+2"
+:r
+testParse "2+2+2"
+:r
+testParse "2+2+2"
+:r
+testParse "2+2+2"
+:r
+testParse "2+2+2"
+:r
+testParse "2+2+2"
+:r
+:r
+:r
+testParse "2+2+2"
+:r
+testParse "2+2+2"
+:r
+:t parseSubs 
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+parseSubs "2+2+2+(2+2)"
+parseSubs "2+2+2+2+2"
+parseSubs "2+2"
+:r
+parseSubs "2+2"
+parseSubs "2+2+2+2"
+:r
+parseSubs "2+2+2+2"
+parseSubs "2+2+2"
+:r
+:r
+:e
+:r
+:r
+parseSubs "2+2+"
+parseSubs "2+2+2"
+parseSubs "2+2"
+parseSubs "2+2+2+2"
+:r
+:r
+:r
+:r
+:r
+fromJust (Just 5)
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+:rp
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+:r

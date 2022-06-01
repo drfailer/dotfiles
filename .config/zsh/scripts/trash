@@ -38,6 +38,7 @@ main() {
       -h|--help) help ;;
       -d|--delete)
         # TODO: delete files
+	  rm -rf $2
         ;;
       -r|--recover)
         # TODO: recover files using fzf
@@ -51,3 +52,5 @@ main() {
     esac
   fi
 }
+
+main

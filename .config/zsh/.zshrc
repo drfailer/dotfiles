@@ -21,6 +21,9 @@ compinit
 export PS1='%B%F{magenta}%c%f%b %B%F{blue}➙ %f%b'
 # export PS1='%B%F{blue}➙%f%b '
 
+# emacs mode
+bindkey -e
+
 
 ################################################################################
 #                                 Sources:                                     #
@@ -35,7 +38,7 @@ source ~/.config/zsh/config/functions.zsh
 ################################################################################
 source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.config/zsh/plugins/zsh-vi-mode.zsh
+# source $HOME/.config/zsh/plugins/zsh-vi-mode.zsh
 
 
 ################################################################################
