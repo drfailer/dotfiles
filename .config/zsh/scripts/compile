@@ -1,58 +1,33 @@
 #!/bin/bash
 
+compileC() {
+    execFileName=$(echo "$1" | sed 's/\.c//g')
+    ldflags=""
 
-###############################################################################
-# TODO: update this
-###############################################################################
+    # test if math.h is included:
+    if [ ! -z "$(grep "<math.h>" $1)" ]; then
+        ldflags="-lm"
+    fi
 
-concatFlags() {
-  if [ -z $1 ]
-  then
-    echo "$2"
-  else
-    echo "$1 $2"
-  fi
-}
-
-compile_clang() {
-  execFileName=$(echo "$1" | sed 's/\.c//g')
-  flags=""
-
-        # test if math.h is included:
-        if [ ! -z "$(grep "<math.h>" $1)" ]
-        then
-          flags="-lm"
-        fi
-        if [ ! -z "$(grep "<ncurses.h>" $1)" ]
-        then
-          flags=$(concatFlags flags "-lncurses")
-        fi
-
-        # TODO: add more for sdl, xlib, ...
-
-        # compile command:
-        gcc -Wall -Wextra -o $execFileName $1 $flags
-      }
-
-compile() {
-  case $1 in
-    *.c)
-      compile_clang $1
-      ;;
-    *)
-      echo "unknow filetype"
-      ;;
-  esac
+    # compile command:
+    gcc -Wall -Wextra -o $execFileName $1 $flags
 }
 
 # user pandoc to make a pdf from a markdown file
-# TODO: make a script
-mkpdf() {
-  tableopt='--from=markdown+pipe_tables'
-  if [ $# -eq 1 ]; then
+mdpandoc() {
+    tableopt='--from=markdown+pipe_tables'
     out=$(echo $1 | sed 's/\.md$/\.pdf/') # generate output name
     pandoc -o $out $1 $tableopt
-  elif [ $# -eq 2 ]; then
-    pandoc -o $2 $1 $tableopt
-  fi
+}
+
+compile() {
+    case $1 in
+	*.c) compileC $1 ;;
+	*.md) mdpandoc $1 ;;
+	*.tex) pdflatex $1 ;;
+	*.py) python3 $1 ;;
+	*.hs) ghc -dynamic $1 ;;
+	*.java) javac $1 ;;
+	*) echo "unknow filetype" ;;
+    esac
 }

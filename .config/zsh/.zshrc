@@ -69,13 +69,24 @@ search() {
   find $1 -name $2 -print 2> /dev/null
 }
 
+# open a file using the right program
 view() {
   case $1 in
     *.jpg|*.png|*.jpeg) nsxiv $1 & ;;
     *.pdf) zathura $1 ;;
     *.csv|*.docx) libreoffice $1 & ;;
-    *) echo "error: unknown format"
+    *) echo "ERROR: unknown format"
   esac
+}
+
+# extract file
+extr() {
+    case $1 in
+	*.zip) unsip $1 ;;
+	*.tar.gz) tar -xvzf $1 ;;
+	*.tar) tar -xvf $1 ;;
+	*) echo "ERROR: unknown format"
+    esac
 }
 
 # search a process pid

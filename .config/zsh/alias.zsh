@@ -5,6 +5,7 @@
 alias v='view'
 alias vim='vim'
 alias e='eedit'
+alias fe='fzf-eedit'
 alias ls='ls --color=auto'
 alias la='ls -A'
 alias ll='ls -la'
@@ -16,6 +17,7 @@ alias sys='systemctl --failed'
 alias journal='journalctl -p 3 -b'
 alias vpn='sudo openvpn ~/.config/vpn/vpn-student-tcp.ovpn'
 alias zz='zathura'
+alias comp='compile'
 
 # book marks:
 alias gc='cd $HOME/Desktop/cours/s2/'
@@ -27,11 +29,16 @@ alias gskm='cd $HOME/.config/suckless-builds/dmenu/'
 alias gskt='cd $HOME/.config/suckless-builds/st/'
 alias gz='cd $HOME/.config/zsh/'
 
-# configs:
+# quick access configs with vim:
 alias vs='nvim $HOME/.config/zsh/.zshrc'
 alias va='nvim $HOME/.config/zsh/config/alias.zsh'
 alias vc='nvim $HOME/.config/nvim/init.vim'
 alias vf='nvim $HOME/.local/share/library.txt'
+
+# quick access configs with emacsclient:
+alias es='eedit $HOME/.config/zsh/.zshrc'
+alias ea='eedit $HOME/.config/zsh/alias.zsh'
+alias ei='eedit $HOME/.emacs.d/init.el'
 
 # java compilation:
 alias jcomp='javac *.java'
