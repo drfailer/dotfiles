@@ -5,16 +5,19 @@ urls=()
 
 if [ $# -eq 1 ]
 then
-  # withdraw urls in the given file
-  for l in $(cat $PWD/$1); do
-    urls+=($l)
-  done
+    if [ -f $PWD/$1 ]
+    then
+	# withdraw urls in the given file
+	for l in $(cat $PWD/$1); do
+	    urls+=($l)
+	done
 
-  # download music
-  for url in ${urls[@]}; do
-    youtube-dl -x --audio-format mp3 $url
-  done
-else
-  echo "error: wrong argument"
-  echo "require list of urls file"
+	# download music
+	for url in ${urls[@]}; do
+	    youtube-dl -x --audio-format mp3 $url
+	done
+    else
+	youtube-dl -x --audio-format mp3 $1
+    fi
 fi
+notify-send "Download complete:" "$1"

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# this script should startup emacs deamon if it is not already running
+procs=$(ps aux)
+
+if [[ -z $(echo $procs | grep "emacs --daemon") ]]
+then
+    emacs --daemon
+    notify-send "emacs daemon started"
+fi

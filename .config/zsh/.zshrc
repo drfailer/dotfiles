@@ -16,21 +16,21 @@ SAVEHIST=1000
 autoload -Uz compinit
 compinit
 
+# version control
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats '%b '
+
 # PS1
 # export PS1='%B%F{red}[%f%b%B%F{yellow}dr%f%b%B%F{green}@%f%b%B%F{blue}failer%f%b %B%F{magenta}%c%f%b%B%F{red}]%f%b%B%F{grey}$ %f%b'
-export PS1='%B%F{magenta}%c%f%b %B%F{blue}➙ %f%b'
-# export PS1='%B%F{blue}➙%f%b '
+setopt PROMPT_SUBST
+export PS1='%B%F{magenta}%c%f%b ${vcs_info_msg_0_}%B%F{blue}➙ %f%b'
 
 # emacs mode
 bindkey -e
 
-
-################################################################################
-#                                 Sources:                                     #
-################################################################################
-source ~/.config/zsh/config/variables.zsh
-source ~/.config/zsh/config/alias.zsh
-source ~/.config/zsh/config/functions.zsh
+# alias file
+source ~/.config/zsh/alias.zsh
 
 
 ################################################################################
@@ -38,38 +38,69 @@ source ~/.config/zsh/config/functions.zsh
 ################################################################################
 source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source $HOME/.config/zsh/plugins/zsh-vi-mode.zsh
 
 
 ################################################################################
-#                             customize pfetch:                                #
+#				 some variables                                #
 ################################################################################
-export PF_INFO="ascii title os host kernel uptime pkgs memory"
-export PF_SEP=":"
-export PF_COLOR=1
-export PF_COL1=4
-export PF_COL2=3
-export PF_COL3=5
-export PF_ALIGN="10"
-# export PF_ASCII="linux"
 export USER="drfailer"
 export HOSTNAME="drfailer-computer"
-export EDITOR="nvim"
+export EDITOR="emacs"
 export SHELL="zsh"
-export XDG_CURRENT_DESKTOP="xmonad"
+# export XDG_CURRENT_DESKTOP="xmonad"
+export XDG_CURRENT_DESKTOP="i3"
 
 
 ################################################################################
 #                      Use bat for manual printing:                            #
 ################################################################################
 # export BAT_THEME="OneHalfDark"
-export BAT_THEME="base16"
+# export BAT_THEME="base16"
+export BAT_THEME="gruvbox-dark"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-# export BAT_THEME="gruvbox-dark"
 
 
 ################################################################################
-# Startup :
+#                                  functions                                   #
 ################################################################################
-# xrdb -load ~/.config/X11/xresources
-# pfetch
+
+# simplify the `find` command
+search() {
+  find $1 -name $2 -print 2> /dev/null
+}
+
+view() {
+  case $1 in
+    *.jpg|*.png|*.jpeg) nsxiv $1 & ;;
+    *.pdf) zathura $1 ;;
+    *.csv|*.docx) libreoffice $1 & ;;
+    *) echo "error: unknown format"
+  esac
+}
+
+# search a process pid
+pss() {
+  echo "OWNER\t\t\tPID\t\t\tNAME"
+  ps aux | grep zsh | awk '{ printf "%s\t\t\t%s\t\t\t%s\n", $1, $2, $NF}'
+}
+
+# yank last command
+yyc() {
+  fc -ln -1 | xclip -i -selection clipboard
+}
+
+# increase input capture and change capslock to ctrl
+key() {
+  xset r rate 300 50
+  setxkbmap -layout fr -option ctrl:nocaps
+}
+
+# open file in emacs client
+eedit() {
+    emacsclient -e "(find-file \"$1\")"
+}
+
+# eedit using fzf (working in emacs term if emacs server is on)
+fzf-eedit() {
+    eedit $(fzf)
+}

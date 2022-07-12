@@ -1,0 +1,48 @@
+#!/bin/bash
+
+declare -a choices=("100%"
+		    "75%"
+		    "60%"
+		    "50%"
+		    "25%"
+		    "mute"
+		    "unmute"
+		   )
+
+userChoice=$(echo "$(printf '%s\n' "${choices[@]}")" | dmenu -l 20 -p 'sound: ')
+
+setsoundPC() {
+    case "$1" in
+	"")
+	;;
+	"mute")
+	    amixer -c 2 sset PCM mute
+	    ;;
+	"unmute")
+	    amixer  -c 2 sset PCM unmute
+	    ;;
+	*)
+	    amixer -c 2 sset PCM $1
+	    amixer -c 2 sset PCM unmute
+	    ;;
+    esac
+}
+
+setsoundLaptop() {
+    case "$userChoice" in
+	"")
+	;;
+	"mute")
+	    pamixer -m
+	    ;;
+	"unmute")
+	    pamixer -u
+	    ;;
+	*)
+	    pamixer -u
+	    pamixer --set-volume $userChoice
+	    ;;
+    esac
+}
+
+setsoundPC $userChoice
