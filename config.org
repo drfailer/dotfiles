@@ -1,0 +1,15 @@
+#+title: CONFIG
+#+author: drfailer
+#+description: Note on config install.
+
+
+* Requirements
+
+- i3-wm, i3status 
+- emacs
+- dmenu (build from source for ~joypixel~ font support)
+- st (build from source)
+- zsh
+- dunst, libnotify
+- networkmanager, openvpn, networkmanager-openvpn
+- joypixel font (optional)
