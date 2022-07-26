@@ -41,7 +41,7 @@ source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting
 
 
 ################################################################################
-#				 some variables                                #
+#                                Some variables:                               #
 ################################################################################
 export USER="drfailer"
 export HOSTNAME="drfailer-computer"
@@ -61,49 +61,49 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 
 ################################################################################
-#                                  functions                                   #
+#                                 Functions:                                   #
 ################################################################################
 
 # simplify the `find` command
 search() {
-  find $1 -name $2 -print 2> /dev/null
+    find $1 -name $2 -print 2> /dev/null
 }
 
 # open a file using the right program
 view() {
-  case $1 in
-    *.jpg|*.png|*.jpeg) nsxiv $1 & ;;
-    *.pdf) zathura $1 ;;
-    *.csv|*.docx) libreoffice $1 & ;;
-    *) echo "ERROR: unknown format"
-  esac
+    case $1 in
+        *.jpg|*.png|*.jpeg) nsxiv $1 & ;;
+        *.pdf) zathura $1 ;;
+        *.csv|*.docx) libreoffice $1 & ;;
+        *) echo "ERROR: unknown format"
+    esac
 }
 
 # extract file
 extr() {
     case $1 in
-	*.zip) unsip $1 ;;
-	*.tar.gz) tar -xvzf $1 ;;
-	*.tar) tar -xvf $1 ;;
-	*) echo "ERROR: unknown format"
+        *.zip) unsip $1 ;;
+        *.tar.gz) tar -xvzf $1 ;;
+        *.tar) tar -xvf $1 ;;
+        *) echo "ERROR: unknown format"
     esac
 }
 
 # search a process pid
 pss() {
-  echo "OWNER\t\t\tPID\t\t\tNAME"
-  ps aux | grep zsh | awk '{ printf "%s\t\t\t%s\t\t\t%s\n", $1, $2, $NF}'
+    procs=$(ps aux)
+    echo $procs | grep $1 | awk '{ $3=$4=$5=$6=$7=$8=$9=$10="" }1' | column -t -N "OWNER,PID,NAME"
 }
 
 # yank last command
 yyc() {
-  fc -ln -1 | xclip -i -selection clipboard
+    fc -ln -1 | xclip -i -selection clipboard
 }
 
 # increase input capture and change capslock to ctrl
 key() {
-  xset r rate 300 50
-  setxkbmap -layout fr -option ctrl:nocaps
+    xset r rate 300 50
+    setxkbmap -layout fr -option ctrl:nocaps
 }
 
 # open file in emacs client
