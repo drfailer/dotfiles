@@ -82,7 +82,7 @@ view() {
 # extract file
 extr() {
     case $1 in
-        *.zip) unsip $1 ;;
+        *.zip) unzip $1 ;;
         *.tar.gz) tar -xvzf $1 ;;
         *.tar) tar -xvf $1 ;;
         *) echo "ERROR: unknown format"
@@ -93,6 +93,11 @@ extr() {
 pss() {
     procs=$(ps aux)
     echo $procs | grep $1 | awk '{ $3=$4=$5=$6=$7=$8=$9=$10="" }1' | column -t -N "OWNER,PID,NAME"
+}
+
+# decript a file using gpg
+decrypt() {
+    gpg -d $1 > $(echo $1 | sed 's/.gpg//')
 }
 
 # yank last command

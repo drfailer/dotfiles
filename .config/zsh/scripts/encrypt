@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# DESC: encrypt a file or a directory (zip automatically in that case).
+
+set -euo pipefail
+
+gpgencrypt() {
+    gpg --batch --output $1 --symmetric $2
+}
+
+outputName() {
+    out="$1"
+    if [ $# -eq 3 ] && [ $2 == "-o" ]; then
+	out="$3"
+    fi
+    echo $out
+}
+
+if [ $# -ge 1 ]; then
+    if [ -f $1 ]; then # encrypt simple file
+	out="$(outputName $@).gpg"
+	gpgencrypt $out $1
+    elif [ -d $1 ]; then # encrypt directory
+	out="$(outputName $@).zip.gpg"
+	zipname="$1.zip"
+	zip -r $zipname $1
+	gpgencrypt $out $zipname
+	wait
+	rm $zipname
+    else
+	echo "ERROR: the argument must be a file or a directory."
+	echo "Usage:"
+	echo "encrypt [FILE|DIRECTORY]"
+	echo "encrypt [FILE|DIRECTORY] [-o OUTPUTNAME]"
+    fi
+else
+    echo "ERROR: wrong number of arguments."
+fi

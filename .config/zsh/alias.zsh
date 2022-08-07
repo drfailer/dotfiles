@@ -18,6 +18,7 @@ alias journal='journalctl -p 3 -b'
 alias vpn='sudo openvpn ~/.config/vpn/vpn-student-tcp.ovpn'
 alias zz='zathura'
 alias comp='compile'
+alias so='source ~/.config/zsh/.zshrc'
 
 # book marks:
 alias gc='cd $HOME/Desktop/cours/s2/'
@@ -28,10 +29,11 @@ alias gsk='cd $HOME/.config/suckless-builds/'
 alias gskm='cd $HOME/.config/suckless-builds/dmenu/'
 alias gskt='cd $HOME/.config/suckless-builds/st/'
 alias gz='cd $HOME/.config/zsh/'
+alias gm='cd $HOME/.local/share/music/'
 
 # quick access configs with vim:
 alias vs='nvim $HOME/.config/zsh/.zshrc'
-alias va='nvim $HOME/.config/zsh/config/alias.zsh'
+alias va='nvim $HOME/.config/zsh/alias.zsh'
 alias vc='nvim $HOME/.config/nvim/init.vim'
 alias vf='nvim $HOME/.local/share/library.txt'
 
