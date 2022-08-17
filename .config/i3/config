@@ -59,6 +59,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Shift+Return exec i3-sensible-terminal
 
+# i3lock
+bindsym $mod+Shift+x exec i3lock
+
 # kill focused window
 bindsym $mod+Shift+c kill
 
@@ -66,6 +69,8 @@ bindsym $mod+Shift+c kill
 bindsym $mod+p exec --no-startup-id dmenu_run
 bindsym $mod+f exec searchmenu
 bindsym $mod+Shift+i exec emojimenu
+bindsym $mod+x exec powermenu
+bindsym $mod+Shift+m exec manmenu
 
 # change focus
 bindsym $mod+h focus left

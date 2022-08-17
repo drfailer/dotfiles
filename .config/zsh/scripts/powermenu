@@ -1,0 +1,28 @@
+#!/bin/bash
+
+declare -a choices=("poweroff"
+		    "reboot"
+		    "logout"
+		    "lock"
+		    "abort"
+		   )
+
+userChoice=$(echo "$(printf '%s\n' "${choices[@]}")" | dmenu -l 20 -p 'power: ')
+
+case $userChoice in
+    "poweroff")
+	poweroff
+	;;
+    "reboot")
+	reboot
+	;;
+    "logout")
+	i3-msg exit
+	logout
+	;;
+    "lock")
+	i3lock
+	;;
+    *)
+	;;
+esac

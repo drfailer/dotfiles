@@ -95,6 +95,11 @@ pss() {
     echo $procs | grep $1 | awk '{ $3=$4=$5=$6=$7=$8=$9=$10="" }1' | column -t -N "OWNER,PID,NAME"
 }
 
+# ls search
+lss() {
+    ls | grep $1
+}
+
 # decript a file using gpg
 decrypt() {
     gpg -d $1 > $(echo $1 | sed 's/.gpg//')
