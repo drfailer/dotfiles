@@ -5,11 +5,11 @@
 
 * Requirements
 
-- i3-wm, i3status 
+- i3-wm, i3status, i3lock
 - emacs
 - dmenu (build from source for ~joypixel~ font support)
 - st (build from source)
 - zsh
 - dunst, libnotify
-- networkmanager, openvpn, networkmanager-openvpn
+- networkmanager, openvpn, networkmanager-openvpn, nm-applet
 - joypixel font (optional)
