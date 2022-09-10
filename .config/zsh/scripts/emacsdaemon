@@ -1,10 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 
-# this script should startup emacs deamon if it is not already running
-procs=$(ps aux)
+# get emacs process (and only this line, don't catch the line with grep process)
+emacs_proc=$(echo $procs | grep "[0-9] emacs --daemon")
 
-if [[ -z $(echo $procs | grep "emacs --daemon") ]]
+if [[ -z $emacs_proc ]] # be shure to kill emacs if it's running
 then
     emacs --daemon
     notify-send "emacs daemon started"
+else
+    kill $(echo $emacs_proc | awk '{ print $2 }')
+    emacs --daemon
+    notify-send "emacs daemon restarted"
 fi
