@@ -60,7 +60,8 @@ floating_modifier $mod
 bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 # i3lock
-bindsym $mod+Shift+x exec i3lock
+bindsym $mod+Shift+x exec i3lock -c 000000
+
 
 # kill focused window
 bindsym $mod+Shift+c kill
