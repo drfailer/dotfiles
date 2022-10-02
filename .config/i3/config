@@ -62,7 +62,6 @@ bindsym $mod+Shift+Return exec i3-sensible-terminal
 # i3lock
 bindsym $mod+Shift+x exec i3lock -c 000000
 
-
 # kill focused window
 bindsym $mod+Shift+c kill
 
@@ -206,6 +205,10 @@ bar {
 
 # gnome screenshot
 bindsym --release Print exec "gnome-screenshot -a"
+
+# brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # emacs
 bindsym $mod+Return exec emacsclient -c
