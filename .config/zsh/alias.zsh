@@ -3,8 +3,8 @@
 ################################################################################
 # generals:
 alias v='view'
-alias vim='vim'
-alias e='eedit'
+alias e='nvim'
+alias em='eedit'
 alias fe='fzf-eedit'
 alias ls='ls --color=auto'
 alias la='ls -A'
@@ -17,13 +17,12 @@ alias sys='systemctl --failed'
 alias journal='journalctl -p 3 -b'
 alias vpn='sudo openvpn ~/.config/vpn/vpn-student-tcp.ovpn'
 alias zz='zathura'
-alias comp='compile'
 alias so='source ~/.config/zsh/.zshrc'
 
 # book marks:
-alias gc='cd $HOME/Desktop/cours/s2/'
-alias gp='cd $HOME/Desktop/progs'
+alias gc='cd $HOME/Documents/cours'
 alias gd='cd $HOME/Downloads'
+alias gp='cd $HOME/Documents/dev/progs'
 alias gdd='cd $HOME/Documents/dev/'
 alias gC='cd $HOME/.config/'
 alias gsk='cd $HOME/.config/suckless-builds/'
@@ -31,11 +30,12 @@ alias gskm='cd $HOME/.config/suckless-builds/dmenu/'
 alias gskt='cd $HOME/.config/suckless-builds/st/'
 alias gz='cd $HOME/.config/zsh/'
 alias gm='cd $HOME/.local/share/music/'
+alias gv='cd $HOME/.config/nvim/'
 
 # quick access configs with vim:
 alias vs='nvim $HOME/.config/zsh/.zshrc'
 alias va='nvim $HOME/.config/zsh/alias.zsh'
-alias vc='nvim $HOME/.config/nvim/init.vim'
+alias vc='nvim $HOME/.config/nvim/init.lua'
 alias vf='nvim $HOME/.local/share/library.txt'
 
 # quick access configs with emacsclient:

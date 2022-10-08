@@ -89,6 +89,19 @@ extr() {
     esac
 }
 
+# compile
+comp() {
+  case $1 in
+    *.tex) pdflatex $1 ;;
+    *.md) pandoc -o $(echo $1 | sed 's/\.md/\.pdf') $1 ;;
+    *.java) javac $1 ;;
+    *.c) gcc -Wall -Wextra -Wuninitialized -o prog $1 ;;
+    *.hs) ghc -dynamic $1 ;;
+    *.py) python3 $1 ;;
+    *) echo "ERROR: unknown format"
+  esac
+}
+
 # search a process pid
 pss() {
     procs=$(ps aux)
