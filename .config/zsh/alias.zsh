@@ -18,6 +18,7 @@ alias journal='journalctl -p 3 -b'
 alias vpn='sudo openvpn ~/.config/vpn/vpn-student-tcp.ovpn'
 alias zz='zathura'
 alias so='source ~/.config/zsh/.zshrc'
+alias tmuxh='nvim ~/.config/tmux/tmux.md'
 
 # book marks:
 alias gc='cd $HOME/Documents/cours'
