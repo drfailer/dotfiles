@@ -32,6 +32,10 @@ alias gz='cd $HOME/.config/zsh/'
 alias gm='cd $HOME/.local/share/music/'
 alias gv='cd $HOME/.config/nvim/'
 
+# fzutils
+alias mvv='fzutils mv'
+alias ccp='fzutils cp'
+
 # quick access configs with vim:
 alias vs='nvim $HOME/.config/zsh/.zshrc'
 alias va='nvim $HOME/.config/zsh/alias.zsh'
@@ -51,3 +55,11 @@ alias jcompclass='javac -Xlint:all'
 # screen and record
 alias screenshot='gnome-screenshot --interactive'
 alias reckeys='screenkey -p fixed -g 90%x7%+61%-2%'
+
+cdd() {
+  if [ $# -eq 1 ]; then
+    cd $(fzutils cd $1)
+  else
+    cd $(fzutils cd)
+  fi
+}

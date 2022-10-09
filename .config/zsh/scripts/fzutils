@@ -1,0 +1,57 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# secify directory and collect options
+chose_files() {
+  case $1 in
+    do) echo $(find ~/Downloads/ | fzf -m) ;;
+    dc) echo $(find ~/Documents/ | fzf -m) ;;
+    de) echo $(find ~/Desktop/ | fzf -m) ;;
+    c) echo $(find ~/.config/ | fzf -m) ;;
+    l) echo $(find ~/.local/ | fzf -m) ;;
+    *) echo $(find $HOME | fzf -m) ;;
+  esac
+}
+
+# secify directory and collect option
+chose_directory() {
+  case $1 in
+    do) echo $(find ~/Downloads/ -type d | fzf) ;;
+    dc) echo $(find ~/Documents/ -type d | fzf) ;;
+    de) echo $(find ~/Desktop/ -type d | fzf) ;;
+    c) echo $(find ~/.config/ -type d | fzf) ;;
+    l) echo $(find ~/.local/ -type d | fzf) ;;
+    *) echo $(find $HOME -type d | fzf) ;;
+  esac
+}
+
+# the user can specify a location
+if [ $# -eq 2 ]; then
+  location=$2
+else
+  location=none
+fi
+
+# handle main options
+case $1 in
+  cd) chose_directory $location
+    ;;
+  mv)
+    choices=$(chose_files $location)
+
+    # move the chosen files
+    for c in $choices; do
+      mv $c $PWD
+    done
+    ;;
+  cp)
+    choices=$(chose_files $location)
+
+    # copy the chosen files
+    for c in $choices; do
+      cp -r $c $PWD
+    done
+    ;;
+  *) echo "ERROR: unknown option." ;;
+esac
