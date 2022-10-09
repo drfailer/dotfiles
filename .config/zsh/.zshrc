@@ -138,3 +138,16 @@ eedit() {
 fzf-eedit() {
     eedit $(fzf)
 }
+
+# inverted remove
+rrm() {
+  saved_files="$1" # TODO: find a way to treat $1 one time
+
+  for e in $@; do
+    saved_files=$(echo "$saved_files|$e")
+  done
+
+  for r in $(ls | grep -E $saved_files -v); do
+    rm -rf $r
+  done
+}
