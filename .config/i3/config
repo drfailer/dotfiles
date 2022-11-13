@@ -201,6 +201,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        position top
 }
 
 # gnome screenshot
@@ -215,3 +216,7 @@ bindsym $mod+Return exec emacsclient -c
 bindsym $mod+e exec emacsclient -c -e '(eshell)'
 bindsym $mod+Shift+e exec emacsclient -c -e '(term \"zsh\")'
 bindsym $mod+d exec emacsclient -c -e '(dired \"~\")'
+
+# scripts
+bindsym $mod+n exec note -r
+bindsym $mod+Shift+n exec note -e
