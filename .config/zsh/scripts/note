@@ -30,9 +30,10 @@ Available options:
   -r, --read    launch the app in read mode
   -h, --help    display help message
 
-Note:
-  If the app is launched without any option, it automatically startup in read
+Notes:
+* If the app is launched without any option, it automatically startup in read
   mode.
+* With the `noexport`, the script will not generate a pdf for the current note.
 ENDOFMESSAGE
 }
 
@@ -101,7 +102,7 @@ cat << EOF > $file
 ---
 title: $(echo "$topic" | sed -e 's/.*/\u&/g' | sed -e 's/_/ /g')
 author: $USER
-tag: [$tag]
+tag: [$tag, noexport]
 ---
 EOF
     fi
@@ -113,9 +114,11 @@ EOF
   fi
 }
 
-# use pandoc to create a pdf
+# use pandoc to create a pdf if required
 compile() {
-  pandoc -V geometry:margin=1in -o "$(echo $1 | sed -e 's/.md/.pdf/g' | sed -e 's/src/build/g')" $1 2> /dev/null
+  if [ -z $(grep "^tag: " $1 | grep "noexport") ]; then
+    pandoc -V geometry:margin=1in -o "$(echo $1 | sed -e 's/.md/.pdf/g' | sed -e 's/src/build/g')" $1 2> /dev/null
+  fi
 }
 
 # Function that handle edit mode (the app has been lauched using -e flag)

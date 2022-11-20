@@ -2,4 +2,6 @@
 
 # get all the process
 chosenpid=$(ps aux | fzf | awk '{print $2}')
-kill $chosenpid
+if [ ! -z $chosenpid ]; then
+  kill $chosenpid
+fi
