@@ -3,10 +3,12 @@
 ###############################################################################
 # TITLE: note
 # AUTHOR: drfailer
-# DATE: Sun Dec 12 11:11:54 AM CET 2021
+# DATE: Wed Nov 23 11:35:08 AM CET 2022
 # DESCRIPTION: Simple note taking system using dmenu
 # REQUIREMENTS: dmenu, pandoc
 ###############################################################################
+
+set -euo pipefail
 
 ###############################################################################
 # Global variables:
@@ -26,8 +28,10 @@ cat << ENDOFMESSAGE
 Usage: note <option>
 
 Available options:
-  -e, --edit    launch the app in edit mode
-  -r, --read    launch the app in read mode
+  -e, edit      launch the app in edit mode
+  -r, read      launch the app in read mode
+  -a, add       add notes or images
+  -i, insert    insert an image from the image directory
   -h, --help    display help message
 
 Notes:
@@ -42,11 +46,11 @@ ENDOFMESSAGE
 ###############################################################################
 
 readTag() {
-  tag=$(ls $1 | dmenu -l 20 -p "Chose a Tag: ")
+  tag=$(ls $1 | dmenu -i -l 20 -p "Chose a Tag: ")
 }
 
 readTopic() {
-  file=$(ls $1 | sed -e 's/.pdf//g' | dmenu -l 20 -p "Chose a Topic: ")
+  file=$(ls $1 | sed -e 's/.pdf//g' | dmenu -i -l 20 -p "Chose a Topic: ")
 }
 
 warningMessage() {
@@ -65,7 +69,7 @@ warningMessage() {
 
 # Tag selection (directory):
 choseTag() {
-  tag=$(printf "$(ls $1)\nremove-mode\n" | dmenu -l 20 -p "Select a Tag: ")
+  tag=$(printf "$(ls $1)\nremove-mode\n" | dmenu -i -l 20 -p "Select a Tag: ")
   path="$1/$tag"
   if [[ $tag != '' && $tag != "remove-mode" ]]; then
     # create directory in build:
@@ -83,7 +87,7 @@ choseTag() {
       mkdir -p $path
     fi
   elif [[ $tag == "remove-mode" ]]; then
-    toremove=$(ls $1 | dmenu -l 20 -p "! remove-mode: ")
+    toremove=$(ls $1 | dmenu -i -l 20 -p "! remove-mode: ")
     if [[ $toremove != '' ]]; then
       warningMessage "$1/$toremove"
     fi
@@ -93,7 +97,7 @@ choseTag() {
 
 # Topic selection (markdown file):
 choseTopic() {
-  topic=$(printf "$(ls $1)\nremove-mode\n" | sed -e 's/\.md//g' | dmenu -l 20 -p "Select a Topic: ")
+  topic=$(printf "$(ls $1)\nremove-mode\n" | sed -e 's/\.md//g' | dmenu -i -l 20 -p "Select a Topic: ")
   if [[ $topic != '' && $topic != "remove-mode" ]]; then
     file="$1/$topic.md"
     if [[ ! -f $file ]]; then
@@ -107,7 +111,7 @@ tag: [$tag, noexport]
 EOF
     fi
   elif [[ $topic == "remove-mode" ]]; then
-    toremove=$(ls $1 | dmenu -l 20 -p "! remove-mode: ")
+    toremove=$(ls $1 | dmenu -i -l 20 -p "! remove-mode: ")
     if [[ $toremove != '' ]]; then
       warningMessage "$1/$toremove"
     fi
@@ -116,7 +120,7 @@ EOF
 
 # use pandoc to create a pdf if required
 compile() {
-  if [ -z $(grep "^tag: " $1 | grep "noexport") ]; then
+  if [[ -z $(grep "^tag: " $1 | grep "noexport") ]]; then
     pandoc -V geometry:margin=1in -o "$(echo $1 | sed -e 's/.md/.pdf/g' | sed -e 's/src/build/g')" $1 2> /dev/null
   fi
 }
@@ -135,14 +139,53 @@ editNote() {
 # Function that handle read mode (the app has been lauched using -r flag)
 readNote() {
   readTag "$NOTE_DIR/build"
-  if [[ $tag != "" ]]; then
+  if [[ ! -z $tag && -d  "$NOTE_DIR/build/$tag" ]]; then
     readTopic "$NOTE_DIR/build/$tag"
   fi
-  if [[ $file != "" ]]; then
+  if [[ ! -z $file && -f "$NOTE_DIR/build/$tag/$file.pdf" ]]; then
     zathura "$NOTE_DIR/build/$tag/$file.pdf"
   fi
 }
 
+# add notes or images
+addNote() {
+  # get files to add
+  files=$@
+  files=( "${files[@]/-a}" )
+
+  # chose a tag
+  readTag "$NOTE_DIR/build"
+  if [[ ! -z $tag && $tag != "remove-mode" && ! -d  "$NOTE_DIR/build/$tag" ]]; then
+    path="$NOTE_DIR/src/$tag"
+    mkdir -p $(echo $path | sed -e 's/src/build/g') # create directory in build
+    mkdir -p $(echo $path | sed -e 's/src/img/g')   # create directory in img
+    mkdir -p $path                                  # create directory in src
+  fi
+  for f in $files; do
+    case $f in
+      *.pdf)
+        mv $f "$NOTE_DIR/build/$tag"
+        ;;
+      *.md)
+        mv $f "$NOTE_DIR/src/$tag"
+        ;;
+      *.png|*.jpg|*.jpeg)
+        mv $f "$NOTE_DIR/img/$tag"
+        ;;
+    esac
+  done
+}
+
+# print out markdown statement to add a chosen image to a note
+insertImg() {
+  readTag  "$NOTE_DIR/img/"
+  if [[ ! -z $tag ]]; then
+    img=$(ls "$NOTE_DIR/img/$tag" | dmenu -l 20 -p "Chose image: ")
+    if [[ ! -z $img ]]; then
+      echo "![$img]($NOTE_DIR/img/$tag/$img)"
+    fi
+  fi
+}
 
 ###############################################################################
 # Main function
@@ -154,11 +197,21 @@ main() {
     readNote
   else
     case $1 in
-      -e)
+      -e|edit)
         editNote
         ;;
-      -r)
+      -r|read)
         readNote
+        ;;
+      -a|add)
+        if [ $# -gt 1 ]; then
+          addNote $@
+        else
+          echo "ERROR: you must specify a file to add."
+        fi
+        ;;
+      -i|insert)
+        insertImg
         ;;
       -h | --help)
         displayHelpMessage
@@ -171,4 +224,4 @@ main() {
 }
 
 # Call main function
-main $1
+main $@
