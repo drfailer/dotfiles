@@ -31,7 +31,7 @@ Available options:
   -e, edit      launch the app in edit mode
   -r, read      launch the app in read mode
   -a, add       add notes or images
-  -i, insert    insert an image from the image directory
+  -i, img       insert an image from the image directory
   -h, --help    display help message
 
 Notes:
@@ -210,7 +210,7 @@ main() {
           echo "ERROR: you must specify a file to add."
         fi
         ;;
-      -i|insert)
+      -i|img)
         insertImg
         ;;
       -h | --help)

@@ -151,3 +151,15 @@ rrm() {
     rm -rf $r
   done
 }
+
+# git track remote branche
+grb() {
+  git branch --track $1 origin/$2
+}
+
+# add to git ignore (must be at the root of the project)
+gi() {
+  for f in $@; do
+    echo $f >> .gitignore
+  done
+}
