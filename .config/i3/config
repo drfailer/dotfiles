@@ -220,3 +220,27 @@ bindsym $mod+d exec emacsclient -c -e '(dired \"~\")'
 # scripts
 bindsym $mod+n exec note -r
 bindsym $mod+Shift+n exec note -e
+
+
+# mouse mode
+mode "mousectrl" {
+        # little move
+        bindsym h exec xdotool mousemove_relative -- -20 0
+        bindsym j exec xdotool mousemove_relative 0 20
+        bindsym k exec xdotool mousemove_relative 0 -20
+        bindsym l exec xdotool mousemove_relative 20 0
+        bindsym Shift+h exec xdotool mousemove_relative -- -200 0
+        bindsym Shift+j exec xdotool mousemove_relative 0 200
+        bindsym Shift+k exec xdotool mousemove_relative 0 -200
+        bindsym Shift+l exec xdotool mousemove_relative 200 0
+        bindsym a exec xdotool click 1
+        bindsym z exec xdotool click 2
+        bindsym e exec xdotool click 3
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+m mode "default"
+}
+
+bindsym $mod+m mode "mousectrl"
