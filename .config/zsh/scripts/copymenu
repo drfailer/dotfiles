@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# This script is used to select something to copy in a file using dmenu
+# Format of the input file:
+# symbole_to_copy description
+
+if [ $# -eq 1 ]; then
+  FILE=$1
+
+  symbol=$(cat $FILE | dmenu -l 20 | awk '{ printf "%s", $1 }')
+  if [ ! -z $symbol ]
+  then
+    notify-send "$symbol copied !"
+    printf "%s" $symbol | xclip -i -selection clipboard
+  fi
+else
+  echo "ERROR: you must specify an input file."
+fi

@@ -20,6 +20,8 @@ alias zz='zathura'
 alias so='source ~/.config/zsh/.zshrc'
 alias tmuxh='nvim ~/.config/tmux/tmux.md'
 alias lg='lazygit'
+alias er='nvim rapport.tex'
+alias at='alacritty-themes'
 
 # book marks:
 alias gco='cd $HOME/Documents/cours'
@@ -32,6 +34,7 @@ alias gsk='cd $HOME/.config/suckless-builds/'
 alias gskm='cd $HOME/.config/suckless-builds/dmenu/'
 alias gskt='cd $HOME/.config/suckless-builds/st/'
 alias gz='cd $HOME/.config/zsh/'
+alias gA='cd $HOME/.config/alacritty/'
 alias gM='cd $HOME/.local/share/music/'
 alias gv='cd $HOME/.config/nvim/'
 
@@ -54,6 +57,7 @@ alias vs='nvim $HOME/.config/zsh/.zshrc'
 alias va='nvim $HOME/.config/zsh/alias.zsh'
 alias vc='nvim $HOME/.config/nvim/init.lua'
 alias vf='nvim $HOME/.local/share/library.txt'
+alias vt='nvim $HOME/.config/alacritty/alacritty.yml'
 
 # quick access configs with emacsclient:
 alias es='eedit $HOME/.config/zsh/.zshrc'
@@ -68,6 +72,7 @@ alias jcompclass='javac -Xlint:all'
 # screen and record
 alias screenshot='gnome-screenshot --interactive'
 alias reckeys='screenkey -p fixed -g 90%x7%+61%-2%'
+alias emoji='copymenu $HOME/.local/share/emojis.txt'
 
 # fzf directory
 cdd() {
