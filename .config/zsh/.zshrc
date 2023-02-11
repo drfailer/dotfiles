@@ -45,7 +45,7 @@ source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting
 ################################################################################
 export USER="drfailer"
 export HOSTNAME="drfailer-computer"
-export EDITOR="emacs"
+export EDITOR="nvim"
 export SHELL="zsh"
 # export XDG_CURRENT_DESKTOP="xmonad"
 export XDG_CURRENT_DESKTOP="i3"

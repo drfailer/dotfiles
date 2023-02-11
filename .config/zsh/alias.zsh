@@ -40,6 +40,7 @@ alias gv='cd $HOME/.config/nvim/'
 
 # git
 alias g='git'
+alias gs='git status'
 alias ga='git add -A'
 alias gc='git commit -m '
 alias gca='git commit --amend -m '
