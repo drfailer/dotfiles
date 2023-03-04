@@ -1,15 +1,9 @@
 #!/bin/bash
 
-declare -a themes=("gruvbox"
-                   "gruvbox-light"
-                   "rose-pine"
-                   "kanagawa"
-                  )
-
-chosen=$(echo "$(printf '%s\n' "${themes[@]}")" | dmenu -l 20 -p 'power: ')
+chosen=$(ls ~/.config/alacritty/themes/ | dmenu -l 20 -p 'theme: ')
 
 # replacement in the file
 if [ ! -z $chosen ]; then
-  sed "s/- ~\/.config\/alacritty\/themes\/.*\.yml/- ~\/.config\/alacritty\/themes\/$chosen.yml/" ~/.config/alacritty/alacritty.yml > /tmp/alacritty-tmp.yml
+  sed "s/- ~\/.config\/alacritty\/themes\/.*\.yml/- ~\/.config\/alacritty\/themes\/$chosen/" ~/.config/alacritty/alacritty.yml > /tmp/alacritty-tmp.yml
   mv /tmp/alacritty-tmp.yml ~/.config/alacritty/alacritty.yml
 fi
