@@ -1,9 +1,25 @@
 #!/bin/bash
 
-chosen=$(ls ~/.config/alacritty/themes/ | dmenu -l 20 -p 'theme: ')
+set -euo pipefail
 
-# replacement in the file
-if [ ! -z $chosen ]; then
-  sed "s/- ~\/.config\/alacritty\/themes\/.*\.yml/- ~\/.config\/alacritty\/themes\/$chosen/" ~/.config/alacritty/alacritty.yml > /tmp/alacritty-tmp.yml
-  mv /tmp/alacritty-tmp.yml ~/.config/alacritty/alacritty.yml
+alpha=0.88
+
+# changing the theme by default
+if [ $# -eq 0 ]; then
+  chosen=$(ls ~/.config/alacritty/themes/ | dmenu -l 20 -p 'theme: ')
+
+  # replacement in the file
+  if [ ! -z $chosen ]; then
+    sed "s/- ~\/.config\/alacritty\/themes\/.*\.yml/- ~\/.config\/alacritty\/themes\/$chosen/" ~/.config/alacritty/alacritty.yml > /tmp/alacritty-tmp.yml
+    mv /tmp/alacritty-tmp.yml ~/.config/alacritty/alacritty.yml
+  fi
+elif [ $# -eq 1 ]; then
+  if [ -z $(grep "opacity: 0\..*$" ~/.config/alacritty/alacritty.yml) ]; then
+    sed "s/opacity: 1.0/opacity: $alpha/" ~/.config/alacritty/alacritty.yml > /tmp/alacritty-tmp.yml
+    mv /tmp/alacritty-tmp.yml ~/.config/alacritty/alacritty.yml
+  else
+    sed "s/opacity: 0\..*/opacity: 1.0/" ~/.config/alacritty/alacritty.yml > /tmp/alacritty-tmp.yml
+    mv /tmp/alacritty-tmp.yml ~/.config/alacritty/alacritty.yml
+  fi
 fi
+
