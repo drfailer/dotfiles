@@ -3,7 +3,7 @@
 ###############################################################################
 # TITLE: note
 # AUTHOR: drfailer
-# DATE: Wed Nov 23 11:35:08 AM CET 2022
+# DATE: Sat Mar  4 08:30:22 PM CET 2023
 # DESCRIPTION: Simple note taking system using dmenu
 # REQUIREMENTS: dmenu, pandoc
 ###############################################################################
@@ -15,6 +15,12 @@ set -euo pipefail
 ###############################################################################
 # Global variable for the note directory
 NOTE_DIR="$HOME/.local/share/notes"
+SRC_DIR="$NOTE_DIR/src"
+IMG_DIR="$NOTE_DIR/img"
+BUILD_DIR="$NOTE_DIR/build"
+
+# editor command (can be change to anything)
+EDITOR_CMD="alacritty -e nvim"
 
 # Global variable for tag and file (not const):
 tag=""
@@ -45,6 +51,12 @@ ENDOFMESSAGE
 # Utilis functions:
 ###############################################################################
 
+createDirectory() {
+  if [[ ! -d $1 ]]; then
+    mkdir -p $1
+  fi
+}
+
 readTag() {
   tag=$(ls $1 | dmenu -i -l 20 -p "Chose a Tag: ")
 }
@@ -53,43 +65,33 @@ readTopic() {
   file=$(ls $1 | sed -e 's/.pdf//g' | dmenu -i -l 20 -p "Chose a Topic: ")
 }
 
-warningMessage() {
+removeNote() {
   resp=$(printf "no\nyes\n" | dmenu -p 'confirme deletion: ')
-  if [[ $resp =~ yes ]]; then
+  if [[ $resp == "yes" ]]; then
     if [[ $1 =~ \.md ]]; then
-      rm $1
-      rm $(echo "$1" | sed -e 's/src/build/g' | sed -e 's/\.md/\.pdf/g')
+      # remove markdown and pdf file
+      rm "$SRC_DIR/$1"
+      rm "$BUILD_DIR/$(echo "$1" | sed -e 's/\.md/\.pdf/g')"
     else
-      rm -rf $1
-      rm -rf $(echo "$1" | sed -e 's/src/build/g')
-      rm -rf $(echo "$1" | sed -e 's/src/img/g')
+      rm -rf "$SRC_DIR/$1"
+      rm -rf "$BUILD_DIR/$1"
+      rm -rf "$IMG_DIR/$1"
     fi
   fi
 }
 
 # Tag selection (directory):
 choseTag() {
-  tag=$(printf "$(ls $1)\nremove-mode\n" | dmenu -i -l 20 -p "Select a Tag: ")
-  path="$1/$tag"
+  tag=$(printf "$(ls $SRC_DIR)\nremove-mode\n" | dmenu -i -l 20 -p "Select a Tag: ")
+  path="$SRC_DIR/$tag"
   if [[ $tag != '' && $tag != "remove-mode" ]]; then
-    # create directory in build:
-    buildpath=$(echo $path | sed -e 's/src/build/g')
-    if [[ ! -d $buildpath ]]; then
-      mkdir -p $buildpath
-    fi
-    # create directory in img:
-    imgpath=$(echo $path | sed -e 's/src/img/g')
-    if [[ ! -d $imgpath ]]; then
-      mkdir -p $imgpath
-    fi
-    # create directory in src:
-    if [[ ! -d $path ]]; then
-      mkdir -p $path
-    fi
+    createDirectory "$BUILD_DIR/$tag"  # create directory in build
+    createDirectory "$IMG_DIR/$tag"    # create directory in img
+    createDirectory $path              # create directory in src
   elif [[ $tag == "remove-mode" ]]; then
-    toremove=$(ls $1 | dmenu -i -l 20 -p "! remove-mode: ")
+    toremove=$(ls $SRC_DIR | dmenu -i -l 20 -p "! remove-mode: ")
     if [[ $toremove != '' ]]; then
-      warningMessage "$1/$toremove"
+      removeNote $toremove
     fi
   fi
 }
@@ -97,12 +99,12 @@ choseTag() {
 
 # Topic selection (markdown file):
 choseTopic() {
-  topic=$(printf "$(ls $1)\nremove-mode\n" | sed -e 's/\.md//g' | dmenu -i -l 20 -p "Select a Topic: ")
+  topic=$(printf "$(ls "$SRC_DIR/$1")\nremove-mode\n" | sed -e 's/\.md//g' | dmenu -i -l 20 -p "Select a Topic: ")
   if [[ $topic != '' && $topic != "remove-mode" ]]; then
-    file="$1/$topic.md"
-    if [[ ! -f $file ]]; then
-      touch $file
-cat << EOF > $file
+    file="$topic.md"
+    if [[ ! -f "$SRC_DIR/$1/$file" ]]; then
+      touch "$SRC_DIR/$1/$file"
+cat << EOF > "$SRC_DIR/$1/$file"
 ---
 title: $(echo "$topic" | sed -e 's/.*/\u&/g' | sed -e 's/_/ /g')
 author: $USER
@@ -111,39 +113,41 @@ tag: [$tag, noexport]
 EOF
     fi
   elif [[ $topic == "remove-mode" ]]; then
-    toremove=$(ls $1 | dmenu -i -l 20 -p "! remove-mode: ")
+    toremove=$(ls "$SRC_DIR/$1" | dmenu -i -l 20 -p "! remove-mode: ")
     if [[ $toremove != '' ]]; then
-      warningMessage "$1/$toremove"
+      removeNote "$1/$toremove"
     fi
   fi
 }
 
 # use pandoc to create a pdf if required
 compile() {
-  if [[ -z $(grep "^tag: " $1 | grep "noexport") ]]; then
-    pandoc -V geometry:margin=1in -o "$(echo $1 | sed -e 's/.md/.pdf/g' | sed -e 's/src/build/g')" $1 2> /dev/null
+  if [[ -z $(grep "^tag: " "$SRC_DIR/$tag/$file" | grep "noexport") ]]; then
+    srcFile="$SRC_DIR/$tag/$file"
+    outFile=$(echo "$BUILD_DIR/$tag/$file" | sed -e 's/.md/.pdf/g')
+    pandoc -V geometry:margin=1in -o $outFile $srcFile 2> /dev/null
   fi
 }
 
 # Function that handle edit mode (the app has been lauched using -e flag)
 editNote() {
-  choseTag  "$NOTE_DIR/src"
+  choseTag
   if [[ $tag != "" && $tag != "remove-mode" ]]; then
-    choseTopic  "$HOME/.local/share/notes/src/$tag"
+    choseTopic $tag
   fi
   if [[ $file != "" && $file != "remove-mode" ]]; then
-    st -e nvim -c % "$file" && compile "$file"
+    $EDITOR_CMD "$SRC_DIR/$tag/$file" && compile
   fi
 }
 
 # Function that handle read mode (the app has been lauched using -r flag)
 readNote() {
-  readTag "$NOTE_DIR/build"
+  readTag $BUILD_DIR
   if [[ ! -z $tag && -d  "$NOTE_DIR/build/$tag" ]]; then
-    readTopic "$NOTE_DIR/build/$tag"
+    readTopic "$BUILD_DIR/$tag"
   fi
   if [[ ! -z $file && -f "$NOTE_DIR/build/$tag/$file.pdf" ]]; then
-    zathura "$NOTE_DIR/build/$tag/$file.pdf"
+    zathura "$BUILD_DIR/$tag/$file.pdf"
   fi
 }
 
@@ -154,23 +158,22 @@ addNote() {
   files=( "${files[@]/-a}" )
 
   # chose a tag
-  readTag "$NOTE_DIR/build"
-  if [[ ! -z $tag && $tag != "remove-mode" && ! -d  "$NOTE_DIR/build/$tag" ]]; then
-    path="$NOTE_DIR/src/$tag"
-    mkdir -p $(echo $path | sed -e 's/src/build/g') # create directory in build
-    mkdir -p $(echo $path | sed -e 's/src/img/g')   # create directory in img
-    mkdir -p $path                                  # create directory in src
+  readTag $BUILD_DIR
+  if [[ ! -z $tag && $tag != "remove-mode" && ! -d  "$BUILD_DIR/$tag" ]]; then
+    mkdir -p "$BUILD_DIR/$tag" # create directory in build
+    mkdir -p "$IMG_DIR/$tag"   # create directory in img
+    mkdir -p "$SRC_DIR/$tag"   # create directory in src
   fi
   for f in $files; do
     case $f in
       *.pdf)
-        mv $f "$NOTE_DIR/build/$tag"
+        mv $f "$BUILD_DIR/$tag"
         ;;
       *.md)
-        mv $f "$NOTE_DIR/src/$tag"
+        mv $f "$SRC_DIR/$tag"
         ;;
       *.png|*.jpg|*.jpeg)
-        mv $f "$NOTE_DIR/img/$tag"
+        mv $f "$IMG_DIR/$tag"
         ;;
     esac
   done
@@ -178,11 +181,11 @@ addNote() {
 
 # print out markdown statement to add a chosen image to a note
 insertImg() {
-  readTag  "$NOTE_DIR/img/"
+  readTag $IMG_DIR
   if [[ ! -z $tag ]]; then
-    img=$(ls "$NOTE_DIR/img/$tag" | dmenu -l 20 -p "Chose image: ")
+    img=$(ls "$IMG_DIR/$tag" | dmenu -l 20 -p "Chose image: ")
     if [[ ! -z $img ]]; then
-      echo "![$img]($NOTE_DIR/img/$tag/$img)"
+      echo "![$img]($IMG_DIR/$tag/$img)"
     fi
   fi
 }
@@ -217,7 +220,7 @@ main() {
         displayHelpMessage
         ;;
       *)
-        echo "Unkown option, try to use --help flag for more info."
+        echo "Unknown option, try to use --help flag for more info."
         ;;
     esac
   fi
