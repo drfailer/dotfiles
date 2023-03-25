@@ -96,6 +96,7 @@ comp() {
     *.md) pandoc -o $(echo $1 | sed 's/\.md/\.pdf') $1 ;;
     *.java) javac $1 ;;
     *.c) gcc -Wall -Wextra -Wuninitialized -o prog $1 ;;
+    *.cpp|*.cxx) g++ -Wall -Wextra -Wuninitialized -o prog $1 ;;
     *.hs) ghc -dynamic $1 ;;
     *.py) python3 $1 ;;
     *) echo "ERROR: unknown format"

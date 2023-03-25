@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# set a wallpaper on both screens
+nsxiv $HOME/Pictures/wallpapers/ -o -t | xargs xwallpaper --screen 0 --stretch

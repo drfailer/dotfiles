@@ -1,0 +1,28 @@
+#!/bin/python3
+
+import subprocess as sp
+
+default_resolution = [1366, 768]
+resolutions = dict()
+
+# get the fist 8 resolutions for HDMI1 output
+output = sp.getstatusoutput("xrandr | grep 'HDMI1' -A 8 | grep -v 'HDMI1' | awk '{print $1}'")[1].split('\n')
+
+for l in output:
+    resolutions[l] = list(map(lambda s: int(s), l.split('x')))
+
+print(resolutions)
+
+# print in demenu
+test = ""
+for r in resolutions.keys():
+    test = test + r + "\n"
+# print(test)
+chosen_mode = sp.getstatusoutput("echo '" + test + "' | dmenu -l 8 -p 'resolution:'")[1]
+
+if chosen_mode != "":
+    chosen_res = resolutions[chosen_mode]
+    scale1 = "{:.3f}".format(default_resolution[0] / chosen_res[0])
+    scale2 = "{:.3f}".format(default_resolution[1] / chosen_res[1])
+    xrandr_cmd = f"""xrandr --output eDP1 --mode {default_resolution[0]}x{default_resolution[1]} --scale 1x1 --output HDMI1 --same-as eDP1 --mode {chosen_mode} --scale {scale1}x{scale2}"""
+    print(xrandr_cmd)
