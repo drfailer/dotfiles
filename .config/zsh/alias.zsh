@@ -48,6 +48,7 @@ alias gm='git merge '
 alias gb='git branch '
 alias gba='git branch -a'
 alias gck='git checkout '
+alias gst='git stash'
 
 # fzutils
 alias mvv='fzutils mv'
