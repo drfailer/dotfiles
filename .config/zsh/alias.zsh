@@ -23,6 +23,9 @@ alias lg='lazygit'
 alias er='nvim rapport.tex'
 alias at='alacritty-themes'
 
+# launch tmux with the right colors
+alias tm='TERM="xterm-256color" tmux'
+
 # book marks:
 alias gco='cd $HOME/Documents/cours'
 alias gd='cd $HOME/Downloads'

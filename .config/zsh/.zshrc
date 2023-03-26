@@ -26,9 +26,6 @@ zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
 export PS1='%B%F{magenta}%c%f%b ${vcs_info_msg_0_}%B%F{blue}➙ %f%b'
 
-# fix tmux colors
-# export TERM="xterm-256color"
-
 # emacs mode
 bindkey -e
 
