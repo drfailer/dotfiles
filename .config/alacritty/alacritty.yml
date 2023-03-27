@@ -2,7 +2,7 @@
 
 # Import additional configuration files
 import:
-  - ~/.config/alacritty/themes/gruvbox.yml
+  - ~/.config/alacritty/themes/solarized.yml
 
 env:
   TERM: alacritty
@@ -15,7 +15,8 @@ window:
     y: 5
 
   # Background opacity
-  opacity: 0.88
+  # opacity: 1.0
+  opacity: 1.0
 
   # Window title
   title: Alacritty
@@ -33,13 +34,13 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: JetBrains Mono
-    style: Regular
+    family: Comic Mono
+    style: Normal
 
   # Bold font face
-  #bold:
-    #family: monospace
-    #style: Bold
+  bold:
+    family: Comic Mono
+    style: Bold
 
   # Italic font face
   #italic:
@@ -52,7 +53,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 8.0
+  size: 10.0
 
   # Use built-in font for box drawing characters.
   builtin_box_drawing: true
