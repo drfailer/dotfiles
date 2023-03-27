@@ -56,7 +56,8 @@ export XDG_CURRENT_DESKTOP="i3"
 ################################################################################
 # export BAT_THEME="OneHalfDark"
 # export BAT_THEME="base16"
-export BAT_THEME="gruvbox-dark"
+# export BAT_THEME="gruvbox-dark"
+export BAT_THEME="Solarized (dark)"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 
