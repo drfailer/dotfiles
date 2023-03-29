@@ -22,16 +22,31 @@ precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '%b '
 
 # PS1
-# export PS1='%B%F{red}[%f%b%B%F{yellow}dr%f%b%B%F{green}@%f%b%B%F{blue}failer%f%b %B%F{magenta}%c%f%b%B%F{red}]%f%b%B%F{grey}$ %f%b'
 setopt PROMPT_SUBST
 export PS1='%B%F{magenta}%c%f%b ${vcs_info_msg_0_}%B%F{blue}➙ %f%b'
 
-# emacs mode
-bindkey -e
+# fzf config
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # alias file
 source ~/.config/zsh/alias.zsh
 
+################################################################################
+#                                  Bindings:                                   #
+################################################################################
+bindkey -e # emacs mode
+
+# wigets
+tmux-sessionizer-widget() {
+  local cmd="$HOME/.config/zsh/scripts/tmux-sessionizer"
+  setopt localoptions pipefail no_aliases 2> /dev/null
+  eval $cmd
+  return $?
+}
+zle -N tmux-sessionizer-widget
+
+# custom bindings
+bindkey -M emacs '\ep' tmux-sessionizer-widget
 
 ################################################################################
 #                                 Plugins:                                     #
@@ -54,9 +69,6 @@ export XDG_CURRENT_DESKTOP="i3"
 ################################################################################
 #                      Use bat for manual printing:                            #
 ################################################################################
-# export BAT_THEME="OneHalfDark"
-# export BAT_THEME="base16"
-# export BAT_THEME="gruvbox-dark"
 export BAT_THEME="Solarized (dark)"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
