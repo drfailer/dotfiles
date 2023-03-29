@@ -1,7 +1,10 @@
 ################################################################################
 #                                 Alias :                                      #
 ################################################################################
+
+################################################################################
 # generals:
+################################################################################
 alias v='view'
 alias e='nvim'
 alias em='eedit'
@@ -23,10 +26,28 @@ alias lg='lazygit'
 alias er='nvim rapport.tex'
 alias at='alacritty-themes'
 
+# java compilation:
+alias jcomp='javac *.java'
+alias jcompsb='javac -d build src/**/*.java'
+alias jcompclass='javac -Xlint:all'
+
+# screen and record
+alias screenshot='gnome-screenshot --interactive'
+alias reckeys='screenkey -p fixed -g 90%x7%+61%-2%'
+alias emoji='copymenu $HOME/.local/share/emojis.txt'
+
 # launch tmux with the right colors
 alias tm='TERM="xterm-256color" tmux'
 
+# use the note script in terminal
+alias note='NOTE_MENU="fzf" note e'
+alias ne='note e'
+alias nr='note r'
+alias ni='note i'
+
+################################################################################
 # book marks:
+################################################################################
 alias gco='cd $HOME/Documents/cours'
 alias gd='cd $HOME/Downloads'
 alias gp='cd $HOME/Documents/dev/progs'
@@ -41,7 +62,9 @@ alias gA='cd $HOME/.config/alacritty/'
 alias gM='cd $HOME/.local/share/music/'
 alias gv='cd $HOME/.config/nvim/'
 
+################################################################################
 # git
+################################################################################
 alias g='git'
 alias gs='git status'
 alias ga='git add -A'
@@ -50,43 +73,8 @@ alias gca='git commit --amend -m '
 alias gm='git merge '
 alias gb='git branch '
 alias gba='git branch -a'
-alias gck='git checkout '
+alias gckt='git checkout '
 alias gst='git stash'
-
-# fzutils
-alias mvv='fzutils mv'
-alias ccp='fzutils cp'
-
-# quick access configs with vim:
-alias vs='nvim $HOME/.config/zsh/.zshrc'
-alias va='nvim $HOME/.config/zsh/alias.zsh'
-alias vc='nvim $HOME/.config/nvim/init.lua'
-alias vf='nvim $HOME/.local/share/library.txt'
-alias vt='nvim $HOME/.config/alacritty/alacritty.yml'
-
-# quick access configs with emacsclient:
-alias es='eedit $HOME/.config/zsh/.zshrc'
-alias ea='eedit $HOME/.config/zsh/alias.zsh'
-alias ei='eedit $HOME/.emacs.d/init.el'
-
-# java compilation:
-alias jcomp='javac *.java'
-alias jcompsb='javac -d build src/**/*.java'
-alias jcompclass='javac -Xlint:all'
-
-# screen and record
-alias screenshot='gnome-screenshot --interactive'
-alias reckeys='screenkey -p fixed -g 90%x7%+61%-2%'
-alias emoji='copymenu $HOME/.local/share/emojis.txt'
-
-# fzf directory
-cdd() {
-  if [ $# -eq 1 ]; then
-    cd $(fzutils cd $1)
-  else
-    cd $(fzutils cd)
-  fi
-}
 
 # git new branch
 gnb() {
@@ -101,3 +89,48 @@ gnb() {
     echo "ERROR: branch name required"
   fi
 }
+
+# fzf scripts:
+
+gck() {
+  chosen=$(git branch | grep "  .*" | sed 's/  //' | fzf --prompt="git-branch > " --height 40% --reverse)
+  if [ ! -z $chosen ]; then
+    git checkout $chosen
+  fi
+}
+
+gtrack() {
+  chosen=$(git branch -r | sed 's/  origin\///' | fzf --prompt="track-branch > " --height 40% --reverse)
+  if [ ! -z $chosen ]; then
+    git checkout --track $chosen
+  fi
+}
+
+################################################################################
+# fzutils
+################################################################################
+alias mvv='fzutils mv'
+alias ccp='fzutils cp'
+
+# fzf directory
+cdd() {
+  if [ $# -eq 1 ]; then
+    cd $(fzutils cd $1)
+  else
+    cd $(fzutils cd)
+  fi
+}
+
+################################################################################
+# quick edit files
+################################################################################
+alias vs='nvim $HOME/.config/zsh/.zshrc'
+alias va='nvim $HOME/.config/zsh/alias.zsh'
+alias vc='nvim $HOME/.config/nvim/init.lua'
+alias vf='nvim $HOME/.local/share/library.txt'
+alias vt='nvim $HOME/.config/alacritty/alacritty.yml'
+
+# quick access configs with emacsclient:
+alias es='eedit $HOME/.config/zsh/.zshrc'
+alias ea='eedit $HOME/.config/zsh/alias.zsh'
+alias ei='eedit $HOME/.emacs.d/init.el'

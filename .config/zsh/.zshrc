@@ -31,6 +31,9 @@ export PS1='%B%F{magenta}%c%f%b ${vcs_info_msg_0_}%B%F{blue}➙ %f%b'
 # alias file
 source ~/.config/zsh/alias.zsh
 
+# note menu
+export NOTE_MENU='dmenu'
+
 ################################################################################
 #                                  Bindings:                                   #
 ################################################################################
@@ -38,9 +41,8 @@ bindkey -e # emacs mode
 
 # wigets
 tmux-sessionizer-widget() {
-  local cmd="$HOME/.config/zsh/scripts/tmux-sessionizer"
   setopt localoptions pipefail no_aliases 2> /dev/null
-  eval $cmd
+  $HOME/.config/zsh/scripts/tmux-sessionizer
   return $?
 }
 zle -N tmux-sessionizer-widget

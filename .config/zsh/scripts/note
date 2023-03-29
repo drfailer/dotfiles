@@ -20,7 +20,10 @@ IMG_DIR="$NOTE_DIR/img"
 BUILD_DIR="$NOTE_DIR/build"
 
 # editor command (can be change to anything)
-EDITOR_CMD="alacritty -e nvim"
+EDITOR_CMD="nvim"
+if [[ $NOTE_MENU == "dmenu" ]]; then
+  EDITOR_CMD="alacritty -e nvim" # run alacritty when not used in the terminal
+fi
 
 # Global variable for tag and file (not const):
 tag=""
@@ -48,6 +51,42 @@ ENDOFMESSAGE
 }
 
 ###############################################################################
+# Menu functions:
+###############################################################################
+dmenu_select() {
+  dmenu -i -l 20 -p "$1"
+}
+
+dmenu_confirm() {
+  printf "no\nyes\n" | dmenu -p "$1"
+}
+
+# using fzf to select notes doesn't allow to create new notes / tags
+fzf_select() {
+  fzf --prompt="$1" --height 40% --reverse
+}
+
+fzf_confirm() {
+  printf "no\nyes\n" | fzf_select "$1"
+}
+
+select_function() {
+  if [[ $NOTE_MENU == "dmenu" ]]; then
+    dmenu_select "$1"
+  else
+    fzf_select "$1"
+  fi
+}
+
+confirm_function() {
+  if [[ $NOTE_MENU == "dmenu" ]]; then
+    dmenu_confirm "$1"
+  else
+    fzf_confirm "$1"
+  fi
+}
+
+###############################################################################
 # Utilis functions:
 ###############################################################################
 
@@ -58,15 +97,15 @@ createDirectory() {
 }
 
 readTag() {
-  tag=$(ls $1 | dmenu -i -l 20 -p "Chose a Tag: ")
+  tag=$(ls $1 | select_function "Chose a Tag: ")
 }
 
 readTopic() {
-  file=$(ls $1 | sed -e 's/.pdf//g' | dmenu -i -l 20 -p "Chose a Topic: ")
+  file=$(ls $1 | sed -e 's/.pdf//g' | select_function "Chose a Topic: ")
 }
 
 removeNote() {
-  resp=$(printf "no\nyes\n" | dmenu -p 'confirme deletion: ')
+  resp=$(confirm_function 'confirme deletion: ')
   if [[ $resp == "yes" ]]; then
     if [[ $1 =~ \.md ]]; then
       # remove markdown and pdf file
@@ -82,14 +121,14 @@ removeNote() {
 
 # Tag selection (directory):
 choseTag() {
-  tag=$(printf "$(ls $SRC_DIR)\nremove-mode\n" | dmenu -i -l 20 -p "Select a Tag: ")
+  tag=$(printf "$(ls $SRC_DIR)\nremove-mode\n" | select_function "Select a Tag: ")
   path="$SRC_DIR/$tag"
   if [[ $tag != '' && $tag != "remove-mode" ]]; then
     createDirectory "$BUILD_DIR/$tag"  # create directory in build
     createDirectory "$IMG_DIR/$tag"    # create directory in img
     createDirectory $path              # create directory in src
   elif [[ $tag == "remove-mode" ]]; then
-    toremove=$(ls $SRC_DIR | dmenu -i -l 20 -p "! remove-mode: ")
+    toremove=$(ls $SRC_DIR | select_function "! remove-mode: ")
     if [[ $toremove != '' ]]; then
       removeNote $toremove
     fi
@@ -99,7 +138,7 @@ choseTag() {
 
 # Topic selection (markdown file):
 choseTopic() {
-  topic=$(printf "$(ls "$SRC_DIR/$1")\nremove-mode\n" | sed -e 's/\.md//g' | dmenu -i -l 20 -p "Select a Topic: ")
+  topic=$(printf "$(ls "$SRC_DIR/$1")\nremove-mode\n" | sed -e 's/\.md//g' | select_function "Select a Topic: ")
   if [[ $topic != '' && $topic != "remove-mode" ]]; then
     file="$topic.md"
     if [[ ! -f "$SRC_DIR/$1/$file" ]]; then
@@ -113,7 +152,7 @@ tag: [$tag, noexport]
 EOF
     fi
   elif [[ $topic == "remove-mode" ]]; then
-    toremove=$(ls "$SRC_DIR/$1" | dmenu -i -l 20 -p "! remove-mode: ")
+    toremove=$(ls "$SRC_DIR/$1" | select_function "! remove-mode: ")
     if [[ $toremove != '' ]]; then
       removeNote "$1/$toremove"
     fi
@@ -183,7 +222,7 @@ addNote() {
 insertImg() {
   readTag $IMG_DIR
   if [[ ! -z $tag ]]; then
-    img=$(ls "$IMG_DIR/$tag" | dmenu -l 20 -p "Chose image: ")
+    img=$(ls "$IMG_DIR/$tag" | select_function "Chose image: ")
     if [[ ! -z $img ]]; then
       echo "![$img]($IMG_DIR/$tag/$img)"
     fi
@@ -200,20 +239,20 @@ main() {
     readNote
   else
     case $1 in
-      -e|edit)
+      -e|edit|e)
         editNote
         ;;
-      -r|read)
+      -r|read|r)
         readNote
         ;;
-      -a|add)
+      -a|add|a)
         if [ $# -gt 1 ]; then
           addNote $@
         else
           echo "ERROR: you must specify a file to add."
         fi
         ;;
-      -i|img)
+      -i|img|i)
         insertImg
         ;;
       -h | --help)
