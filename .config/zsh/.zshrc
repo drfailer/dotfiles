@@ -53,8 +53,14 @@ bindkey -M emacs '\ep' tmux-sessionizer-widget
 ################################################################################
 #                                 Plugins:                                     #
 ################################################################################
-source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# https://github.com/zsh-users/zsh-autosuggestions.git
+if [ -f $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+# https://github.com/zsh-users/zsh-syntax-highlighting.git
+if [ -f $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 
 ################################################################################
@@ -176,6 +182,6 @@ grb() {
 # add to git ignore (must be at the root of the project)
 gi() {
   for f in $@; do
-    echo $f >> .gitignore
+    echo "/$f" >> .gitignore
   done
 }
