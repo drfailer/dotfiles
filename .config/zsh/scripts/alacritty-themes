@@ -2,6 +2,7 @@
 
 set -euo pipefail
 
+# alpha=0.70
 alpha=0.88
 
 # changing the theme by default

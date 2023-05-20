@@ -1,40 +1,31 @@
-  # modus-vivendi (Dark theme)
-  colors:
-    primary:
-      background: '#000000'
-      foreground: '#ffffff'
-      # Bright and dim foreground colors
-      dim_foreground: '#1e1e1e'
-      bright_foreground: '#ffffff'
-      # Normal colors
-      normal:
-        black:   '#000000'
-        red:     '#ff5f59'
-        green:   '#44bc44'
-        yellow:  '#d0bc00'
-        blue:    '#2fafff'
-        magenta: '#feacd0'
-        cyan:    '#00d3d0'
-        white:   '#ffffff'
-     # Bright colors
-      bright:
-        black:   '#000000'
-        red:     '#ff5f5f'
-        green:   '#44df44'
-        yellow:  '#efef00'
-        blue:    '#338fff'
-        magenta: '#ff66ff'
-        cyan:    '#9ac8e0'
-        white:   '#ffffff'
-      # Dim colors
-      dim:
-        black:   '#000000'
-        red:     '#ff9580'
-        green:   '#88ca9f'
-        yellow:  '#d2b580'
-        blue:    '#82b0ec'
-        magenta: '#caa6df'
-        cyan:    '#9ac8e0'
-        white:   '#989898'
+# Colors (Modus Vivendi)
+colors:
+  bright:
+    black: '#535353'
+    blue: '#79a8ff'
+    cyan: '#4ae2f0'
+    green: '#70b900'
+    magenta: '#f78fe7'
+    red: '#ef8b50'
+    white: '#ffffff'
+    yellow: '#c0c530'
+  cursor:
+    cursor: '#f4f4f4'
+    text: '#ffffff'
+  normal:
+    black: '#323232'
+    blue: '#2fafff'
+    cyan: '#00d3d0'
+    green: '#44bc44'
+    magenta: '#feacd0'
+    red: '#ff8059'
+    white: '#ffffff'
+    yellow: '#d0bc00'
+  primary:
+    background: '#000000'
+    foreground: '#ffffff'
+  selection:
+    background: '#3c3c3c'
+    text: '#ffffff'
 
 
