@@ -2,7 +2,7 @@
 
 # Import additional configuration files
 import:
-  - ~/.config/alacritty/themes/solarized.yml
+  - ~/.config/alacritty/themes/everforest.yml
 
 env:
   TERM: alacritty
@@ -11,12 +11,12 @@ window:
   # no title bar or buttons
   # decorations: none
   padding:
-    x: 5
-    y: 5
+    x: 0
+    y: 0
 
   # Background opacity
-  # opacity: 1.0
-  opacity: 1.0
+  # opacity: 0.88
+  opacity: 0.88
 
   # Window title
   title: Alacritty
@@ -38,14 +38,14 @@ font:
     style: Normal
 
   # Bold font face
-  bold:
-    family: Comic Mono
-    style: Bold
+  # bold:
+  #   family: Comic Mono
+  #   style: Bold
 
   # Italic font face
-  #italic:
-    #family: monospace
-    #style: Italic
+  # italic:
+  #   family: Comic Mono
+  #   style: Italic
 
   # Bold italic font face
   #bold_italic:
@@ -53,7 +53,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 10.0
+  size: 9.0
 
   # Use built-in font for box drawing characters.
   builtin_box_drawing: true

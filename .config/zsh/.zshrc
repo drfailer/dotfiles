@@ -50,6 +50,15 @@ zle -N tmux-sessionizer-widget
 # custom bindings
 bindkey -M emacs '\ep' tmux-sessionizer-widget
 
+# open a new terminal in the same directory
+new-terminal-widget() {
+  setopt localoptions pipefail no_aliases 2> /dev/null
+  alacritty --working-directory $PWD
+  return $?
+}
+zle -N new-terminal-widget
+bindkey -M emacs '\et' new-terminal-widget
+
 ################################################################################
 #                                 Plugins:                                     #
 ################################################################################
