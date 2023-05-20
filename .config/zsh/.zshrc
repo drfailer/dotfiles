@@ -148,7 +148,8 @@ yyc() {
 # increase input capture and change capslock to ctrl
 key() {
     xset r rate 300 50
-    setxkbmap -layout fr -option ctrl:nocaps
+    # setxkbmap -layout fr -option ctrl:nocaps
+    setxkbmap -layout fr -option ctrl:swapcaps
 }
 
 # open file in emacs client

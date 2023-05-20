@@ -1,0 +1,30 @@
+#!/bin/bash
+
+read -p "Project's name: " projectName
+if [ -z $projectName ]; then
+  echo 'ERROR: you must spécify the name of the project.'
+  exit 1
+fi
+
+read -r -p "Exec's name ($projectName): " execName
+if [ -z $execName ]; then
+  execName=$projectName
+fi
+
+read -p "Main's name (main.cpp): " fileName
+if [ -z $fileName ]; then
+  fileName='main.cpp'
+fi
+
+# get the version of cmake
+cmakeVersion=$(cmake --version | grep '^cmake version' | awk '{print $3}')
+
+cat << EOF > CMakeLists.txt
+cmake_minimum_required(VERSION $cmakeVersion)
+project($projectName)
+
+add_compile_options(-Wall -Wextra -Wuninitialized -g)
+
+add_executable($execName $fileName)
+EOF
+

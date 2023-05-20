@@ -49,12 +49,15 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # xrandr --output DVI-D-0 --right-of HDMI-0 --auto --output HDMI-0 --primary --auto --right-of DP-0 --output DP-0 --rotate left --auto
-xrandr --output DVI-D-0 --left-of HDMI-0 --auto --output HDMI-0 --primary --auto --left-of DP-0 --output DP-0 --rotate left --auto
+# xrandr --output DVI-D-0 --left-of HDMI-0 --auto --output HDMI-0 --primary --auto --left-of DP-0 --output DP-0 --rotate left --auto
+# emacs --daemon
+xrandr --output HDMI-0 --primary --auto --left-of DP-0 --output DP-0 --rotate left --auto
 xset r rate 300 50
-setxkbmap -layout fr -option ctrl:nocaps
+setxkbmap -layout fr -option ctrl:swapcaps
 nitrogen --restore &
 picom &
-slstatus &
+# slstatus &
 # exec dwm
-exec xmonad
+# exec xmonad
+exec i3
 # exec stumpwm
