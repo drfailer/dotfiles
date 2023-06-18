@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# create the file for bulkrenaming
+for l in $(ls); do
+  # there must be a better way to do this
+  if [ $l != "file.txt" ]; then
+    echo "$l:($l)";
+  fi
+done | column -t -s ':' > file.txt
+
+# open the file in the editor
+$EDITOR file.txt
+
+# rename the files
+while read l; do
+  eval $(echo "$l" | sed 's/\(.*\)\s\+(\(.*\))/mv \2 \1/');
+done < file.txt | eval
+
+rm file.txt
