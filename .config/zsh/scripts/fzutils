@@ -10,48 +10,39 @@ chose_files() {
     de) echo $(find ~/Desktop/ | fzf -m) ;;
     c) echo $(find ~/.config/ | fzf -m) ;;
     l) echo $(find ~/.local/ | fzf -m) ;;
-    *) echo $(find $HOME | fzf -m) ;;
-  esac
-}
-
-# secify directory and collect option
-chose_directory() {
-  case $1 in
-    do) echo $(find ~/Downloads/ -type d | fzf) ;;
-    dc) echo $(find ~/Documents/ -type d | fzf) ;;
-    de) echo $(find ~/Desktop/ -type d | fzf) ;;
-    c) echo $(find ~/.config/ -type d | fzf) ;;
-    l) echo $(find ~/.local/ -type d | fzf) ;;
-    *) echo $(find $HOME -type d | fzf) ;;
+    *)
+      if [ -d $1 ]; then
+        # echo $(find $1 | fzf -m)
+        echo $(ls -d $1* | fzf -m) # we don't list recursively here
+      else
+        echo $(find $HOME | fzf -m)
+      fi
+      ;;
   esac
 }
 
 # the user can specify a location
 if [ $# -eq 2 ]; then
-  location=$2
+  location="$2/"
 else
   location=none
 fi
 
 # handle main options
-case $1 in
-  cd) chose_directory $location
-    ;;
-  mv)
-    choices=$(chose_files $location)
-
-    # move the chosen files
-    for c in $choices; do
-      mv $c $PWD
-    done
-    ;;
-  cp)
-    choices=$(chose_files $location)
-
-    # copy the chosen files
-    for c in $choices; do
-      cp -r $c $PWD
-    done
-    ;;
-  *) echo "ERROR: unknown option." ;;
-esac
+choices=$(chose_files $location)
+echo $choices
+if [[ "$choices" != "$location" ]]; then
+  case $1 in
+    mv) # move the chosen files
+      for c in $choices; do
+        mv $c $PWD
+      done
+      ;;
+    cp) # copy the chosen files
+      for c in $choices; do
+        cp -r $c $PWD
+      done
+      ;;
+    *) echo "ERROR: unknown option." ;;
+  esac
+fi

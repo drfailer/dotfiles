@@ -113,6 +113,7 @@ gtrack() {
 ################################################################################
 alias mvv='fzutils mv'
 alias ccp='fzutils cp'
+alias md='fzutils mv ~/Downloads'
 
 # fzf directory
 cdd() {
