@@ -25,6 +25,7 @@ alias tmuxh='nvim ~/.config/tmux/tmux.md'
 alias lg='lazygit'
 alias er='nvim rapport.tex'
 alias at='alacritty-themes'
+alias br='bulkrename'
 
 # java compilation:
 alias jcomp='javac *.java'

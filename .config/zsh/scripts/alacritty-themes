@@ -3,7 +3,8 @@
 set -euo pipefail
 
 # alpha=0.70
-alpha=0.88
+# alpha=0.88
+alpha=0.92
 
 # changing the theme by default
 if [ $# -eq 0 ]; then
