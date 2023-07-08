@@ -1,0 +1,52 @@
+#!/bin/bash
+
+set -euo pipefail
+
+create_mountpoint() {
+  if [ ! -d $HOME/drive ]; then
+    mkdir $HOME/drive
+  fi
+  if [ -b /dev/sda1 ]; then
+    sudo mount /dev/sda1 drive
+  else
+    echo "Error: the key is not plugged"
+    rmdir $HOME/drive
+    exit 1
+  fi
+}
+
+if [ $# -eq 0 ]; then
+  echo "create the mountpoint..."
+  create_mountpoint
+elif [ $# -eq 1 ]; then
+  case $1 in
+    pull)
+      echo "download wiki from usb..."
+      cd $HOME/Documents/wiki/
+      git pull
+      ;;
+    push)
+      echo "upload wiki to usb..."
+      cd $HOME/Documents/wiki/
+      git push
+      ;;
+    close|end)
+      sudo umount $HOME/drive/
+      rmdir $HOME/drive/
+      ;;
+    sync)
+      echo "sync with usb..."
+      create_mountpoint
+      cd $HOME/Documents/wiki/
+      git pull
+      git push
+      sudo umount $HOME/drive/
+      rmdir $HOME/drive/
+      ;;
+    *)
+      echo "Error: unknown option."
+      ;;
+  esac
+else
+  echo "Error: to many options"
+fi
