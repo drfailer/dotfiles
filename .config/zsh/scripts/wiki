@@ -37,7 +37,6 @@ elif [ $# -eq 1 ]; then
       ;;
     sync)
       echo "sync with usb..."
-      create_mountpoint
       cd $HOME/Documents/wiki/
       git pull
       git push
