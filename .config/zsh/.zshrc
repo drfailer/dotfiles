@@ -89,8 +89,8 @@ export XDG_CURRENT_DESKTOP="i3"
 ################################################################################
 #                      Use bat for manual printing:                            #
 ################################################################################
-export BAT_THEME="Solarized (dark)"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export BAT_THEME="gruvbox-dark"
+# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 
 ################################################################################

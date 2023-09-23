@@ -78,6 +78,8 @@ alias gb='git branch '
 alias gba='git branch -a'
 alias gckt='git checkout '
 alias gst='git stash'
+alias gl='git log'
+alias grl='git reflog | fzf | awk "{print $1}" | xclip -i -selection clipboard'
 
 # git new branch
 gnb() {
