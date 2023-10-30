@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-SSH_CMD="alacritty -e ssh"
-SFTP_CMD="alacritty -e sftp"
+SSH_CMD="ssh"
+SFTP_CMD="sftp"
 PATH_TO_HOST_FILE="$HOME/.local/share/hosts.txt"
 host=$(cut -d '|' -f1 $PATH_TO_HOST_FILE | dmenu -l 20 -p 'ssh: ')
 

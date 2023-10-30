@@ -2,7 +2,7 @@
 # ZSH CONFIG:                                                                  #
 # AUTHOR: drfailer                                                             #
 ################################################################################
-export PATH="$HOME/.config/zsh/scripts${PATH:+:${PATH}}"
+export PATH="$HOME/.config/zsh/scripts:$HOME/.dotnet/tools${PATH:+:${PATH}}"
 
 # Uncomment the following line to enable command auto-correction:
 ENABLE_CORRECTION="true"
