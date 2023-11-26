@@ -117,7 +117,7 @@ view() {
 extr() {
     case $1 in
         *.zip) unzip $1 ;;
-        *.tar.gz) tar -xvzf $1 ;;
+        *.tar.gz|*.tgz) tar -xvzf $1 ;;
         *.tar) tar -xvf $1 ;;
         *) echo "ERROR: unknown format"
     esac
