@@ -13,7 +13,7 @@ $EDITOR file.txt
 
 # rename the files
 while read l; do
-  eval $(echo "$l" | sed 's/\(.*\)\s\+(\(.*\))/mv \2 \1/');
-done < file.txt | eval
+  eval $(echo "$l" | sed 's/\(.*\)\s\+(\(.*\))/mv \2 \1 2> \/dev\/null/');
+done < file.txt
 
 rm file.txt
