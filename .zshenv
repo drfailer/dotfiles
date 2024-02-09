@@ -29,3 +29,5 @@ export ICEAUTHORITY=$XDG_CACHE_HOME/ICEauthority
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuchrc
 export NMBGIT="$XDG_DATA_HOME"/notmuch/nmbug
 export WHICH_COMPUTER=PC
+export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
+export SHELL=/usr/bin/zsh
