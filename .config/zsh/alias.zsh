@@ -41,6 +41,7 @@ alias emoji='copymenu $HOME/.local/share/emojis.txt'
 alias tm='TERM="xterm-256color" tmux'
 alias ts='tmux-sessionizer'
 alias tsv='tmux splitw -h'
+alias nw='tmux-wiki'
 
 # use the note script in terminal
 alias note='NOTE_MENU="fzf" note e'
