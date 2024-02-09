@@ -1,0 +1,51 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   MAPPINGS                                   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" quit
+nnoremap q ZQ
+
+" Start shell in current directory
+nnoremap s :shell<cr>
+
+" Display sorting dialog
+nnoremap S :sort<cr>
+
+" Toggle visibility of preview window
+nnoremap w :view<cr>
+vnoremap w :view<cr>gv
+
+" Open file in the background using its default program
+nnoremap <leader>O :file &<cr>l
+
+" quick cd
+nnoremap gd :cd ~/Downloads<cr>
+
+" Mappings for faster renaming
+nnoremap I cw<c-a>
+nnoremap cc cw<c-u>
+nnoremap A cw
+
+nnoremap <space>vt :!$TERM &<cr>
+
+" Example of standard two-panel file managers mappings
+nnoremap <f3> :!less %f<cr>
+nnoremap e :edit<cr>
+nnoremap <space>c :copy<cr>
+nnoremap <c-m> :move<cr>
+nnoremap <space>d :mkdir<space>
+nnoremap <space>D :mkcd<space>
+" nnoremap <space>D :delete<cr>
+
+" Open current directory in the other pane
+nnoremap O :sync<cr>
+" Open directory under cursor in the other pane
+nnoremap o :sync %c<cr>
+
+" open graphic file browser
+nnoremap <space>o :!nemo %d<cr>
+
+" Yank current directory path into the clipboard
+nnoremap yd :!echo %d | xclip -selection clipboard %i<cr>
+" Yank current file path into the clipboard
+nnoremap yf :!echo %c:p | xclip -selection clipboard %i<cr>
