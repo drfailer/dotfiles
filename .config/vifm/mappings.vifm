@@ -8,6 +8,7 @@ nnoremap q ZQ
 " Start shell in current directory
 nnoremap s :shell<cr>
 
+
 " Display sorting dialog
 nnoremap S :sort<cr>
 
@@ -16,7 +17,6 @@ nnoremap w :view<cr>
 vnoremap w :view<cr>gv
 
 " Open file in the background using its default program
-nnoremap <leader>O :file &<cr>l
 
 " quick cd
 nnoremap gd :cd ~/Downloads<cr>
@@ -35,17 +35,17 @@ nnoremap <space>c :copy<cr>
 nnoremap <c-m> :move<cr>
 nnoremap <space>d :mkdir<space>
 nnoremap <space>D :mkcd<space>
-" nnoremap <space>D :delete<cr>
 
-" Open current directory in the other pane
+" Open the other pane
 nnoremap O :sync<cr>
-" Open directory under cursor in the other pane
 nnoremap o :sync %c<cr>
 
-" open graphic file browser
+" open other applications
 nnoremap <space>o :!nemo %d<cr>
+nnoremap <space>g :!lazygit<cr>
+nnoremap <space>t :!tmux-sessionizer %d &<cr>
+nnoremap <leader>O :file &<cr>l
 
-" Yank current directory path into the clipboard
+" Yank directory and file paths
 nnoremap yd :!echo %d | xclip -selection clipboard %i<cr>
-" Yank current file path into the clipboard
 nnoremap yf :!echo %c:p | xclip -selection clipboard %i<cr>

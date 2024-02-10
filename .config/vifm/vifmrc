@@ -4,6 +4,7 @@
 
 set vicmd=/bin/nvim
 set syscalls
+set timeoutlen=10000
 set trash
 set trashdir="~/.local/share/vifm/Trash/"
 set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
@@ -74,3 +75,4 @@ command! make !!make %a
 command! mkcd :mkdir %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart full
+command! gclone git clone %a

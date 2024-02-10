@@ -80,8 +80,8 @@ fi
 ################################################################################
 export USER="drfailer"
 export HOSTNAME="drfailer-computer"
-export EDITOR="nvim"
-export SHELL="zsh"
+export EDITOR=nvim
+export SHELL=/usr/bin/zsh
 # export XDG_CURRENT_DESKTOP="xmonad"
 export XDG_CURRENT_DESKTOP="i3"
 
