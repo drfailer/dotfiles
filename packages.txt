@@ -1,0 +1,15 @@
+gcc
+clang
+make
+man-pages
+zip
+unzip
+imagemagick
+wget
+mpv
+dunst
+zsh
+nsxiv
+i3
+i3status
+i3lock
