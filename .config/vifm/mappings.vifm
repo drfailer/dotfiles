@@ -41,7 +41,7 @@ nnoremap O :sync<cr>
 nnoremap o :sync %c<cr>
 
 " open other applications
-nnoremap <space>o :!nemo %d<cr>
+nnoremap <space>o :!nemo %d &<cr>
 nnoremap <space>g :!lazygit<cr>
 nnoremap <space>t :!tmux-sessionizer %d &<cr>
 nnoremap <leader>O :file &<cr>l
