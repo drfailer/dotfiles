@@ -93,7 +93,8 @@ gnb() {
       git branch $1
     fi
   else
-    echo "ERROR: branch name required"
+    selected=$(git branch -a | grep remotes/origin | fzf --prompt="git branch> " --height 40% --reverse | sed 's/\s*remotes\/origin\///')
+    git branch --track $selected origin/$selected
   fi
 }
 
