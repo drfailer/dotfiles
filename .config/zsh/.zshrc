@@ -165,6 +165,11 @@ key() {
     setxkbmap -layout fr -option ctrl:swapcaps
 }
 
+keydv() {
+    xset r rate 300 50
+    setxkbmap us -v dvorak -option ctrl:swapcaps
+}
+
 # open file in emacs client
 eedit() {
     emacsclient -e "(find-file \"$1\")"

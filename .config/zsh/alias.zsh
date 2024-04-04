@@ -26,6 +26,7 @@ alias lg='lazygit'
 alias er='nvim rapport.tex'
 alias at='alacritty-themes'
 alias br='bulkrename'
+alias fm='vifm . .'
 
 # java compilation:
 alias jcomp='javac *.java'
