@@ -27,6 +27,7 @@ alias er='nvim rapport.tex'
 alias at='alacritty-themes'
 alias br='bulkrename'
 alias fm='vifm . .'
+alias weight="du -sh"
 
 # java compilation:
 alias jcomp='javac *.java'
