@@ -127,13 +127,13 @@ extr() {
 comp() {
   case $1 in
     *.tex) pdflatex $1 ;;
-    *.md) pandoc -o $(echo $1 | sed 's/\.md/\.pdf') $1 ;;
+    *.md) pandoc -o $(echo $1 | sed 's/\.md/\.pdf/') $1 ;;
     *.java) javac $1 ;;
     *.c) gcc -Wall -Wextra -Wuninitialized -o prog $1 ;;
     *.cpp|*.cxx|*.cc) g++ -Wall -Wextra -Wuninitialized -o prog $1 ;;
     *.hs) ghc -dynamic $1 ;;
     *.py) python3 $1 ;;
-    *.dot) dot -Tpng $1 -o $(echo $1 | sed 's/\.dot/\.png') ;;
+    *.dot) dot -Tpng $1 -o $(echo $1 | sed 's/\.dot/\.png/') ;;
     *) echo "ERROR: unknown format"
   esac
 }
