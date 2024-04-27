@@ -51,6 +51,9 @@ alias ne='note e'
 alias nr='note r'
 alias ni='note i'
 
+# docker
+alias dockerclean='sudo docker images | grep -v TAG | awk "{ print $3 }" | xargs -- sudo docker image rm'
+
 ################################################################################
 # book marks:
 ################################################################################

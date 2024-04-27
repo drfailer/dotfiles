@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 vidDir="$HOME/Pictures/records/"
 
@@ -14,29 +14,30 @@ declare -a outputName=("out"
                        )
 
 format=$(echo "$(printf '%s\n' "${formatChoices[@]}")" | dmenu -l 20 -p 'video format: ')
-if ! [ -z $format ]
-then
-  name=$(echo "$(printf '%s\n' "${outputName[@]}")" | dmenu -l 20 -p 'output name: ')
-  case $format in
-    "mp4 no sound")
-      notify-send "Record started:" "mp4 no sound"
-      ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0+1920,0 $vidDir$name.mp4
-      ;;
-    "avi")
-      notify-send "Record started:" "avi"
-      ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0+1920,0 -vcodec huffyuv $vidDir$name.avi
-      ;;
-    "mkv with alsa sound")
-      notify-send "Record started:" "mkv with alsa sound"
-      ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0+1920,0 -f alsa -ac 2 -i hw:2 $vidDir$name.mkv
-      # ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0+1080,0 -f alsa -ac 2 -i hw:2 $vidDir$name.mkv
-      ;;
-    "mkv with pulse sound")
-      notify-send "Record started:" "mkv with pulse sound"
-      ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0+1920,0 -f pulse -ac 2 -i default $vidDir$name.mkv
-      ;;
-    *)
-      notify-send "Unknown record option!"
-      ;;
-  esac
+if [ ! -z "$format" ]; then
+    name=$(echo "$(printf '%s\n' "${outputName[@]}")" | dmenu -l 20 -p 'output name: ')
+    if [ ! -z "$name" ]; then
+        case $format in
+            "mp4 no sound")
+                notify-send "Record started:" "mp4 no sound"
+                ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0,0 $vidDir$name.mp4
+                ;;
+            "avi")
+                notify-send "Record started:" "avi"
+                ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0,0 -vcodec huffyuv $vidDir$name.avi
+                ;;
+            "mkv with alsa sound")
+                notify-send "Record started:" "mkv with alsa sound"
+                ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0,0 -f alsa -ac 2 -i hw:2 $vidDir$name.mkv
+                # ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0+1080,0 -f alsa -ac 2 -i hw:2 $vidDir$name.mkv
+                ;;
+            "mkv with pulse sound")
+                notify-send "Record started:" "mkv with pulse sound"
+                ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0,0 -f pulse -ac 2 -i default $vidDir$name.mkv
+                ;;
+            *)
+                notify-send "Unknown record option!"
+                ;;
+        esac
+    fi
 fi
