@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+PATH_TO_CPPREF=$HOME/Documents/dev/doc/cppref/
+
+choice=$(fzf --walker-root=$PATH_TO_CPPREF --prompt='cppref> ' --layout=reverse --height=20)
+
+if [ ! -z $choice ]; then
+    brave $choice & 2> /dev/null
+fi
