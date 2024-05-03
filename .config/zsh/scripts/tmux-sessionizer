@@ -2,7 +2,13 @@
 # original: https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
 
 if [[ $# -eq 1 ]]; then
-  selected=$1
+    echo $1
+  if [[ ! -z $(echo $1 | grep -E "/home/|~/") ]]; then
+      selected=$1
+  else
+      selected=$PWD/$1
+  fi
+  echo $selected
 else
   selected=$(find ~/Documents/dev/ ~/Documents/cours/zz3/ | fzf)
 fi
