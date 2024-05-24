@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PATH_TO_CPPREF=$HOME/Documents/dev/doc/cppref/
+PATH_TO_CPPREF=$HOME/.local/share/cppreference/reference/en/
 
 choice=$(fzf --walker-root=$PATH_TO_CPPREF --prompt='cppref> ' --layout=reverse --height=20)
 

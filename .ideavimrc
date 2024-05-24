@@ -1,0 +1,98 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                  IDEAVIMRC                                  "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""" Plugins ---------------------------------
+set surround
+set commentary
+set NERDTree
+Plug 'machakann/vim-highlightedyank'
+
+""" Settings --------------------------------
+set number relativenumber
+set nowrap
+set splitbelow
+set splitright
+set clipboard=unnamedplus
+set nohlsearch
+set incsearch
+set ignorecase
+set smartcase
+set visualbell
+set noerrorbells
+
+" ideavim settings
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+
+""" Mappings --------------------------------
+let mapleader=" "
+
+inoremap kj <Esc>
+inoremap kl <Esc>la
+
+" safe paste
+vnoremap <leader>p "_dp
+
+" moving lines
+vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap < <gv
+vnoremap > >gv
+
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+
+nnoremap <leader>S :%s//g<Left><Left>
+vnoremap <leader>S :s//g<Left><Left>
+
+" [ shorthand
+nnoremap viq vi[
+nnoremap vaq va[
+nnoremap yiq yi[
+nnoremap yaq ya[
+nnoremap diq di[
+nnoremap daq da[
+nnoremap ciq ci[
+nnoremap caq ca[
+
+" autocompletion
+" xmap <C-j> <Action>(EditorChooseLookupItemReplace)
+
+" tabs
+map <A-y> <Action>(PreviousTab)
+map <A-o> <Action>(NextTab)
+
+" find
+map <leader>ff <Action>(GotoFile)
+map <leader>fg <Action>(FindInPath)
+map <leader>lfs <Action>(GotoSymbol)
+
+" debugger
+map <leader>dd <Action>(Debug)
+map <leader>db <Action>(ToggleLineBreakpoint)
+map <leader>dc <Action>(Stop)
+
+" lsp like features
+map <leader>lr <Action>(RenameElement)
+map <leader>ln <Action>(GotoNextError)
+map <leader>lF <Action>(ReformatCode)
+map <leader>le <Action>(ShowErrorDescription)
+map <leader>la <Action>(ShowIntentionActions)
+map <leader>lg <Action>(Generate)
+nnoremap K :action ShowHoverInfo<CR>
+
+" toggle
+map <leader>tz <Action>(ToggleDistractionFreeMode)
+
+" terminal
+map <leader>vt <Action>(ActivateTerminalToolWindow)
+
+" mapping for nerdtree
+nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <leader>E :NERDTreeFocus<CR>
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
