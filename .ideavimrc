@@ -66,6 +66,9 @@ nnoremap caq ca[
 map <A-y> <Action>(PreviousTab)
 map <A-o> <Action>(NextTab)
 
+" hide other windows
+map <leader>o <Action>(HideAllWindows)
+
 " find
 map <leader>ff <Action>(GotoFile)
 map <leader>fg <Action>(FindInPath)
@@ -75,6 +78,13 @@ map <leader>lfs <Action>(GotoSymbol)
 map <leader>dd <Action>(Debug)
 map <leader>db <Action>(ToggleLineBreakpoint)
 map <leader>dc <Action>(Stop)
+
+" build and run
+map <leader>cc <Action>(Build)
+map <leader>cr <Action>(Run)
+
+" git
+map <leader>gc <Action>(Commit)
 
 " lsp like features
 map <leader>lr <Action>(RenameElement)
