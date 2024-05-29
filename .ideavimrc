@@ -6,7 +6,8 @@
 set surround
 set commentary
 set NERDTree
-Plug 'machakann/vim-highlightedyank'
+set which-key
+set highlightedyank
 
 """ Settings --------------------------------
 set number relativenumber
@@ -84,7 +85,7 @@ map <leader>cc <Action>(Build)
 map <leader>cr <Action>(Run)
 
 " git
-map <leader>gc <Action>(Commit)
+map <leader>gc <Action>(Git.Commit.Stage)
 
 " lsp like features
 map <leader>lr <Action>(RenameElement)
@@ -93,6 +94,7 @@ map <leader>lF <Action>(ReformatCode)
 map <leader>le <Action>(ShowErrorDescription)
 map <leader>la <Action>(ShowIntentionActions)
 map <leader>lg <Action>(Generate)
+map <leader>ls <Action>(ActivateStructureToolWindow)
 nnoremap K :action ShowHoverInfo<CR>
 
 " toggle
@@ -100,6 +102,9 @@ map <leader>tz <Action>(ToggleDistractionFreeMode)
 
 " terminal
 map <leader>vt <Action>(ActivateTerminalToolWindow)
+map <leader>vm <Action>(ActivateMessagesToolWindow)
+map <leader>ve <Action>(ActivateProblemsViewToolWindow)
+map <leader>vT <Action>(ActivateTODOToolWindow)
 
 " mapping for nerdtree
 nnoremap <leader>e :NERDTreeToggle<CR>
