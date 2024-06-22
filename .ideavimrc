@@ -27,6 +27,10 @@ set ideajoin
 set ideastatusicon=gray
 set idearefactormode=keep
 
+" for which-key
+" set notimeout
+set timeoutlen=5000
+
 """ Mappings --------------------------------
 let mapleader=" "
 
