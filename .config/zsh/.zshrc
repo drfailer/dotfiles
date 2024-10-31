@@ -125,15 +125,20 @@ extr() {
 
 # compile
 comp() {
-  case $1 in
-    *.tex) pdflatex $1 ;;
-    *.md) pandoc -o $(echo $1 | sed 's/\.md/\.pdf/') $1 ;;
-    *.java) javac $1 ;;
-    *.c) gcc -Wall -Wextra -Wuninitialized -o prog $1 ;;
-    *.cpp|*.cxx|*.cc) g++ -Wall -Wextra -Wuninitialized -o prog $1 ;;
-    *.hs) ghc -dynamic $1 ;;
-    *.py) python3 $1 ;;
-    *.dot) dot -Tpng $1 -o $(echo $1 | sed 's/\.dot/\.png/') ;;
+  if [ $# -eq 0 ]; then
+    file=$(ls | fzf)
+  else
+    file=$1
+  fi
+  case $file in
+    *.tex) pdflatex $file ;;
+    *.md) pandoc -o $(echo $file | sed 's/\.md/\.pdf/') $file ;;
+    *.java) javac $file ;;
+    *.c) gcc -Wall -Wextra -Wuninitialized -o prog $file ;;
+    *.cpp|*.cxx|*.cc) g++ -Wall -Wextra -Wuninitialized -o prog $file ;;
+    *.hs) ghc -dynamic $file ;;
+    *.py) python3 $file ;;
+    *.dot) dot -Tpng $file -o $(echo $file | sed 's/\.dot/\.png/') ;;
     *) echo "ERROR: unknown format"
   esac
 }
