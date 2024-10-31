@@ -5,17 +5,16 @@ set -euo pipefail
 # secify directory and collect options
 chose_files() {
   case $1 in
-    do) echo $(find ~/Downloads/ | fzf -m) ;;
-    dc) echo $(find ~/Documents/ | fzf -m) ;;
-    de) echo $(find ~/Desktop/ | fzf -m) ;;
-    c) echo $(find ~/.config/ | fzf -m) ;;
-    l) echo $(find ~/.local/ | fzf -m) ;;
+    do) echo $(fzf --walker-root="~/Downloads/") ;;
+    dc) echo $(fzf --walker-root="~/Documents/") ;;
+    de) echo $(fzf --walker-root="~/Desktop/") ;;
+    c) echo $(fzf --walker-root="~/.config/") ;;
+    l) echo $(fzf --walker-root="~/.local/") ;;
     *)
       if [ -d $1 ]; then
-        # echo $(find $1 | fzf -m)
         echo $(ls -d $1* | fzf -m) # we don't list recursively here
       else
-        echo $(find $HOME | fzf -m)
+        echo $(fzf --walker-root="$HOME")
       fi
       ;;
   esac
@@ -29,20 +28,21 @@ else
 fi
 
 # handle main options
-choices=$(chose_files $location)
-echo $choices
-if [[ "$choices" != "$location" ]]; then
-  case $1 in
-    mv) # move the chosen files
-      for c in $choices; do
-        mv $c $PWD
-      done
-      ;;
-    cp) # copy the chosen files
-      for c in $choices; do
-        cp -r $c $PWD
-      done
-      ;;
-    *) echo "ERROR: unknown option." ;;
-  esac
-fi
+case $1 in
+  mv) # move the chosen files
+    choices=$(chose_files $location)
+    for c in $choices; do
+      mv $c $PWD
+    done
+    ;;
+  cp) # copy the chosen files
+    choices=$(chose_files $location)
+    for c in $choices; do
+      cp -r $c $PWD
+    done
+    ;;
+  cd)
+    echo $(fzf --walker=dir)
+    ;;
+  *) echo "ERROR: unknown option." ;;
+esac

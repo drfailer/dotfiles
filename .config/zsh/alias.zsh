@@ -125,15 +125,7 @@ gtrack() {
 alias mvv='fzutils mv'
 alias ccp='fzutils cp'
 alias md='fzutils mv ~/Downloads'
-
-# fzf directory
-cdd() {
-  if [ $# -eq 1 ]; then
-    cd $(fzutils cd $1)
-  else
-    cd $(fzutils cd)
-  fi
-}
+alias cdd='cd $(fzutils cd)'
 
 ################################################################################
 # quick edit files
