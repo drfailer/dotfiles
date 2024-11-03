@@ -124,7 +124,7 @@ gtrack() {
 ################################################################################
 alias mvv='fzutils mv'
 alias ccp='fzutils cp'
-alias md='fzutils mv ~/Downloads'
+alias md='fzutils mv ~/Downloads/'
 alias cdd='cd $(fzutils cd)'
 
 ################################################################################
