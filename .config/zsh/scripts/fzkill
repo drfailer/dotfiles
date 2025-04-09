@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# get all the process
-chosenpid=$(ps aux | fzf | awk '{print $2}')
-if [ ! -z $chosenpid ]; then
-  kill $chosenpid
-fi

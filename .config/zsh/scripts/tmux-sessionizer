@@ -10,7 +10,7 @@ if [[ $# -eq 1 ]]; then
   fi
   echo $selected
 else
-  selected=$(find ~/Documents/dev/ ~/Documents/cours/zz3/ | fzf)
+  selected=$(find ~/Programming/projects/ | fzf)
 fi
 
 if [[ -z $selected ]]; then
