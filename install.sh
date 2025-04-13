@@ -2,64 +2,63 @@
 
 set -euo pipefail
 
-################################################################################
-#                                  variables                                   #
-################################################################################
+DOTFILES_HOME=$HOME/dotfiles/
 
-PATH_TO_DOTFILES=$HOME/dotfiles/
-PACKAGE_INSTALL_CMD="sudo pacman -S"
+create_symlink() {
+    if ! [ -a $2 ]; then
+        echo "create symlink $2."
+        ls -s $1 $2
+    else
+        echo "$2 already installed."
+    fi
+}
 
-################################################################################
-#                                 config files                                 #
-################################################################################
+create_copy() {
+    if ! [ -a $2 ]; then
+        echo "create copy $2."
+        cp -r $1 $2
+    else
+        echo "$2 already installed."
+    fi
+}
 
-echo "start installing df config"
+clone_directory() {
+    if ! [ -a $2 ]; then
+        echo "clone $1."
+        git clone --depth 1 $1 $2
+    else
+        echo "$1 already installed."
+    fi
+}
 
-echo "installing .config files"
-ln -s $PATH_TO_DOTFILES/.config/i3 $HOME/.config/i3
-ln -s $PATH_TO_DOTFILES/.config/tmux $HOME/.config/tmux
-ln -s $PATH_TO_DOTFILES/.config/vifm $HOME/.config/vifm
+# misc
+# create_symlink $DOTFILES_HOME/.Xresouces $HOME/.Xresouces
+# create_symlink $DOTFILES_HOME/.config/i3 $HOME/.config/i3
+# create_symlink $DOTFILES_HOME/.i3status.conf $HOME/.i3status.conf
+# create_symlink $DOTFILES_HOME/.config/picom.conf $HOME/.config/picom.conf
+# create_symlink $DOTFILES_HOME/.config/vifm $HOME/.config/vifm
+# create_symlink $DOTFILES_HOME/.config/zathura $HOME/.config/zathura
+# create_symlink $DOTFILES_HOME/.config/htop $HOME/.config/htop
+# create_symlink $DOTFILES_HOME/.config/dunst $HOME/.config/dunst
+# create_copy $DOTFILES_HOME/.config/alacritty $HOME/.config/alacritty
+create_symlink $DOTFILES_HOME/.clang-format $HOME/.clang-format
+create_symlink $DOTFILES_HOME/.gdbinit $HOME/.gdbinit
+create_symlink $DOTFILES_HOME/.config/tmux $HOME/.config/tmux
 
-cp -r $PATH_TO_DOTFILES/.config/zathura $HOME/.config/
-cp -r $PATH_TO_DOTFILES/.config/htop $HOME/.config/
-cp -r $PATH_TO_DOTFILES/.config/alacritty $HOME/.config/
-cp -r $PATH_TO_DOTFILES/.config/picom.conf $HOME/.config/
-cp -r $PATH_TO_DOTFILES/.config/dunst $HOME/.config/
+# zsh
+[ ! -d $HOME/.config/zsh/plugins/ ] && mkdir -p $HOME/.config/zsh/plugins/
+create_symlink $DOTFILES_HOME/.zshenv $HOME/.zshenv
+create_symlink $DOTFILES_HOME/.config/zsh/.zshrc $HOME/.config/zsh/.zshrc
+create_symlink $DOTFILES_HOME/.config/zsh/env.sh $HOME/.config/zsh/env.sh
+create_symlink $DOTFILES_HOME/.config/zsh/alias.sh $HOME/.config/zsh/alias.sh
+create_symlink $DOTFILES_HOME/.config/zsh/functions.sh $HOME/.config/zsh/functions.sh
+create_symlink $DOTFILES_HOME/.config/zsh/scripts $HOME/.config/zsh/scripts
+clone_directory https://github.com/zsh-users/zsh-autosuggestions.git $HOME/.config/zsh/plugins/zsh-autosuggestions
+clone_directory https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.config/zsh/plugins/zsh-syntax-highlighting
 
-echo "installing zsh config"
-mkdir -p $HOME/.config/zsh/plugins/
-ln -s $PATH_TO_DOTFILES/.config/zsh/alias.zsh $HOME/.config/zsh/alias.zsh
-ln -s $PATH_TO_DOTFILES/.config/zsh/.zshrc $HOME/.config/zsh/.zshrc
-ln -s $PATH_TO_DOTFILES/.config/zsh/scripts $HOME/.config/zsh/scripts
+# nvim config
+clone_directory https://github.com/drfailer/nvim-config.git $HOME/.config/nvim
 
-echo "installing zsh pluggins"
-cd $HOME/.config/zsh/plugins/
-git clone https://github.com/zsh-users/zsh-autosuggestions.git
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-cd $HOME/
-
-echo "installing home config files"
-cp -rf $PATH_TO_DOTFILES/.Xresouces $HOME/
-cp -r $PATH_TO_DOTFILES/.clang-format $HOME/
-cp -r $PATH_TO_DOTFILES/.gdbinit $HOME/
-# cp -r $PATH_TO_DOTFILES/.ghci $HOME/
-# cp -r $PATH_TO_DOTFILES/.ghc $HOME/
-cp -r $PATH_TO_DOTFILES/.gitignore $HOME/
-cp -r $PATH_TO_DOTFILES/.i3status.conf $HOME/
-cp -r $PATH_TO_DOTFILES/.zshenv $HOME/
-# cp -r $PATH_TO_DOTFILES/.keynavrc $HOME/
-
-################################################################################
-#                             package installation                             #
-################################################################################
-
-for package in $(ls $PATH_TO_DOTFILES/packages.txt); do
-    $PACKAGE_INSTALL_CMD $package
-done
-
-################################################################################
-#                                   finalize                                   #
-################################################################################
-
-echo "changing shell to zsh"
-chsh /bin/zsh
+# fzf
+clone_directory https://github.com/junegunn/fzf.git $HOME/.fzf
+echo "make sure to run  $HOME/.fzf/install to complete the installation."
