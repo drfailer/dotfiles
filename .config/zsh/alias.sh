@@ -66,7 +66,7 @@ alias gdd='cd $(fzf --walker=dir)'
 ################################################################################
 alias vs='nvim $HOME/.bashrc'
 alias vs='nvim $HOME/.config/zsh/.zshrc'
-alias va='nvim $HOME/.config/zsh/alias.zsh'
+alias va='nvim $HOME/.config/zsh/alias.sh'
 alias vc='nvim $HOME/.config/nvim/init.lua'
 alias vf='nvim $HOME/.local/share/library.txt'
 alias vt='nvim $HOME/.config/alacritty/alacritty.yml'
