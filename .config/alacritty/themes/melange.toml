@@ -9,13 +9,13 @@ white = "#ECE1D7"
 yellow = "#EBC06D"
 
 [colors.normal]
-black = "#34302C"
+black = "#0A0A0A"
 blue = "#7F91B2"
 cyan = "#7B9695"
 green = "#78997A"
 magenta = "#B380B0"
 red = "#BD8183"
-white = "#C1A78E"
+white = "#ECE1D7"
 yellow = "#E49B5D"
 
 [colors.primary]
