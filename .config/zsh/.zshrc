@@ -45,6 +45,11 @@ new-terminal-widget() {
 zle -N new-terminal-widget
 bindkey -M emacs '\et' new-terminal-widget
 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+
 ################################################################################
 #                                 Plugins:                                     #
 ################################################################################
