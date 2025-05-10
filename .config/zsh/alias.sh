@@ -6,7 +6,7 @@
 # generals:
 ################################################################################
 alias v='view'
-alias e='nvim'
+alias e='$EDITOR'
 alias ls='ls --color=auto'
 alias sl='ls --color=auto'
 alias la='ls -A'
@@ -64,12 +64,12 @@ alias gdd='cd $(fzf --walker=dir)'
 ################################################################################
 # quick edit files
 ################################################################################
-alias vs='nvim $HOME/.bashrc'
-alias vs='nvim $HOME/.config/zsh/.zshrc'
-alias va='nvim $HOME/.config/zsh/alias.sh'
-alias vc='nvim $HOME/.config/nvim/init.lua'
-alias vf='nvim $HOME/.local/share/library.txt'
-alias vt='nvim $HOME/.config/alacritty/alacritty.yml'
+alias vs='$EDITOR $HOME/.bashrc'
+alias vs='$EDITOR $HOME/.config/zsh/.zshrc'
+alias va='$EDITOR $HOME/.config/zsh/alias.sh'
+alias vc='$EDITOR $HOME/.config/nvim/init.lua'
+alias vf='$EDITOR $HOME/.local/share/library.txt'
+alias vt='$EDITOR $HOME/.config/alacritty/alacritty.yml'
 
 ################################################################################
 # git
