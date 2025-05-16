@@ -23,7 +23,8 @@ background = "#000000"
 foreground = "#ffffff"
 
 [colors.cursor]
-cursor = "#f4f4f4"
+# cursor = "#f4f4f4"
+cursor = "#aaaaaa"
 text = "#000000"
 
 [colors.selection]

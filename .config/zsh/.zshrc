@@ -22,7 +22,16 @@ export SAVEHIST=1000
 
 # Completion:
 autoload -Uz compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
 compinit
+_comp_options+=(globdots)
+
+# complete menu
+bindkey -M menuselect 'h' backward-char
+bindkey -M menuselect 'k' up-line-or-history
+bindkey -M menuselect 'l' forward-char
+bindkey -M menuselect 'j' down-line-or-history
 
 # PS1:
 autoload -Uz vcs_info
