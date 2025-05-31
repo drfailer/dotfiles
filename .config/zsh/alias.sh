@@ -58,9 +58,10 @@ alias gz='cd $HOME/.config/zsh/'
 alias gA='cd $HOME/.config/alacritty/'
 alias gv='cd $HOME/.config/nvim/'
 
-alias gdd='pushd $(fzf --walker=hidden,dir --walker-root="$HOME")'
+alias ggd='pushd $(fzf --walker=hidden,dir --walker-root="$HOME")'
 alias gd='pushd $(fzf --walker=dir)'
 alias gb='popd'
+alias gg='pushd $(dirs -lp | fzf)'
 
 ################################################################################
 # quick edit files
