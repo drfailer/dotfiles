@@ -61,7 +61,7 @@ alias gv='cd $HOME/.config/nvim/'
 alias ggd='pushd $(fzf --walker=hidden,dir --walker-root="$HOME")'
 alias gd='pushd $(fzf --walker=dir)'
 alias gb='popd'
-alias gg='pushd $(dirs -lp | fzf)'
+alias g='pushd $(dirs -lp | fzf)'
 
 ################################################################################
 # quick edit files
@@ -72,15 +72,3 @@ alias va='$EDITOR $HOME/.config/zsh/alias.sh'
 alias vc='$EDITOR $HOME/.config/nvim/init.lua'
 alias vf='$EDITOR $HOME/.local/share/library.txt'
 alias vt='$EDITOR $HOME/.config/alacritty/alacritty.yml'
-
-################################################################################
-# git
-################################################################################
-alias g='git'
-alias gs='git status'
-alias ga='git add -A'
-alias gc='git commit '
-alias gca='git commit --amend '
-alias gm='git merge '
-alias gba='git branch -a'
-alias gst='git stash'
