@@ -19,6 +19,7 @@ view() {
         *.pdf) zathura $file ;;
         *.csv|*.docx) libreoffice $file & ;;
         *.html) brave $file & ;;
+        *.mp4|*.avi) mpv $file & ;;
         *) echo "ERROR: unknown format" ;;
     esac
 }
